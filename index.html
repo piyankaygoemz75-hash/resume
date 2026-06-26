@@ -1179,7 +1179,137 @@ var dict = {
   '20万+': { en: '200K+' },
   '累计培养人才': { en: 'Alumni Worldwide' },
   // AI 匹配结果
-  '输入JD后自动分析...': { en: 'Analyzing after JD input...' }
+  '输入JD后自动分析...': { en: 'Analyzing after JD input...' },
+  // ── 工作经历弹窗 ──
+  '💼 工作经历详情': { en: '💼 Work Experience Details' },
+  '🔍 工作经历详情': { en: '🔍 Work Experience Details' },
+  '🏆 校园实践详情': { en: '🏆 Campus Practice Details' },
+  '🏢 校园实践详情': { en: '🏢 Campus Practice Details' },
+  '核心职责': { en: 'Core Responsibilities' },
+  'CORE RESPONSIBILITIES': { zh: 'CORE RESPONSIBILITIES' },
+  '核心成果': { en: 'Core Results' },
+  'CORE RESULTS': { zh: 'CORE RESULTS' },
+  '凭证处理': { en: 'Voucher Processing' },
+  '使用用友U8系统完成日常凭证填制、审核与记账及结账流程，累计处理业务凭证200余张，确保财务数据准确率100%。': { en: 'Completed daily voucher entry, review, bookkeeping and settlement using UFIDA U8 system, processing 200+ vouchers with 100% accuracy.' },
+  '报表编制': { en: 'Financial Reporting' },
+  '通过用友报表系统自定义资产负债表与利润表模板，验证数据勾稽关系及准确性，将报表生成时间缩短30%，为财务决策提供依据。': { en: 'Customized balance sheet and income statement templates via UFIDA reporting system, reduced report generation time by 30%, providing basis for financial decisions.' },
+  '薪资管理': { en: 'Payroll Management' },
+  '负责薪资管理及固定资产模块的协同操作，完成工资计提发放、资产增减变动与折旧账务处理等。': { en: 'Managed payroll and fixed asset modules, completed salary accrual/distribution, asset change tracking and depreciation accounting.' },
+  '数据汇总': { en: 'Data Aggregation' },
+  '匹配跨表格信息，运用SUM函数汇总明细数据，减少人工计算误差。': { en: 'Cross-referenced multi-sheet data using SUM functions to aggregate details, reducing manual calculation errors.' },
+  '企业实地走访': { en: 'On-Site Enterprise Visits' },
+  '参与对被审计单位客户的实地访谈与现场核查，实地采访企业16家，记录关键业务流程及内部控制执行情况，协助识别潜在风险点。': { en: 'Participated in on-site interviews and inspections of 16 audited enterprises, documented key business processes and internal controls, assisted in identifying potential risk points.' },
+  '清产核资与合同核查': { en: 'Asset Verification & Contract Review' },
+  '重点核查贷款合同、抵押担保协议200+份，核对合同与实际执行情况的一致性，发现30+处合同与资料不符。': { en: 'Reviewed 200+ loan contracts and mortgage agreements, cross-verified contract terms against actual execution, discovered 30+ discrepancies.' },
+  '工作底稿辅助编制': { en: 'Audit Working Paper Support' },
+  '配合高级审计师整理审计底稿数据，运用VLOOKUP函数完成跨表数据匹配与核对。': { en: 'Assisted senior auditors in compiling audit working papers, using VLOOKUP for cross-sheet data matching and reconciliation.' },
+  '账务处理': { en: 'Accounting Processing' },
+  '负责银行回单整理与凭证制作，通过SQL系统完成总账、明细账及三大报表（资产负债表、利润表、现金流量表）的编制。': { en: 'Handled bank receipt organization and voucher preparation. Built general ledgers, sub-ledgers, and three major financial statements (balance sheet, income statement, cash flow statement) via SQL.' },
+  '数据处理': { en: 'Data Processing' },
+  '利用SQL、Power BI进行财务数据清洗、转化与可视化分析，提升数据处理效率约30%。': { en: 'Used SQL and Power BI for financial data cleaning, transformation and visualization, improving processing efficiency by ~30%.' },
+  '凭证类型': { en: 'Voucher Types' },
+  '涵盖总账会计凭证、销货折让凭证、资产购置凭证、采购凭证等多种凭证类型。': { en: 'Covered various voucher types including general ledger vouchers, sales discount vouchers, asset purchase vouchers, and procurement vouchers.' },
+  '账务流程处理': { en: 'Full-Cycle Accounting' },
+  '独立完成凭证审核、账簿登记及期末结账的全流程，累计处理500+原始凭证与账簿。': { en: 'Independently completed the full cycle of voucher review, book registration, and month-end closing — processed 500+ source documents and ledgers.' },
+  '多种税务申报': { en: 'Multi-Tax Filing' },
+  '模拟计算增值税、企业所得税及个人所得税应纳税额，完成纳税申报操作。': { en: 'Simulated tax calculations for VAT, corporate income tax, and personal income tax, and completed mock tax filing procedures.' },
+  '成本核算分析': { en: 'Cost Accounting Analysis' },
+  '运用品种法/分批法核算产品成本，拆解材料、人工、制造费用组成，撰写成本分析报告。': { en: 'Applied job-order and process costing methods, broke down material, labor, and overhead components, and authored cost analysis reports.' },
+  '处理业务凭证': { en: 'Vouchers Processed' },
+  '财务数据准确率': { en: 'Accuracy Rate' },
+  '报表编制效率提升': { en: 'Efficiency Gain' },
+  '实地走访企业': { en: 'Enterprises Visited' },
+  '核查合同份数': { en: 'Contracts Reviewed' },
+  '发现合同异常': { en: 'Discrepancies Found' },
+  '特等奖': { en: 'Grand Prize' },
+  '三大报表编制': { en: 'Statements Built' },
+  '效率提升': { en: 'Efficiency Gain' },
+  '处理原始凭证': { en: 'Documents Processed' },
+  '税种申报模拟': { en: 'Tax Simulations' },
+  '全流程': { en: 'Full Cycle' },
+  '账务闭环': { en: 'Closed Loop' },
+  '国家级': { en: 'National Level' },
+  // ── 证书弹窗 ──
+  '📗 证书详情': { en: '📗 Certificate Details' },
+  '📊 证书详情': { en: '📊 Certificate Details' },
+  '🌐 证书详情': { en: '🌐 Certificate Details' },
+  '会计从业资格证（现已改革为<strong>初级会计资格证书</strong>）是从事会计工作必备的职业准入证书。持证人通过了国家统一的会计从业资格考试，具备从事会计工作所必需的<strong>会计基础知识、会计技能和职业道德素养</strong>。': { en: 'The Accounting Qualification Certificate (now reformed as the <strong>Junior Accountant Certificate</strong>) is an essential professional credential for accounting work. The holder has passed the national accounting qualification exam and possesses the <strong>fundamental accounting knowledge, skills, and professional ethics</strong> required.' },
+  '持证意义': { en: 'Significance' },
+  '证明持证人具备《会计法》规定的从事会计工作所需的专业能力，是进入会计行业的"敲门砖"。': { en: 'Demonstrates the professional competence required by the Accounting Law for accounting work — the gateway to the accounting profession.' },
+  '考试内容': { en: 'Exam Content' },
+  '涵盖会计基础、财经法规与会计职业道德、会计电算化三大科目，全面考核会计从业人员的专业素质。': { en: 'Covers accounting fundamentals, financial regulations & professional ethics, and computerized accounting — comprehensively assessing accounting professionals.' },
+  '行业认可': { en: 'Industry Recognition' },
+  '全国通用，是用人单位招聘会计岗位的重要参考依据，也是报考会计职称的必要前提。': { en: 'Nationally recognized. A key reference for employers hiring accounting positions and a prerequisite for advanced accounting certifications.' },
+  '职业发展': { en: 'Career Development' },
+  '为后续考取初级会计职称、中级会计职称乃至注册会计师（CPA）奠定了坚实的基础。': { en: 'Lays a solid foundation for pursuing Junior Accountant, Intermediate Accountant, and even Certified Public Accountant (CPA) certifications.' },
+  'BDA 中级数据分析师证书': { en: 'BDA Data Analyst Certificate (Mid-level)' },
+  '中国商业统计学会颁发': { en: 'Issued by China Business Statistics Association' },
+  'BDA（Business Data Analyst）中级数据分析师证书是由<strong>中国商业统计学会</strong>颁发的国家级数据分析专业认证。持证人系统掌握了<strong>数据处理、统计分析和商业洞察</strong>三大核心能力，能够将数据转化为决策支持。': { en: 'The BDA (Business Data Analyst) Certificate is a national-level data analysis certification issued by the <strong>China Business Statistics Association</strong>. The holder has mastered <strong>data processing, statistical analysis, and business insight</strong> — three core competencies to transform data into decision support.' },
+  '核心能力': { en: 'Core Competencies' },
+  '熟练掌握SQL数据查询、Power BI可视化、Python数据处理及SPSS统计分析等工具，具备独立完成数据分析项目的能力。': { en: 'Proficient in SQL queries, Power BI visualization, Python data processing, and SPSS statistical analysis. Capable of independently completing data analysis projects.' },
+  '涵盖数据分析理论、统计学基础、数据处理实务和数据分析报告撰写四大模块，理论与实操并重。': { en: 'Covers data analysis theory, statistics fundamentals, data processing practice, and analytical report writing — balancing theory with hands-on practice.' },
+  '行业价值': { en: 'Industry Value' },
+  '在数字化转型浪潮中，BDA持证者是企业的热门人才，能够运用数据驱动业务决策，平均薪资高于同类岗位30%。': { en: 'In the digital transformation wave, BDA-certified professionals are in high demand, capable of data-driven decision making, with salaries averaging 30% higher than peers.' },
+  '技能加持': { en: 'Skill Synergy' },
+  '与会计专业能力相结合，持证人具备"财务+数据"双重复合技能，在智能财务、财务分析等领域具有显著的就业竞争优势。': { en: 'Combined with accounting expertise, the holder possesses "finance + data" dual skills, offering significant competitive advantages in intelligent finance and financial analysis.' },
+  'CET-6 大学英语六级': { en: 'CET-6 College English Test Band 6' },
+  '466分 · 全国大学英语六级考试': { en: 'Score: 466 · National College English Test Band 6' },
+  '教育部高等教育司主办': { en: 'Administered by Ministry of Education' },
+  '全国大学英语六级考试（CET-6）是由<strong>教育部高等教育司</strong>主办的全国性英语水平测试，是评估大学生英语综合应用能力的权威标准。持证人具备良好的<strong>英语听说读写译综合能力</strong>，能够以英语为工具获取专业信息并进行有效沟通。': { en: 'The College English Test Band 6 (CET-6) is a national English proficiency test administered by the <strong>Ministry of Education</strong>. It is the authoritative standard for assessing college students\' comprehensive English ability. The holder has strong <strong>listening, speaking, reading, writing, and translation skills</strong>, capable of using English to access professional information and communicate effectively.' },
+  '语言能力': { en: 'Language Proficiency' },
+  '具备良好的英语阅读、写作和听力能力，能够流畅阅读英文财会文献、国际会计准则及英文商务函件。': { en: 'Good English reading, writing, and listening skills. Able to fluently read English financial literature, international accounting standards, and business correspondence.' },
+  '考试构成': { en: 'Test Structure' },
+  '满分710分，涵盖听力理解、阅读理解、写作翻译三大板块，全面考核英语综合运用能力。': { en: 'Total score 710, covering listening comprehension, reading comprehension, and writing & translation — comprehensively assessing English proficiency.' },
+  '职场价值': { en: 'Career Value' },
+  '在跨国企业、外资会计师事务所及涉外财务岗位中，CET-6是基本的语言门槛，持证人具备从事国际业务的英语基础。': { en: 'At multinational corporations, foreign CPA firms, and international finance positions, CET-6 is a fundamental language requirement, providing a foundation for international business.' },
+  '专业延伸': { en: 'Professional Extension' },
+  '能够阅读国际财务报告准则（IFRS）等英文专业文献，为未来考取ACCA、CMA等国际财会证书提供语言支撑。': { en: 'Able to read IFRS and other English professional literature, providing language support for pursuing ACCA, CMA, and other international finance certifications.' },
+  // ── 学校弹窗补充 ──
+  '始建于 <strong>1952年</strong>，黑龙江省重点建设的十所大学之一，入选中西部高校基础能力建设工程，国内一流学科建设高校。': { en: 'Founded in <strong>1952</strong>. One of the ten key universities in Heilongjiang Province. Selected for the National Basic Ability Construction Project of Central and Western Universities. A first-class discipline construction university in China.' },
+  '哈尔滨商业大学是<strong>新中国第一所多科性商业大学</strong>，拥有完整的本-硕-博人才培养体系。学校秉承"<strong>求真至善，修德允能</strong>"的校训，以"一流的经管学科为主导，精干特色的工科为重点"的学科定位，培养了<strong>20余万名</strong>各类专业人才，被誉为"<strong>商业精英的摇篮</strong>"。': { en: "Harbin University of Commerce is <strong>China's first multidisciplinary commerce university</strong> with a complete bachelor-master-doctoral talent cultivation system. The university follows the motto <strong>'Seek Truth, Pursue Excellence, Cultivate Virtue, Develop Competence'</strong>. With a discipline positioning of <strong>'first-class economics and management as the lead, distinctive engineering as the focus'</strong>, it has cultivated <strong>over 200,000</strong> professionals and is known as the <strong>'Cradle of Business Elites'</strong>." },
+  '1959年研制出<strong>中国第一台食品机械——601型饺子机</strong>；1960年首创我国三大会计记账法之一"<strong>财产收付复式记账法</strong>"；会计学专业为<strong>国家级特色专业、国家级一流本科专业建设点</strong>；《商业研究》期刊为<strong>CSSCI来源期刊</strong>。学校在2024年入选<strong>黑龙江省首批数智教育重点校</strong>建设名单。': { en: 'In 1959, developed <strong>China\'s first food machinery — the Model 601 Dumpling Machine</strong>. In 1960, pioneered the <strong>"Property Receipt-Payment Double-Entry Bookkeeping Method"</strong>, one of China\'s three major accounting methods. The Accounting program is a <strong>National Characteristic Specialty and National First-Class Undergraduate Program</strong>. The journal <em>Commercial Research</em> is a <strong>CSSCI-indexed journal</strong>. In 2024, the university was selected for the <strong>first batch of Heilongjiang Provincial Digital Education Key Universities</strong>.' },
+  // ── 联系弹窗 ──
+  '💬 联系我': { en: '💬 Contact Me' },
+  // ── 匹配弹窗补充 ──
+  '候选人具有扎实的财务会计专业基础与数据分析能力，熟练使用用友U8、SQL、Power BI、Python等工具。具备审计实习经验和财务数据处理实战经验，综合能力突出。虽为应届毕业生，但实习经历丰富、学习能力强，整体与财务相关岗位匹配度较高。': { en: 'The candidate has a solid foundation in financial accounting and data analysis, proficient in UFIDA U8, SQL, Power BI, Python, and other tools. With audit internship experience and hands-on financial data processing practice, the candidate demonstrates outstanding comprehensive ability. Although a fresh graduate, the candidate has rich internship experience and strong learning ability, showing high overall compatibility with finance-related positions.' },
+  '候选人与该岗位整体匹配度较高。财务会计专业基础扎实，数据分析能力突出，具备审计实习与财务数据处理实战经验。建议重点考察候选人的SQL、Power BI实操能力及财务流程理解深度。': { en: 'The candidate shows high overall compatibility with this position. With a solid financial accounting foundation and outstanding data analysis capabilities, plus audit internship and financial data processing experience, we recommend focusing on the candidate\'s SQL and Power BI practical skills and financial process understanding.' },
+  '候选人与该岗位有一定匹配度。核心财务技能基本覆盖JD要求。建议结合候选人实习经历评估其岗位适配性。': { en: 'The candidate has reasonable compatibility with this position. Core financial skills generally cover the JD requirements. We recommend evaluating fit based on the candidate\'s internship experience.' },
+  '候选人与该岗位匹配度一般。JD要求与候选人财务/会计专业背景存在一定偏差（JD信息较少，建议提供更详细的职位描述）。如该岗位涉及财务模块，候选人可通过快速学习弥补差距。': { en: 'The candidate shows moderate compatibility. The JD requirements partially deviate from the candidate\'s finance/accounting background (limited JD info — suggest providing a more detailed job description). If the role involves finance modules, the candidate can bridge gaps through rapid learning.' },
+  '该岗位与候选人财务/会计专业方向差异较大，JD中未匹配到核心财务技能关键词。建议候选人关注财务会计、审计、财务分析等相关岗位。': { en: 'This position differs significantly from the candidate\'s finance/accounting background, with no core financial skill keywords matching in the JD. We recommend the candidate focus on financial accounting, audit, financial analysis, and related positions.' },
+  '财务数据处理与分析能力': { en: 'Financial Data Processing & Analysis' },
+  '候选人熟练掌握SQL、Power BI、Python等数据分析工具，具备凭证处理、报表编制及数据可视化能力，能够高效完成财务数据分析任务。': { en: 'The candidate is proficient in SQL, Power BI, Python and other data analysis tools, with capabilities in voucher processing, financial reporting, and data visualization to efficiently complete financial data analysis tasks.' },
+  '自驱力与责任心': { en: 'Self-Drive & Responsibility' },
+  '候选人在实习和竞赛中表现突出，独立处理500+原始凭证，发现30+合同异常，体现强烈的自驱力与责任心。': { en: 'The candidate performed outstandingly in internships and competitions, independently processing 500+ source documents and finding 30+ contract anomalies, demonstrating strong self-drive and responsibility.' },
+  '财务专业能力高度匹配': { en: 'Strong Financial Expertise Match' },
+  'JD中涉及多项财务会计核心要求，候选人具备凭证处理、报表编制、成本核算、税务处理等全套财务技能，用友U8实操经验丰富。': { en: 'The JD covers multiple core financial accounting requirements. The candidate possesses comprehensive financial skills including voucher processing, financial reporting, cost accounting, and tax processing, with extensive UFIDA U8 hands-on experience.' },
+  '财务基础能力匹配': { en: 'Financial Basics Match' },
+  'JD涉及财务会计相关要求，候选人具备扎实的会计专业知识和实操基础，能够胜任日常财务工作。': { en: 'The JD includes financial accounting requirements. The candidate has solid accounting knowledge and practical foundations to handle daily financial work.' },
+  '数据分析能力突出': { en: 'Outstanding Data Analysis Skills' },
+  'JD强调数据处理与分析能力，候选人熟练使用SQL、Power BI、Python、SPSS等工具，具备财务数据清洗、可视化分析与报表自动化能力。': { en: 'The JD emphasizes data processing and analysis capabilities. The candidate is proficient in SQL, Power BI, Python, SPSS, etc., with capabilities in financial data cleaning, visualization, and automated reporting.' },
+  '具备数据分析基础': { en: 'Data Analysis Fundamentals' },
+  'JD包含数据处理相关要求，候选人掌握SQL和Power BI，能够进行财务数据处理与分析。': { en: 'The JD includes data processing requirements. The candidate is skilled in SQL and Power BI for financial data processing and analysis.' },
+  '审计与内控经验匹配': { en: 'Audit & Internal Control Match' },
+  'JD涉及审计/内控/合规要求，候选人在容诚会计师事务所实习期间积累了实地走访、合同核查、底稿编制等审计实务经验，熟悉内控流程。': { en: 'The JD involves audit/internal control/compliance requirements. During the internship at Rongcheng CPA Firm, the candidate gained practical audit experience in on-site visits, contract verification, and working paper preparation, with familiarity in internal control processes.' },
+  '综合素质匹配': { en: 'Soft Skills Match' },
+  'JD强调沟通、协作、责任心等软技能，候选人多次获得优秀志愿者称号，实习和竞赛中表现出强烈的自驱力、抗压能力与团队协作精神。': { en: 'The JD emphasizes communication, collaboration, responsibility, and other soft skills. The candidate has won Outstanding Volunteer awards multiple times and demonstrated strong self-drive, resilience, and teamwork in internships and competitions.' },
+  '专业方向基本吻合': { en: 'Professional Background Alignment' },
+  'JD与候选人会计/财务专业方向相关，虽然关键词细节匹配不多，但候选人的财务教育背景和实习经验为该岗位提供了良好基础。': { en: 'The JD is related to the candidate\'s accounting/finance background. Although keyword-level matching is limited, the candidate\'s financial education and internship experience provide a solid foundation for this position.' },
+  'JD分析结果': { en: 'JD Analysis Result' },
+  '该职位描述与候选人财务/审计专业方向匹配度较低。JD中未显著体现财务会计、数据分析或审计相关关键词，建议关注财务类岗位以获得更高匹配度。': { en: 'This job description shows low compatibility with the candidate\'s finance/audit background. The JD does not prominently feature financial accounting, data analysis, or audit keywords. We recommend focusing on finance-related positions for better compatibility.' },
+  // ── 页脚 ──
+  '© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学': { en: '© 2026 Yongqing Xie · Resume · Harbin University of Commerce' },
+  // ── 岗位匹配器 placeholder ──
+  '粘贴您的JD（职位描述），查看我与岗位之间的匹配度...': { en: 'Paste a job description to check my compatibility with the position...' },
+  // 通用
+  '📌': { en: '📌' },
+  '✅': { en: '✅' },
+  '200+': { en: '200+' },
+  '100%': { en: '100%' },
+  '30%': { en: '30%' },
+  '16': { en: '16' },
+  '30+': { en: '30+' },
+  '500+': { en: '500+' },
+  '3': { en: '3' }
 };
 
 // 反向映射：英文 → 中文
@@ -1192,32 +1322,55 @@ Object.keys(dict).forEach(function(k) {
 function switchLang(lang) {
   if (lang === currentLang) return;
   currentLang = lang;
-  // 更新按钮状态
   document.querySelectorAll('.lang-btn').forEach(function(b) {
     b.classList.toggle('active', b.getAttribute('data-lang') === lang);
   });
-  // 更新 document title
   document.title = lang === 'zh' ? '谢泳清 - 个人简历' : 'Yongqing Xie - Resume';
-  // 遍历所有文本节点替换
-  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-  var textNodes = [];
-  while (walker.nextNode()) textNodes.push(walker.currentNode);
-  textNodes.forEach(function(node) {
-    var txt = node.textContent.trim();
-    if (!txt || txt.length < 2) return;
-    if (lang === 'en' && dict[txt] && dict[txt].en) {
-      node.textContent = node.textContent.replace(txt, dict[txt].en);
-    } else if (lang === 'zh') {
-      // 查找英文→中文的映射
-      Object.keys(dict).forEach(function(zh) {
-        var en = dict[zh].en;
-        if (en && node.textContent.indexOf(en) !== -1) {
-          node.textContent = node.textContent.replace(en, zh);
+
+  // 构建翻译查找表（目标语言文本 → 当前语言文本）
+  var lookup = {};
+  Object.keys(dict).forEach(function(k) {
+    var src = lang === 'en' ? k : (dict[k].en || k);
+    var tgt = lang === 'en' ? (dict[k].en || k) : k;
+    if (src !== tgt && src.length >= 2) lookup[src] = tgt;
+  });
+
+  // 按文本长度降序排列，优先替换长文本
+  var keys = Object.keys(lookup).sort(function(a,b){ return b.length - a.length; });
+
+  // 递归遍历所有文本节点
+  function walk(node) {
+    if (node.nodeType === 3) { // 文本节点
+      // 跳过空白/脚本/样式/纯数字
+      if (!node.textContent || !node.textContent.trim() || node.textContent.trim().length < 2) return;
+      if (node.parentElement && (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE')) return;
+      var t = node.textContent;
+      // 跳过纯数字/日期
+      if (/^[\d\s\.\-\/]+$/.test(t.trim())) return;
+      keys.forEach(function(k) {
+        if (t.indexOf(k) !== -1) {
+          t = t.split(k).join(lookup[k]);
         }
       });
+      if (t !== node.textContent) node.textContent = t;
+    } else if (node.nodeType === 1) {
+      // 跳过脚本和样式
+      if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE') return;
+      // 特殊处理 placeholder
+      if (node.getAttribute && node.getAttribute('placeholder')) {
+        var ph = node.getAttribute('placeholder');
+        keys.forEach(function(k) { if (ph.indexOf(k) !== -1) ph = ph.split(k).join(lookup[k]); });
+        node.setAttribute('placeholder', ph);
+      }
+      // 递归子节点
+      for (var i = 0; i < node.childNodes.length; i++) {
+        walk(node.childNodes[i]);
+      }
     }
-  });
-  // 重新触发匹配分析以更新结果语言
+  }
+  walk(document.body);
+
+  // 关闭匹配弹窗（避免旧语言残留）
   if (document.getElementById('matchModal').classList.contains('show')) {
     closeMatch();
   }
