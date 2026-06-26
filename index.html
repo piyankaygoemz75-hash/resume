@@ -69,6 +69,9 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 }
 .nav-link:hover { color:var(--dark); background:var(--lighter-gray); }
 .nav-link.active { background:var(--black); color:var(--white); }
+.lang-switch { display:flex; gap:2px; margin-left:8px; }
+.lang-btn { padding:5px 10px; border-radius:14px; font-size:11px; font-weight:600; cursor:pointer; border:none; background:var(--lighter-gray); color:var(--gray); font-family:var(--font); transition:all .2s; }
+.lang-btn.active { background:var(--purple); color:#fff; }
 
 /* Main */
 .main { max-width:1200px; margin:0 auto; padding:80px 24px 40px; }
@@ -336,6 +339,10 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
     <button class="menu-btn" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="zh" onclick="switchLang('zh')">中</button>
+      <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
     <div class="nav-links" id="navLinks">
       <button class="nav-link active" data-s="about" onclick="go('about');closeMenu()">关于我</button>
       <button class="nav-link" data-s="education" onclick="go('education');closeMenu()">教育背景</button>
@@ -1013,6 +1020,208 @@ var obs = new IntersectionObserver(function(entries){
   });
 },{threshold:0.2});
 document.querySelectorAll('.section').forEach(function(s){ obs.observe(s); });
+
+// ── i18n 中英文切换 ──
+var currentLang = 'zh';
+var dict = {
+  // 导航
+  '关于我': { en: 'About Me' },
+  '教育背景': { en: 'Education' },
+  '工作与实践': { en: 'Work & Practice' },
+  '技能特长': { en: 'Skills' },
+  '学习与探索': { en: 'Learning' },
+  // 关于我
+  'Accounting Professional & Intelligent Accounting': { zh: 'Accounting Professional & Intelligent Accounting' },
+  '一个左手翻凭证、右手敲SQL的财会人 🖐️': { en: 'A finance professional — vouchers in one hand, SQL in the other 🖐️' },
+  '在哈尔滨商业大学的四年里，我把Excel玩成了艺术品，让Power BI画出会讲故事的数据图表。': { en: 'During my four years at Harbin University of Commerce, I turned Excel into an art form and let Power BI paint data stories.' },
+  '去过容诚会计师事务所翻遍200+份合同揪出30+个"小辫子"，也在北京通达用U8系统把凭证处理得像流水线一样精准高效。': { en: 'At Rongcheng CPA Firm, I reviewed 200+ contracts and found 30+ discrepancies. At Yuzhou Shentong, I processed vouchers with assembly-line precision using U8.' },
+  '我相信——好的财务人不只是算账的，更是用数据帮企业做决策的军师。如果你也在找这样一个既懂借贷、又会写代码的"斜杠青年"，那我们聊聊吧 ✨': { en: "I believe a great finance professional isn't just a number cruncher — they're a strategist who uses data to drive business decisions. If you're looking for a slash-career talent who knows both debits/credits and coding — let's talk! ✨" },
+  '📄 下载简历': { en: '📄 Download Resume' },
+  '💬 联系我': { en: '💬 Contact Me' },
+  '🤖 AI 岗位匹配器': { en: '🤖 AI Job Matcher' },
+  '粘贴您的JD（职位描述），查看我与岗位之间的匹配度...': { en: 'Paste a job description to see how well I match the position...' },
+  '开始匹配 →': { en: 'Start Matching →' },
+  // 教育背景
+  'Education': { zh: 'Education' },
+  '2022 — 2026': { en: '2022 — 2026' },
+  '哈尔滨商业大学': { en: 'Harbin University of Commerce' },
+  '会计学 · 智能会计方向（本科）': { en: 'B.S. Accounting · Intelligent Accounting' },
+  '📊 GPA：83.7 / 100': { en: '📊 GPA: 83.7 / 100' },
+  '📚 主修课程': { en: '📚 Core Courses' },
+  '🔍 点击了解母校': { en: '🔍 Click for university info' },
+  '成本会计': { en: 'Cost Accounting' },
+  '管理会计': { en: 'Management Accounting' },
+  '企业财务管理': { en: 'Corporate Finance' },
+  '会计综合实训': { en: 'Accounting Practicum' },
+  '数据分析与会计': { en: 'Data Analysis & Accounting' },
+  '数据分析方法与应用': { en: 'Data Analysis Methods' },
+  '智能财务分析': { en: 'Intelligent Financial Analysis' },
+  '逻辑学': { en: 'Logic' },
+  '管理学': { en: 'Management' },
+  '经济法': { en: 'Economic Law' },
+  '资产评估学': { en: 'Asset Valuation' },
+  '审计学': { en: 'Auditing' },
+  '微观经济学': { en: 'Microeconomics' },
+  '宏观经济学': { en: 'Macroeconomics' },
+  'SAP系统学习与运用': { en: 'SAP System & Application' },
+  'ERP沙盘模拟': { en: 'ERP Sandbox Simulation' },
+  // 工作经历
+  '工作经历': { en: 'Work Experience' },
+  'Work & Practice': { zh: 'Work & Practice' },
+  '禹州市申通物流服务有限公司': { en: 'Yuzhou Shentong Logistics Co., Ltd.' },
+  '会计助理': { en: 'Accounting Assistant' },
+  '使用用友U8系统处理200+张业务凭证，编制财务报表，参与薪酬核算与固定资产管理': { en: 'Processed 200+ vouchers via UFIDA U8 system, prepared financial statements, handled payroll and fixed asset management' },
+  '容诚会计师事务所': { en: 'Rongcheng CPA Firm' },
+  '审计实习生': { en: 'Audit Intern' },
+  '实地走访16家企业，核查200+份合同发现30+处异常，协助编制审计底稿': { en: 'Visited 16 enterprises on-site, reviewed 200+ contracts finding 30+ discrepancies, assisted in audit working papers' },
+  '浪潮铸远智慧企业大数据分析大赛': { en: 'Inspur Smart Enterprise Big Data Competition' },
+  '国家级特等奖': { en: 'National Grand Prize' },
+  '通过SQL完成三大报表编制，运用Power BI进行财务数据可视化分析，效率提升30%': { en: 'Built three major financial statements via SQL, used Power BI for data visualization, improved efficiency by 30%' },
+  '黑龙江浪潮信息科技有限公司': { en: 'Heilongjiang Inspur Information Technology Co.' },
+  '财务共享中心实践经历': { en: 'Financial Shared Service Center Practicum' },
+  '完成全流程500+凭证处理，模拟税务申报，运用品种法/分批法撰写成本分析报告': { en: 'Processed 500+ vouchers end-to-end, simulated tax filing, authored cost analysis reports using job/process costing' },
+  '点击查看详情 →': { en: 'Click for details →' },
+  '校园实践': { en: 'Campus Practice' },
+  'Campus Practice': { zh: 'Campus Practice' },
+  // 技能特长
+  'Skills & Expertise': { zh: 'Skills & Expertise' },
+  '💼 专业技能': { en: '💼 Professional Skills' },
+  '财务会计': { en: 'Financial Accounting' },
+  '精通凭证编制、总账明细账管理、财务报表编制，熟悉企业会计准则与财务制度': { en: 'Proficient in voucher preparation, general/sub-ledger management, financial statement preparation. Well-versed in accounting standards and regulations.' },
+  '成本核算': { en: 'Cost Accounting' },
+  '掌握品种法、分步法、分批法，能够独立完成材料、人工、制造费用的归集与分配': { en: 'Skilled in job-order, process, and batch costing. Able to independently allocate materials, labor, and overhead costs.' },
+  '审计实务': { en: 'Audit Practice' },
+  '具备企业实地走访、合同核查、底稿编制经验，能够识别关键业务流程中的潜在风险': { en: 'Experienced in on-site enterprise visits, contract verification, and working paper preparation. Able to identify risks in key business processes.' },
+  '税务处理': { en: 'Tax Processing' },
+  '熟悉增值税、企业所得税、个人所得税计算与申报流程，了解相关税收法规': { en: 'Familiar with VAT, corporate income tax, and personal income tax calculation and filing procedures. Knowledgeable in tax regulations.' },
+  '🛠 技术工具': { en: '🛠 Technical Tools' },
+  '用友U8': { en: 'UFIDA U8' },
+  '熟练使用用友U8系统进行凭证填制、审核记账、结账及报表模板自定义': { en: 'Proficient in using UFIDA U8 for voucher entry, review, bookkeeping, settlement, and custom report templates.' },
+  'SQL': { en: 'SQL' },
+  '能够使用SQL进行财务数据查询、清洗、汇总分析，完成总账与明细账的数据处理': { en: 'Able to query, clean, and aggregate financial data using SQL for general and sub-ledger processing.' },
+  'Power BI': { en: 'Power BI' },
+  '掌握数据可视化分析，能够制作交互式财务报表仪表板，实现数据驱动的决策支持': { en: 'Skilled in data visualization. Can create interactive financial dashboards for data-driven decision support.' },
+  'Office / WPS': { en: 'Office / WPS' },
+  '精通Excel、Word、PPT，熟练运用VLOOKUP、SUM、数据透视表等高级功能': { en: 'Expert in Excel, Word, PPT. Proficient in VLOOKUP, SUM, pivot tables, and other advanced features.' },
+  '🤖 AI 工具应用': { en: '🤖 AI Tool Application' },
+  'AI Agent 工作流': { en: 'AI Agent Workflows' },
+  '熟练使用AI工具，能够运用Agent自动化处理生活与工作事务，如数据分析、文档整理、信息检索等': { en: 'Proficient in AI tools. Able to use AI agents to automate daily and work tasks including data analysis, document organization, and information retrieval.' },
+  'AI 辅助项目开发': { en: 'AI-Assisted Development' },
+  '在AI辅助下独立完成过多个项目的开发，具备将AI能力融入日常工作流程的实践经验': { en: 'Independently completed multiple projects with AI assistance. Experienced in integrating AI capabilities into daily workflows.' },
+  '📜 证书与资格': { en: '📜 Certifications' },
+  '会计从业资格证': { en: 'Accounting Qualification Certificate' },
+  '初级会计资格证书 · 国家财政部颁发': { en: 'Junior Accountant Certificate · Ministry of Finance' },
+  'BDA 中级证书': { en: 'BDA Data Analyst (Mid-level)' },
+  '数据分析师认证': { en: 'Data Analyst Certification' },
+  'CET-6（466分）': { en: 'CET-6 (Score: 466)' },
+  '大学英语六级': { en: 'College English Test Band 6' },
+  '🌟 综合能力': { en: '🌟 Soft Skills' },
+  '数据分析与洞察': { en: 'Data Analysis & Insight' },
+  '财务报表编制': { en: 'Financial Reporting' },
+  '成本管控': { en: 'Cost Control' },
+  '沟通协作': { en: 'Communication' },
+  '抗压能力强': { en: 'Resilience Under Pressure' },
+  '快速学习': { en: 'Fast Learner' },
+  '团队合作': { en: 'Teamwork' },
+  '逻辑思维': { en: 'Logical Thinking' },
+  // 学习与探索
+  'Learning & Discovery': { zh: 'Learning & Discovery' },
+  '大学生创新创业大赛': { en: 'Innovation & Entrepreneurship Competition' },
+  '校级项目——企业税务筹划方案。担任组长，带领团队完成某企业税务筹划方案设计，取得优异成绩。': { en: 'University-level project — corporate tax planning proposal. Led the team as group leader and achieved outstanding results.' },
+  '税收筹划': { en: 'Tax Planning' },
+  '项目管理': { en: 'Project Mgmt' },
+  '团队领导': { en: 'Leadership' },
+  '成本分析报告': { en: 'Cost Analysis Report' },
+  '运用品种法和分步法对制造业产品成本进行核算，完成材料、人工及制造费用的归集与分析，撰写详细成本分析报告。': { en: 'Applied job-order and process costing methods for manufacturing cost calculation. Completed cost allocation and authored detailed analysis reports.' },
+  'AI 工具应用与实践': { en: 'AI Tools & Practice' },
+  '熟练运用AI Agent工具自动化处理工作事务，在AI辅助下独立完成多个项目开发，涵盖数据分析、自动化报表、信息检索等场景。': { en: 'Proficient in AI Agent tools for workflow automation. Independently completed multiple projects with AI, covering data analysis, automated reports, and information retrieval.' },
+  '自动化': { en: 'Automation' },
+  '项目开发': { en: 'Development' },
+  '📝 学习成长轨迹': { en: '📝 Learning Journey' },
+  'AI 探索与应用': { en: 'AI Exploration & Practice' },
+  '深入探索AI工具在日常工作中的应用，熟练使用Agent工具实现事务自动化处理与智能辅助决策，将AI能力融入财务工作流。': { en: 'Deeply exploring AI tools for daily work. Proficient in using Agent tools for automated task processing and intelligent decision support, integrating AI into financial workflows.' },
+  '持续学习': { en: 'Continuous Learning' },
+  '关注AI与财务数字化前沿动态，持续学习Python数据分析、智能财务工具，在AI辅助下独立完成多个实践项目。': { en: 'Following AI and digital finance trends. Continuously learning data analysis and smart finance tools. Completed multiple projects with AI assistance.' },
+  '职业目标': { en: 'Career Goals' },
+  '致力于成为AI时代的财务数字化复合型人才，将会计专业知识、数据分析能力与AI工具深度结合，为企业创造数据驱动的财务价值。': { en: 'Aspiring to become a hybrid finance-digital talent in the AI era, deeply integrating accounting expertise, data analysis, and AI tools to create data-driven financial value.' },
+  // 弹窗通用
+  '关闭': { en: 'Close' },
+  '发送留言': { en: 'Send Message' },
+  '拨打电话': { en: 'Call' },
+  '发送邮件': { en: 'Send Email' },
+  '联系电话': { en: 'Phone' },
+  '邮箱地址': { en: 'Email' },
+  '或直接留言，我会尽快回复您：': { en: 'Or leave a message, I\'ll reply ASAP:' },
+  '您的姓名': { en: 'Your Name' },
+  '您的邮箱': { en: 'Your Email' },
+  '留言内容...': { en: 'Your message...' },
+  '留言发送成功！我会尽快回复您。': { en: 'Message sent! I\'ll get back to you soon.' },
+  '请先粘贴职位描述（JD）再点击匹配': { en: 'Please paste a job description first' },
+  '📊 AI 岗位匹配报告': { en: '📊 AI Job Match Report' },
+  '学历': { en: 'Education' },
+  '工作经验': { en: 'Experience' },
+  '技能匹配': { en: 'Skill Match' },
+  '综合素质': { en: 'Soft Skills' },
+  '★ 匹配亮点': { en: '★ Match Highlights' },
+  '📄 综合评估': { en: '📄 Overall Assessment' },
+  '请在关于我页面输入职位描述，点击开始匹配查看分析结果。': { en: 'Enter a job description on the About page and click Start Matching to see results.' },
+  // 学校弹窗
+  '🏫 哈尔滨商业大学': { en: '🏫 Harbin University of Commerce' },
+  '新中国第一所多科性商业大学': { en: "China's First Multidisciplinary Commerce University" },
+  '🏆 骄傲的商大印记：': { en: '🏆 Proud Milestones: ' },
+  '博士授权单位': { en: 'Doctoral Degree Granting' },
+  '省属重点': { en: 'Provincial Key University' },
+  '中西部高校基础能力建设工程': { en: 'National Basic Ability Construction Project' },
+  '一级学科博士点': { en: 'Doctoral Programs' },
+  '国家级一流本科专业': { en: 'National First-Class Programs' },
+  '73年': { en: '73 Years' },
+  '悠久办学历史': { en: 'of Academic Excellence' },
+  '20万+': { en: '200K+' },
+  '累计培养人才': { en: 'Alumni Worldwide' },
+  // AI 匹配结果
+  '输入JD后自动分析...': { en: 'Analyzing after JD input...' }
+};
+
+// 反向映射：英文 → 中文
+var revDict = {};
+Object.keys(dict).forEach(function(k) {
+  if (dict[k].zh) revDict[dict[k].zh] = k;
+  else if (dict[k].en) revDict[dict[k].en.replace(/^[📄💬🤖📚🔍📊🏆🏫🎯🌟📝📜🛠💼📋📈💡📌📗📘🌐★📞✉️🏛️☎️🔗\s]+/,'')] = k;
+});
+
+function switchLang(lang) {
+  if (lang === currentLang) return;
+  currentLang = lang;
+  // 更新按钮状态
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+  // 更新 document title
+  document.title = lang === 'zh' ? '谢泳清 - 个人简历' : 'Yongqing Xie - Resume';
+  // 遍历所有文本节点替换
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  textNodes.forEach(function(node) {
+    var txt = node.textContent.trim();
+    if (!txt || txt.length < 2) return;
+    if (lang === 'en' && dict[txt] && dict[txt].en) {
+      node.textContent = node.textContent.replace(txt, dict[txt].en);
+    } else if (lang === 'zh') {
+      // 查找英文→中文的映射
+      Object.keys(dict).forEach(function(zh) {
+        var en = dict[zh].en;
+        if (en && node.textContent.indexOf(en) !== -1) {
+          node.textContent = node.textContent.replace(en, zh);
+        }
+      });
+    }
+  });
+  // 重新触发匹配分析以更新结果语言
+  if (document.getElementById('matchModal').classList.contains('show')) {
+    closeMatch();
+  }
+}
 </script>
 </body>
 </html>
