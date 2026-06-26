@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谢泳清 - 个人简历</title>
+<style>
+:root {
+  --bg: #f3f4f6;
+  --white: #fff;
+  --black: #1a1a1a;
+  --dark: #2d2d2d;
+  --gray: #888;
+  --light-gray: #e5e5e5;
+  --lighter-gray: #f8f8f8;
+  --purple: #7c5ce7;
+  --light-purple: #f3efff;
+  --green: #4caf93;
+  --light-green: #e8f7f0;
+  --blue: #5b9bd5;
+  --light-blue: #eef5fb;
+  --orange: #f0a060;
+  --light-orange: #fef5ec;
+  --pink: #e8788a;
+  --light-pink: #fef0f3;
+  --yellow: #e8c84c;
+  --light-yellow: #fdf8e6;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 28px rgba(0,0,0,0.10);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 8px;
+  --font: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; overflow-y:scroll; }
+body { font-family:var(--font); background:var(--bg); color:var(--dark); line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+/* Nav */
+.navbar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(255,255,255,0.9); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--light-gray); padding:0 24px;
+}
+.nav-inner {
+  max-width:1200px; margin:0 auto; display:flex;
+  align-items:center; justify-content:space-between; height:60px;
+}
+.nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; cursor:pointer; }
+.nav-avatar {
+  width:36px; height:36px; border-radius:50%;
+  background:linear-gradient(135deg,#f0e0ff,#e0d0ff);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px; color:var(--purple); border:2px solid #e8d8ff;
+}
+.nav-links { display:flex; gap:4px; }
+.nav-link {
+  padding:7px 18px; border-radius:20px; text-decoration:none;
+  color:var(--gray); font-size:13px; font-weight:500;
+  transition:all .25s; cursor:pointer; border:none;
+  background:transparent; font-family:var(--font);
+}
+.nav-link:hover { color:var(--dark); background:var(--lighter-gray); }
+.nav-link.active { background:var(--black); color:var(--white); }
+
+/* Main */
+.main { max-width:1200px; margin:0 auto; padding:80px 24px 40px; }
+.section { display:none; animation:fadeIn .45s ease; }
+.section.active { display:block; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:translateY(0);} }
+
+/* About */
+.about-grid { display:grid; grid-template-columns:1fr 340px; gap:44px; align-items:start; }
+.about-name { font-size:48px; font-weight:800; color:var(--black); letter-spacing:-1px; line-height:1.2; margin-bottom:6px; }
+.about-title { font-size:22px; font-weight:600; color:var(--purple); margin-bottom:18px; }
+.about-bio { font-size:14px; color:#555; line-height:2; margin-bottom:24px; max-width:540px; }
+.about-btns { display:flex; gap:10px; margin-bottom:28px; flex-wrap:wrap; }
+.btn {
+  padding:10px 26px; border-radius:22px; font-size:13px; font-weight:600;
+  cursor:pointer; transition:all .25s; text-decoration:none;
+  display:inline-flex; align-items:center; gap:6px;
+  border:2px solid transparent; font-family:var(--font);
+}
+.btn-outline { background:var(--white); color:var(--black); border-color:var(--black); }
+.btn-outline:hover { background:var(--black); color:var(--white); }
+.btn-primary { background:var(--green); color:var(--white); border-color:var(--green); }
+.btn-primary:hover { background:#3d9a7a; }
+.btn-dark { background:var(--black); color:var(--white); border-color:var(--black); }
+.btn-dark:hover { background:#333; }
+.info-bar { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px; }
+.info-pill {
+  display:flex; align-items:center; gap:6px;
+  background:var(--white); padding:8px 16px; border-radius:20px;
+  box-shadow:var(--shadow-sm); font-size:12px; color:var(--dark);
+}
+.photo-wrap { position:relative; }
+.photo-frame {
+  width:300px; height:380px; border-radius:24px; overflow:hidden;
+  border:4px solid var(--green); box-shadow:var(--shadow-lg); margin:0 auto;
+}
+.photo-frame img { width:100%; height:100%; object-fit:cover; }
+
+/* AI Card */
+.ai-card {
+  background:var(--white); border-radius:var(--radius);
+  padding:22px 26px; box-shadow:var(--shadow); margin-top:20px;
+}
+.ai-card h3 { font-size:14px; color:var(--gray); font-weight:500; margin-bottom:12px; }
+.ai-card textarea {
+  width:100%; height:72px; border:2px solid var(--light-gray);
+  border-radius:var(--radius-sm); padding:10px 14px; font-size:12px;
+  resize:vertical; font-family:var(--font); color:var(--dark);
+}
+.ai-card textarea:focus { outline:none; border-color:var(--purple); }
+.ai-card .btn-dark { margin-top:10px; width:100%; justify-content:center; }
+
+/* Section Title */
+.sec-title { font-size:30px; font-weight:800; color:var(--black); margin-bottom:4px; letter-spacing:-.5px; }
+.sec-sub { font-size:13px; color:var(--gray); text-transform:uppercase; letter-spacing:2px; margin-bottom:32px; }
+
+/* Cards */
+.card { background:var(--white); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); transition:all .3s; }
+.card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+.grid-2 { display:grid; gap:18px; grid-template-columns:1fr 1fr; }
+.grid-3 { display:grid; gap:18px; grid-template-columns:1fr 1fr 1fr; }
+.grid-4 { display:grid; gap:16px; grid-template-columns:1fr 1fr 1fr 1fr; }
+
+/* Education */
+.edu-card { background:var(--white); border-radius:var(--radius); padding:30px; box-shadow:var(--shadow); border-left:4px solid var(--purple); }
+.edu-period { font-size:12px; color:var(--purple); font-weight:600; letter-spacing:1px; margin-bottom:6px; }
+.edu-school { font-size:21px; font-weight:700; color:var(--black); margin-bottom:2px; }
+.edu-major { font-size:14px; color:#555; margin-bottom:14px; }
+.edu-gpa { display:inline-flex; align-items:center; gap:6px; background:var(--light-purple); color:var(--purple); padding:5px 14px; border-radius:18px; font-size:13px; font-weight:600; margin-bottom:18px; }
+.edu-courses h4 { font-size:13px; font-weight:600; color:var(--dark); margin-bottom:10px; }
+.tags { display:flex; flex-wrap:wrap; gap:7px; }
+.tag { padding:5px 13px; background:var(--lighter-gray); border-radius:14px; font-size:11px; color:#555; transition:all .2s; }
+.tag:hover { background:#e0d8f8; color:var(--purple); }
+
+/* Experience */
+.exp-card { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; transition:all .3s; }
+.exp-card:hover { box-shadow:var(--shadow-lg); }
+.exp-hd { padding:22px 26px; border-bottom:1px solid var(--light-gray); display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; }
+.exp-co { font-size:17px; font-weight:700; color:var(--black); }
+.exp-role { font-size:13px; color:var(--purple); font-weight:500; }
+.exp-date { font-size:12px; color:var(--gray); background:var(--lighter-gray); padding:3px 12px; border-radius:14px; white-space:nowrap; }
+.exp-bd { padding:22px 26px; }
+.exp-bd h4 { font-size:13px; font-weight:600; color:var(--dark); margin-bottom:10px; margin-top:16px; }
+.exp-bd h4:first-child { margin-top:0; }
+.exp-list { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.exp-list li { padding-left:18px; position:relative; font-size:13px; color:#555; line-height:1.7; }
+.exp-list li::before { content:'•'; position:absolute; left:3px; color:var(--purple); font-weight:bold; }
+/* New exp cards */
+.exp-grid-new { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.exp-card-new {
+  background:var(--white); border-radius:var(--radius); padding:22px 24px;
+  box-shadow:var(--shadow); cursor:pointer; transition:all .3s;
+  border-top:4px solid transparent; position:relative; overflow:hidden;
+}
+.exp-card-new:hover { box-shadow:var(--shadow-lg); transform:translateY(-3px); }
+.exp-card-new.accent-blue { border-top-color:var(--blue); }
+.exp-card-new.accent-purple { border-top-color:var(--purple); }
+.exp-card-new.accent-green { border-top-color:var(--green); }
+.exp-card-new.accent-orange { border-top-color:var(--orange); }
+.exp-card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.exp-card-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; }
+.accent-blue .exp-card-icon { background:var(--light-blue); }
+.accent-purple .exp-card-icon { background:var(--light-purple); }
+.accent-green .exp-card-icon { background:var(--light-green); }
+.accent-orange .exp-card-icon { background:var(--light-orange); }
+.exp-chip { font-size:11px; color:var(--gray); background:var(--lighter-gray); padding:3px 10px; border-radius:12px; }
+.exp-card-new h4 { font-size:16px; font-weight:700; color:var(--black); margin-bottom:2px; }
+.exp-card-role { font-size:13px; color:var(--purple); font-weight:500; margin-bottom:8px; }
+.exp-card-desc { font-size:12px; color:#666; line-height:1.6; }
+.exp-card-hint { font-size:11px; color:var(--blue); margin-top:10px; font-weight:500; }
+
+/* Exp detail modal */
+.exp-detail-header { display:flex; align-items:flex-start; gap:16px; margin-bottom:24px; }
+.exp-detail-icon { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0; }
+.exp-detail-icon.blue { background:var(--light-blue); }
+.exp-detail-icon.purple { background:var(--light-purple); }
+.exp-detail-icon.green { background:var(--light-green); }
+.exp-detail-icon.orange { background:var(--light-orange); }
+.exp-detail-meta h3 { font-size:20px; font-weight:700; color:var(--black); margin-bottom:2px; }
+.exp-detail-meta .role { font-size:14px; color:var(--purple); font-weight:500; }
+.exp-detail-meta .date { font-size:12px; color:var(--gray); margin-top:2px; }
+.exp-detail-section { margin-bottom:22px; }
+.exp-detail-section h4 { font-size:15px; font-weight:700; color:var(--black); margin-bottom:12px; }
+.exp-detail-section h4 span { font-size:11px; color:var(--gray); text-transform:uppercase; letter-spacing:1px; font-weight:400; margin-left:8px; }
+.exp-detail-cards { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.exp-detail-card { padding:14px 16px; border-radius:var(--radius-xs); font-size:12px; line-height:1.7; }
+.exp-detail-card strong { display:block; font-size:13px; margin-bottom:3px; }
+.exp-detail-card.c-blue { background:rgba(91,155,213,0.10); color:#3a5670; }
+.exp-detail-card.c-purple { background:rgba(124,92,231,0.08); color:#4a3868; }
+.exp-detail-card.c-green { background:rgba(76,175,147,0.10); color:#3a5a4a; }
+.exp-detail-card.c-orange { background:rgba(240,160,96,0.10); color:#6a4830; }
+.exp-detail-card.c-pink { background:rgba(232,120,138,0.10); color:#6a3848; }
+.exp-stat-row { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:20px; }
+.exp-stat { flex:1; min-width:80px; background:rgba(0,0,0,0.02); border-radius:var(--radius-xs); padding:14px; text-align:center; }
+.exp-stat .num { font-size:24px; font-weight:800; }
+.exp-stat .lbl { font-size:11px; color:var(--gray); margin-top:2px; }
+.accent-blue .num { color:var(--blue); }
+.accent-purple .num { color:var(--purple); }
+.accent-green .num { color:var(--green); }
+.accent-orange .num { color:var(--orange); }
+
+@media (max-width:860px) {
+  .exp-grid-new { grid-template-columns:1fr; }
+  .exp-detail-cards { grid-template-columns:1fr; }
+}
+
+/* Skills */
+.skill-group { margin-bottom:28px; }
+.skill-group h3 { font-size:16px; font-weight:700; color:var(--black); margin-bottom:14px; }
+.skill-cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.skill-card { background:var(--white); border-radius:var(--radius-sm); padding:18px 22px; box-shadow:var(--shadow); }
+.sk-hd { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.sk-nm { font-size:13px; font-weight:600; color:var(--dark); }
+.sk-lv { font-size:12px; color:var(--purple); font-weight:600; }
+.sk-bar { height:7px; background:#e8e8e8; border-radius:4px; overflow:hidden; }
+.sk-fill { height:100%; border-radius:4px; transition:width 1s ease; }
+.sk-fill.h { background:var(--purple); }
+.sk-fill.m { background:var(--blue); }
+.sk-fill.g { background:var(--green); }
+.skill-desc-card { display:flex; gap:12px; align-items:flex-start; background:var(--white); border-radius:var(--radius-sm); padding:16px 20px; box-shadow:var(--shadow); transition:all .3s; }
+.skill-desc-card > div { min-width:0; }
+.skill-desc-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+.contact-info-card { background:rgba(0,0,0,0.02); border-radius:var(--radius-sm); padding:18px; text-align:center; transition:all .3s; }
+.contact-info-card:hover { background:rgba(0,0,0,0.06); }
+.ci-icon { font-size:28px; margin-bottom:6px; }
+.ci-label { font-size:11px; color:var(--gray); margin-bottom:4px; }
+.ci-value { font-size:14px; font-weight:600; color:var(--black); text-decoration:none; display:block; }
+.ci-value:hover { color:var(--purple); }
+.sk-dot { width:8px; height:8px; border-radius:50%; background:var(--purple); margin-top:6px; flex-shrink:0; }
+.skill-desc-card strong { font-size:13px; color:var(--dark); display:block; margin-bottom:2px; }
+.skill-desc-card p { font-size:12px; color:#666; line-height:1.6; margin:0; }
+.cert-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:16px; }
+.cert-card { background:var(--white); border-radius:var(--radius-sm); padding:18px; text-align:center; box-shadow:var(--shadow); transition:all .3s; }
+.cert-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+.cert-ic { font-size:30px; margin-bottom:8px; }
+.cert-nm { font-size:12px; font-weight:600; color:var(--dark); }
+.cert-ds { font-size:10px; color:var(--gray); margin-top:3px; }
+
+/* Projects */
+.proj-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; }
+.proj-card { background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); transition:all .3s; }
+.proj-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+.proj-cover { height:140px; display:flex; align-items:center; justify-content:center; font-size:44px; }
+.proj-cover.c1 { background:linear-gradient(135deg,#e8f0fe,#d4e4fd); }
+.proj-cover.c2 { background:linear-gradient(135deg,#fef0e8,#fde4d4); }
+.proj-cover.c3 { background:linear-gradient(135deg,#e8fef0,#d4fde4); }
+.proj-cover.c4 { background:linear-gradient(135deg,#f3e8fe,#e4d4fd); }
+.proj-info { padding:18px; }
+.proj-info h4 { font-size:15px; font-weight:700; margin-bottom:4px; color:var(--black); }
+.proj-info p { font-size:12px; color:#666; line-height:1.6; margin-bottom:10px; }
+.proj-tags { display:flex; flex-wrap:wrap; gap:5px; }
+.ptag { padding:3px 10px; border-radius:12px; font-size:10px; font-weight:500; }
+.ptag.t1 { background:#e8f0fe; color:#3a6fcf; }
+.ptag.t2 { background:#fef0e8; color:#c8783a; }
+.ptag.t3 { background:#e8fef0; color:#3a7a5a; }
+.ptag.t4 { background:#f3e8fe; color:#6a3acf; }
+
+/* Modal */
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.3); z-index:2000; align-items:center; justify-content:center; backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); }
+.modal-overlay.show { display:flex; }
+.modal { background:rgba(255,255,255,0.82); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border-radius:var(--radius); width:90%; max-width:640px; max-height:85vh; overflow-y:auto; box-shadow:0 16px 48px rgba(0,0,0,0.12); border:1px solid rgba(255,255,255,0.6); animation:modIn .3s ease; }
+@keyframes modIn { from{opacity:0;transform:scale(.95) translateY(8px);} to{opacity:1;transform:scale(1) translateY(0);} }
+.mod-hd { padding:18px 26px; border-bottom:1px solid rgba(0,0,0,0.06); display:flex; align-items:center; justify-content:space-between; }
+.mod-hd h3 { font-size:17px; }
+.mod-close { width:30px; height:30px; border-radius:50%; border:none; background:rgba(0,0,0,0.04); cursor:pointer; font-size:15px; display:flex; align-items:center; justify-content:center; transition:all .2s; }
+.mod-close:hover { background:rgba(0,0,0,0.1); }
+.mod-bd { padding:22px 26px; }
+.match-wrap { display:flex; align-items:center; gap:22px; margin-bottom:24px; padding:18px; background:var(--lighter-gray); border-radius:var(--radius-sm); flex-wrap:wrap; }
+.match-circle { width:88px; height:88px; border-radius:50%; background:var(--light-pink); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.match-inner { width:70px; height:70px; border-radius:50%; background:var(--pink); display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; }
+.match-inner .ms { font-size:26px; font-weight:800; line-height:1; }
+.match-inner .mt { font-size:10px; opacity:.8; }
+.match-bars { flex:1; min-width:220px; display:flex; flex-direction:column; gap:8px; }
+.mb-item { display:flex; align-items:center; gap:8px; }
+.mb-lbl { width:60px; font-size:12px; color:var(--gray); text-align:right; }
+.mb-track { flex:1; height:7px; background:#e0e0e0; border-radius:3px; overflow:hidden; }
+.mb-fill { height:100%; border-radius:3px; transition:width 1s ease; }
+.mb-fill.edu { background:var(--blue); }
+.mb-fill.exp { background:var(--orange); }
+.mb-fill.skill { background:var(--purple); }
+.mb-fill.soft { background:var(--green); }
+.mb-val { width:26px; font-size:12px; font-weight:600; color:var(--dark); }
+.match-hl { margin-bottom:22px; }
+.match-hl h4 { font-size:14px; color:var(--blue); margin-bottom:10px; }
+.hl-item { padding:12px 14px; background:rgba(0,0,0,0.02); border-radius:var(--radius-xs); margin-bottom:8px; font-size:12px; line-height:1.7; }
+.hl-item .jd-lbl { font-weight:600; color:var(--dark); margin-bottom:3px; }
+.hl-item .jd-desc { color:#666; }
+.match-sum { padding:14px; background:rgba(76,175,147,0.08); border-radius:var(--radius-xs); font-size:12px; line-height:1.7; color:#3a6b5a; }
+.match-sum h4 { font-size:14px; color:var(--green); margin-bottom:6px; }
+.mod-ft { padding:14px 26px; border-top:1px solid rgba(0,0,0,0.06); text-align:right; }
+
+.footer { text-align:center; padding:28px; color:var(--gray); font-size:11px; }
+
+@media (max-width:860px) {
+  .about-grid { grid-template-columns:1fr; gap:28px; }
+  .photo-wrap { order:-1; }
+  .photo-frame { width:200px; height:260px; }
+  .about-name { font-size:34px; }
+  .about-title { font-size:17px; }
+  .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr; }
+  .skill-cards { grid-template-columns:1fr; }
+  .cert-grid { grid-template-columns:1fr 1fr; }
+  .proj-grid { grid-template-columns:1fr; }
+  .nav-links { display:none; }
+  .nav-inner { justify-content:center; }
+}
+@media (max-width:500px) {
+  .cert-grid { grid-template-columns:1fr; }
+  .info-bar { flex-direction:column; }
+  .about-btns { flex-direction:column; }
+  .btn { width:100%; justify-content:center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-brand" onclick="go('about')">
+      <div class="nav-avatar">👩‍💼</div>
+    </a>
+    <div class="nav-links">
+      <button class="nav-link active" data-s="about" onclick="go('about')">关于我</button>
+      <button class="nav-link" data-s="education" onclick="go('education')">教育背景</button>
+      <button class="nav-link" data-s="experience" onclick="go('experience')">工作与实践</button>
+      <button class="nav-link" data-s="skills" onclick="go('skills')">技能特长</button>
+      <button class="nav-link" data-s="projects" onclick="go('projects')">学习与探索</button>
+    </div>
+  </div>
+</nav>
+
+<div class="main">
+
+  <!-- ═══ 关于我 ═══ -->
+  <section class="section active" id="sec-about">
+    <div class="about-grid">
+      <div>
+        <h1 class="about-name">Hi, 我是谢泳清</h1>
+        <p class="about-title">Accounting Professional &amp; Intelligent Accounting</p>
+        <p class="about-bio">
+          一个左手翻凭证、右手敲SQL的财会人 🖐️<br>
+          在哈尔滨商业大学的四年里，我把Excel玩成了艺术品，让Power BI画出会讲故事的数据图表。<br>
+          去过容诚会计师事务所翻遍200+份合同揪出30+个"小辫子"，也在北京通达用U8系统把凭证处理得像流水线一样精准高效。<br>
+          我相信——好的财务人不只是算账的，更是用数据帮企业做决策的军师。如果你也在找这样一个既懂借贷、又会写代码的"斜杠青年"，那我们聊聊吧 ✨
+        </p>
+        </p>
+        <div class="info-bar">
+          <div class="info-pill">📅 2004.06</div>
+          <div class="info-pill">📍 江西省</div>
+        </div>
+        <div class="about-btns">
+          <a href="resume.pdf" class="btn btn-outline">📄 下载简历</a>
+          <button class="btn btn-primary" onclick="showContact()">💬 联系我</button>
+        </div>
+        <div class="ai-card">
+          <h3>🤖 AI 岗位匹配器</h3>
+          <textarea id="jdInput" placeholder="粘贴您的JD（职位描述），查看我与岗位之间的匹配度..."></textarea>
+          <button class="btn btn-dark" onclick="showMatch()">开始匹配 →</button>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <div class="photo-frame">
+          <img src="assets/profile.jpg" alt="谢泳清">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 教育背景 ═══ -->
+  <section class="section" id="sec-education">
+    <h2 class="sec-title">教育背景</h2>
+    <p class="sec-sub">Education</p>
+    <div class="edu-card" onclick="showEdu()" style="cursor:pointer; transition:all .3s;" onmouseover="this.style.boxShadow='var(--shadow-lg)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='var(--shadow)';this.style.transform='translateY(0)'">
+      <p class="edu-period">2022 — 2026 <span style="color:var(--purple);font-size:11px;margin-left:8px;">🔍 点击了解母校</span></p>
+      <h3 class="edu-school">哈尔滨商业大学</h3>
+      <p class="edu-major">会计学 · 智能会计方向（本科）</p>
+      <div class="edu-gpa">📊 GPA：83.7 / 100</div>
+      <div class="edu-courses">
+        <h4>📚 主修课程</h4>
+        <div class="tags">
+          <span class="tag">成本会计</span><span class="tag">管理会计</span>
+          <span class="tag">企业财务管理</span><span class="tag">会计综合实训</span>
+          <span class="tag">Python</span><span class="tag">SQL</span>
+          <span class="tag">数据分析与会计</span><span class="tag">数据分析方法与应用</span>
+          <span class="tag">智能财务分析</span><span class="tag">逻辑学</span>
+          <span class="tag">管理学</span><span class="tag">经济法</span>
+          <span class="tag">资产评估学</span><span class="tag">审计学</span>
+          <span class="tag">微观经济学</span><span class="tag">宏观经济学</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 工作经历 ═══ -->
+  <section class="section" id="sec-experience">
+    <h2 class="sec-title">工作经历</h2>
+    <p class="sec-sub">Work & Practice</p>
+    <div class="exp-grid-new">
+      <div class="exp-card-new accent-blue" onclick="showExpDetail('exp1')">
+        <div class="exp-card-top">
+          <div class="exp-card-icon">💼</div>
+          <span class="exp-chip">2026.03 — 2026.04</span>
+        </div>
+        <h4>北京通达商贸有限公司</h4>
+        <p class="exp-card-role">会计助理</p>
+        <p class="exp-card-desc">使用用友U8系统处理200+张业务凭证，编制财务报表，参与薪酬核算与固定资产管理</p>
+        <div class="exp-card-hint">点击查看详情 →</div>
+      </div>
+      <div class="exp-card-new accent-purple" onclick="showExpDetail('exp2')">
+        <div class="exp-card-top">
+          <div class="exp-card-icon">🔍</div>
+          <span class="exp-chip">2026.04 — 2026.05</span>
+        </div>
+        <h4>容诚会计师事务所</h4>
+        <p class="exp-card-role">审计实习生</p>
+        <p class="exp-card-desc">实地走访16家企业，核查200+份合同发现30+处异常，协助编制审计底稿</p>
+        <div class="exp-card-hint">点击查看详情 →</div>
+      </div>
+      <div class="exp-card-new accent-green" onclick="showExpDetail('exp3')">
+        <div class="exp-card-top">
+          <div class="exp-card-icon">🏆</div>
+          <span class="exp-chip">2024.11</span>
+        </div>
+        <h4>浪潮铸远智慧企业大数据分析大赛</h4>
+        <p class="exp-card-role">国家级特等奖</p>
+        <p class="exp-card-desc">通过SQL完成三大报表编制，运用Power BI进行财务数据可视化分析，效率提升30%</p>
+        <div class="exp-card-hint">点击查看详情 →</div>
+      </div>
+      <div class="exp-card-new accent-orange" onclick="showExpDetail('exp4')">
+        <div class="exp-card-top">
+          <div class="exp-card-icon">🏢</div>
+          <span class="exp-chip">2025.05</span>
+        </div>
+        <h4>黑龙江浪潮信息科技有限公司</h4>
+        <p class="exp-card-role">财务共享中心实践经历</p>
+        <p class="exp-card-desc">完成全流程500+凭证处理，模拟税务申报，运用品种法/分批法撰写成本分析报告</p>
+        <div class="exp-card-hint">点击查看详情 →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 技能特长 ═══ -->
+  <section class="section" id="sec-skills">
+    <h2 class="sec-title">技能特长</h2>
+    <p class="sec-sub">Skills & Expertise</p>
+    <div class="skill-group">
+      <h3>💼 专业技能</h3>
+      <div class="skill-cards">
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>财务会计</strong><p>精通凭证编制、总账明细账管理、财务报表编制，熟悉企业会计准则与财务制度</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>成本核算</strong><p>掌握品种法、分步法、分批法，能够独立完成材料、人工、制造费用的归集与分配</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>审计实务</strong><p>具备企业实地走访、合同核查、底稿编制经验，能够识别关键业务流程中的潜在风险</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>税务处理</strong><p>熟悉增值税、企业所得税、个人所得税计算与申报流程，了解相关税收法规</p></div></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>🛠 技术工具</h3>
+      <div class="skill-cards">
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>用友U8</strong><p>熟练使用用友U8系统进行凭证填制、审核记账、结账及报表模板自定义</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>SQL</strong><p>能够使用SQL进行财务数据查询、清洗、汇总分析，完成总账与明细账的数据处理</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>Power BI</strong><p>掌握数据可视化分析，能够制作交互式财务报表仪表板，实现数据驱动的决策支持</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>Python</strong><p>具备Python基础编程能力，可用于财务数据批量处理、自动化报表生成等场景</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>Office / WPS</strong><p>精通Excel、Word、PPT，熟练运用VLOOKUP、SUM、数据透视表等高级功能</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>SPSS</strong><p>掌握基础统计分析功能，可用于财务数据的描述性统计与相关性分析</p></div></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>🤖 AI 工具应用</h3>
+      <div class="skill-cards">
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>AI Agent 工作流</strong><p>熟练使用AI工具，能够运用Agent自动化处理生活与工作事务，如数据分析、文档整理、信息检索等</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>AI 辅助项目开发</strong><p>在AI辅助下独立完成过多个项目的开发，具备将AI能力融入日常工作流程的实践经验</p></div></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>📜 证书与资格</h3>
+      <div class="cert-grid">
+        <div class="cert-card" onclick="showCertDetail('cert1')" style="cursor:pointer;"><div class="cert-ic">📗</div><div class="cert-nm">会计从业资格证</div><div class="cert-ds">初级会计资格证书 · 国家财政部颁发</div><div class="exp-card-hint">点击查看详情 →</div></div>
+        <div class="cert-card" onclick="showCertDetail('cert2')" style="cursor:pointer;"><div class="cert-ic">📊</div><div class="cert-nm">BDA 中级证书</div><div class="cert-ds">数据分析师认证</div><div class="exp-card-hint">点击查看详情 →</div></div>
+        <div class="cert-card" onclick="showCertDetail('cert3')" style="cursor:pointer;"><div class="cert-ic">🌐</div><div class="cert-nm">CET-6（466分）</div><div class="cert-ds">大学英语六级</div><div class="exp-card-hint">点击查看详情 →</div></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>🌟 综合能力</h3>
+      <div class="tags">
+        <span class="tag" style="font-size:13px;padding:7px 16px;">数据分析与洞察</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">财务报表编制</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">成本管控</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">沟通协作</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">抗压能力强</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">快速学习</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">团队合作</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">逻辑思维</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 学习与探索 ═══ -->
+  <section class="section" id="sec-projects">
+    <h2 class="sec-title">学习与探索</h2>
+    <p class="sec-sub">Learning & Discovery</p>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-cover c1">🏆</div>
+        <div class="proj-info">
+          <h4>浪潮铸远大数据分析大赛</h4>
+          <p>国家级特等奖。使用SQL和Power BI完成企业财务数据分析、凭证审核及三大报表编制全流程，实现企业回款数据可视化。</p>
+          <div class="proj-tags"><span class="ptag t1">SQL</span><span class="ptag t2">Power BI</span><span class="ptag t3">数据分析</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-cover c2">💡</div>
+        <div class="proj-info">
+          <h4>大学生创新创业大赛</h4>
+          <p>校级项目——企业税务筹划方案。担任组长，带领团队完成某企业税务筹划方案设计，取得优异成绩。</p>
+          <div class="proj-tags"><span class="ptag t2">税务筹划</span><span class="ptag t3">项目管理</span><span class="ptag t4">团队领导</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-cover c3">📈</div>
+        <div class="proj-info">
+          <h4>成本分析报告</h4>
+          <p>运用品种法和分步法对制造业产品成本进行核算，完成材料、人工及制造费用的归集与分析，撰写详细成本分析报告。</p>
+          <div class="proj-tags"><span class="ptag t3">成本会计</span><span class="ptag t1">Excel</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-cover c4">🤖</div>
+        <div class="proj-info">
+          <h4>AI 工具应用与实践</h4>
+          <p>熟练运用AI Agent工具自动化处理工作事务，在AI辅助下独立完成多个项目开发，涵盖数据分析、自动化报表、信息检索等场景。</p>
+          <div class="proj-tags"><span class="ptag t4">AI Agent</span><span class="ptag t1">自动化</span><span class="ptag t2">项目开发</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:36px;">
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;color:var(--black);">📝 学习成长轨迹</h3>
+      <div class="grid-3">
+        <div class="card"><div style="font-size:26px;margin-bottom:8px;">🤖</div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">AI 探索与应用</h4><p style="font-size:12px;color:#666;line-height:1.7;">深入探索AI工具在日常工作中的应用，熟练使用Agent工具实现事务自动化处理与智能辅助决策，将AI能力融入财务工作流。</p></div>
+        <div class="card"><div style="font-size:26px;margin-bottom:8px;">📖</div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">持续学习</h4><p style="font-size:12px;color:#666;line-height:1.7;">关注AI与财务数字化前沿动态，持续学习Python数据分析、智能财务工具，在AI辅助下独立完成多个实践项目。</p></div>
+        <div class="card"><div style="font-size:26px;margin-bottom:8px;">🎯</div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">职业目标</h4><p style="font-size:12px;color:#666;line-height:1.7;">致力于成为AI时代的财务数字化复合型人才，将会计专业知识、数据分析能力与AI工具深度结合，为企业创造数据驱动的财务价值。</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ AI Match Modal ═══ -->
+<div class="modal-overlay" id="matchModal">
+  <div class="modal">
+    <div class="mod-hd"><h3>📊 AI 岗位匹配报告</h3><button class="mod-close" onclick="closeMatch()">✕</button></div>
+    <div class="mod-bd">
+      <div class="match-wrap">
+        <div class="match-circle"><div class="match-inner"><span class="ms" id="matchScore">--</span><span class="mt">/ 100</span></div></div>
+        <div class="match-bars">
+          <div class="mb-item"><span class="mb-lbl">学历</span><div class="mb-track"><div class="mb-fill edu" id="bar-edu" style="width:0%"></div></div><span class="mb-val" id="val-edu">--</span></div>
+          <div class="mb-item"><span class="mb-lbl">工作经验</span><div class="mb-track"><div class="mb-fill exp" id="bar-exp" style="width:0%"></div></div><span class="mb-val" id="val-exp">--</span></div>
+          <div class="mb-item"><span class="mb-lbl">技能匹配</span><div class="mb-track"><div class="mb-fill skill" id="bar-skill" style="width:0%"></div></div><span class="mb-val" id="val-skill">--</span></div>
+          <div class="mb-item"><span class="mb-lbl">综合素质</span><div class="mb-track"><div class="mb-fill soft" id="bar-soft" style="width:0%"></div></div><span class="mb-val" id="val-soft">--</span></div>
+        </div>
+      </div>
+      <div class="match-hl">
+        <h4>★ 匹配亮点</h4>
+        <div id="matchHighlights"><p style="color:var(--gray);font-size:13px;">输入JD后自动分析...</p></div>
+      </div>
+      <div class="match-sum"><h4>📄 综合评估</h4><p id="matchSummary">请在关于我页面输入职位描述，点击开始匹配查看分析结果。</p></div>
+    </div>
+    <div class="mod-ft"><button class="btn btn-dark" onclick="closeMatch()">关闭</button></div>
+  </div>
+</div>
+
+<!-- ═══ Contact Modal ═══ -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <div class="mod-hd"><h3>💬 联系我</h3><button class="mod-close" onclick="closeContact()">✕</button></div>
+    <div class="mod-bd">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px;">
+        <div class="contact-info-card">
+          <div class="ci-icon">📞</div>
+          <div class="ci-label">联系电话</div>
+          <a href="tel:15083593021" class="ci-value">15083593021</a>
+        </div>
+        <div class="contact-info-card">
+          <div class="ci-icon">✉️</div>
+          <div class="ci-label">邮箱地址</div>
+          <a href="mailto:xyq197@qq.com" class="ci-value" onclick="window.location.href='mailto:xyq197@qq.com'; return false;">xyq197@qq.com</a>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-bottom:20px;">
+        <a href="tel:15083593021" class="btn btn-outline" style="font-size:12px;">📞 拨打电话</a>
+        <a href="mailto:xyq197@qq.com" class="btn btn-primary" style="font-size:12px;" onclick="window.location.href='mailto:xyq197@qq.com'; return false;">✉️ 发送邮件</a>
+      </div>
+      <div style="border-top:1px solid var(--light-gray);padding-top:18px;">
+        <p style="font-size:13px;color:var(--gray);margin-bottom:14px;">或直接留言，我会尽快回复您：</p>
+        <form id="contactForm" onsubmit="submitContact(event)" style="display:flex;flex-direction:column;gap:12px;">
+          <input type="text" id="cName" placeholder="您的姓名" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
+          <input type="email" id="cEmail" placeholder="您的邮箱" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
+          <textarea id="cMsg" placeholder="留言内容..." rows="3" style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);resize:vertical;"></textarea>
+          <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;">发送留言</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Experience Detail Modals ═══ -->
+<div class="modal-overlay" id="exp1Modal"><div class="modal" style="max-width:720px;">
+  <div class="mod-hd"><h3>💼 工作经历详情</h3><button class="mod-close" onclick="closeExpDetail('exp1')">✕</button></div>
+  <div class="mod-bd">
+    <div class="exp-detail-header">
+      <div class="exp-detail-icon blue">💼</div>
+      <div class="exp-detail-meta"><h3>北京通达商贸有限公司</h3><div class="role">会计助理</div><div class="date">2026.03 — 2026.04</div></div>
+    </div>
+    <div class="exp-stat-row">
+      <div class="exp-stat accent-blue"><div class="num">200+</div><div class="lbl">处理业务凭证</div></div>
+      <div class="exp-stat accent-blue"><div class="num">100%</div><div class="lbl">财务数据准确率</div></div>
+      <div class="exp-stat accent-blue"><div class="num">30%</div><div class="lbl">报表编制效率提升</div></div>
+    </div>
+    <div class="exp-detail-section"><h4>核心职责 <span>CORE RESPONSIBILITIES</span></h4>
+      <div class="exp-detail-cards">
+        <div class="exp-detail-card c-blue"><strong>凭证处理</strong>使用用友U8系统完成日常凭证填制、审核与记账及结账流程，累计处理业务凭证200余张，确保财务数据准确率100%。</div>
+        <div class="exp-detail-card c-purple"><strong>报表编制</strong>通过用友报表系统自定义资产负债表与利润表模板，验证数据勾稽关系及准确性，将报表生成时间缩短30%，为财务决策提供依据。</div>
+        <div class="exp-detail-card c-green"><strong>薪资管理</strong>负责薪资管理及固定资产模块的协同操作，完成工资计提发放、资产增减变动与折旧账务处理等。</div>
+        <div class="exp-detail-card c-orange"><strong>数据汇总</strong>匹配跨表格信息，运用SUM函数汇总明细数据，减少人工计算误差。</div>
+      </div>
+    </div>
+    <div class="exp-detail-section"><h4>核心成果 <span>CORE RESULTS</span></h4>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 独立完成月度、季度财务报表编制，保证数据勾稽关系零差错</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 建立凭证审核SOP流程，将凭证处理效率提升30%</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 协助完成公司年度薪酬核算与固定资产盘点，获得主管好评</div>
+      </div>
+    </div>
+  </div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp1')">关闭</button></div>
+</div></div>
+
+<div class="modal-overlay" id="exp2Modal"><div class="modal" style="max-width:720px;">
+  <div class="mod-hd"><h3>🔍 工作经历详情</h3><button class="mod-close" onclick="closeExpDetail('exp2')">✕</button></div>
+  <div class="mod-bd">
+    <div class="exp-detail-header">
+      <div class="exp-detail-icon purple">🔍</div>
+      <div class="exp-detail-meta"><h3>容诚会计师事务所</h3><div class="role">审计实习生</div><div class="date">2026.04 — 2026.05</div></div>
+    </div>
+    <div class="exp-stat-row">
+      <div class="exp-stat accent-purple"><div class="num">16</div><div class="lbl">实地走访企业</div></div>
+      <div class="exp-stat accent-purple"><div class="num">200+</div><div class="lbl">核查合同份数</div></div>
+      <div class="exp-stat accent-purple"><div class="num">30+</div><div class="lbl">发现合同异常</div></div>
+    </div>
+    <div class="exp-detail-section"><h4>核心职责 <span>CORE RESPONSIBILITIES</span></h4>
+      <div class="exp-detail-cards">
+        <div class="exp-detail-card c-purple"><strong>企业实地走访</strong>参与对被审计单位客户的实地访谈与现场核查，实地采访企业16家，记录关键业务流程及内部控制执行情况，协助识别潜在风险点。</div>
+        <div class="exp-detail-card c-blue"><strong>清产核资与合同核查</strong>重点核查贷款合同、抵押担保协议200+份，核对合同与实际执行情况的一致性，发现30+处合同与资料不符。</div>
+        <div class="exp-detail-card c-green"><strong>工作底稿辅助编制</strong>配合高级审计师整理审计底稿数据，运用VLOOKUP函数完成跨表数据匹配与核对。</div>
+      </div>
+    </div>
+    <div class="exp-detail-section"><h4>核心成果 <span>CORE RESULTS</span></h4>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 独立走访16家企业并撰写走访报告，获得项目经理高度认可</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 发现30+处合同条款与实际执行不符，协助项目组调整审计重点</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 高效完成底稿数据整理，审计团队工作效率显著提升</div>
+      </div>
+    </div>
+  </div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp2')">关闭</button></div>
+</div></div>
+
+<div class="modal-overlay" id="exp3Modal"><div class="modal" style="max-width:720px;">
+  <div class="mod-hd"><h3>🏆 校园实践详情</h3><button class="mod-close" onclick="closeExpDetail('exp3')">✕</button></div>
+  <div class="mod-bd">
+    <div class="exp-detail-header">
+      <div class="exp-detail-icon green">🏆</div>
+      <div class="exp-detail-meta"><h3>浪潮铸远智慧企业大数据分析大赛</h3><div class="role">国家级特等奖</div><div class="date">2024.11</div></div>
+    </div>
+    <div class="exp-stat-row">
+      <div class="exp-stat accent-green"><div class="num">国家级</div><div class="lbl">特等奖</div></div>
+      <div class="exp-stat accent-green"><div class="num">3</div><div class="lbl">三大报表编制</div></div>
+      <div class="exp-stat accent-green"><div class="num">30%</div><div class="lbl">效率提升</div></div>
+    </div>
+    <div class="exp-detail-section"><h4>核心职责 <span>CORE RESPONSIBILITIES</span></h4>
+      <div class="exp-detail-cards">
+        <div class="exp-detail-card c-green"><strong>账务处理</strong>负责银行回单整理与凭证制作，通过SQL系统完成总账、明细账及三大报表（资产负债表、利润表、现金流量表）的编制。</div>
+        <div class="exp-detail-card c-blue"><strong>数据处理</strong>利用SQL、Power BI进行财务数据清洗、转化与可视化分析，提升数据处理效率约30%。</div>
+        <div class="exp-detail-card c-purple"><strong>凭证类型</strong>涵盖总账会计凭证、销货折让凭证、资产购置凭证、采购凭证等多种凭证类型。</div>
+      </div>
+    </div>
+    <div class="exp-detail-section"><h4>核心成果 <span>CORE RESULTS</span></h4>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 从全国参赛队伍中脱颖而出，荣获国家级特等奖</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 独立完成企业级财务数据全流程处理与可视化展示</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 作品获得评委"数据处理逻辑清晰、财务分析深入"的高度评价</div>
+      </div>
+    </div>
+  </div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp3')">关闭</button></div>
+</div></div>
+
+<div class="modal-overlay" id="exp4Modal"><div class="modal" style="max-width:720px;">
+  <div class="mod-hd"><h3>🏢 校园实践详情</h3><button class="mod-close" onclick="closeExpDetail('exp4')">✕</button></div>
+  <div class="mod-bd">
+    <div class="exp-detail-header">
+      <div class="exp-detail-icon orange">🏢</div>
+      <div class="exp-detail-meta"><h3>黑龙江浪潮信息科技有限公司</h3><div class="role">财务共享中心实践经历</div><div class="date">2025.05</div></div>
+    </div>
+    <div class="exp-stat-row">
+      <div class="exp-stat accent-orange"><div class="num">500+</div><div class="lbl">处理原始凭证</div></div>
+      <div class="exp-stat accent-orange"><div class="num">3</div><div class="lbl">税种申报模拟</div></div>
+      <div class="exp-stat accent-orange"><div class="num">全流程</div><div class="lbl">账务闭环</div></div>
+    </div>
+    <div class="exp-detail-section"><h4>核心职责 <span>CORE RESPONSIBILITIES</span></h4>
+      <div class="exp-detail-cards">
+        <div class="exp-detail-card c-orange"><strong>账务流程处理</strong>独立完成凭证审核、账簿登记及期末结账的全流程，累计处理500+原始凭证与账簿。</div>
+        <div class="exp-detail-card c-blue"><strong>多种税务申报</strong>模拟计算增值税、企业所得税及个人所得税应纳税额，完成纳税申报操作。</div>
+        <div class="exp-detail-card c-green"><strong>成本核算分析</strong>运用品种法/分批法核算产品成本，拆解材料、人工、制造费用组成，撰写成本分析报告。</div>
+      </div>
+    </div>
+    <div class="exp-detail-section"><h4>核心成果 <span>CORE RESULTS</span></h4>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 完整走通企业账务处理全流程，从原始凭证到期末结账一气呵成</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 准确完成三税种应纳税额计算与申报模拟，零差错通过审核</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 撰写的成本分析报告获得实训指导教师"结构完整、分析到位"的评价</div>
+      </div>
+    </div>
+  </div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp4')">关闭</button></div>
+</div></div>
+
+<!-- ═══ Cert Detail Modals ═══ -->
+<div class="modal-overlay" id="cert1Modal"><div class="modal" style="max-width:640px;">
+  <div class="mod-hd"><h3>📗 证书详情</h3><button class="mod-close" onclick="closeCertDetail('cert1')">✕</button></div>
+  <div class="mod-bd">
+    <div class="exp-detail-header">
+      <div class="exp-detail-icon green" style="background:var(--light-green);">📗</div>
+      <div class="exp-detail-meta"><h3>会计从业资格证</h3><div class="role">初级会计资格证书</div><div class="date">国家财政部颁发</div></div>
+    </div>
+    <div style="background:var(--lighter-gray);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;">
+      <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;">会计从业资格证（现已改革为<strong>初级会计资格证书</strong>）是从事会计工作必备的职业准入证书。持证人通过了国家统一的会计从业资格考试，具备从事会计工作所必需的<strong>会计基础知识、会计技能和职业道德素养</strong>。</p>
+    </div>
+    <div class="exp-detail-cards">
+      <div class="exp-detail-card c-green"><strong>持证意义</strong>证明持证人具备《会计法》规定的从事会计工作所需的专业能力，是进入会计行业的"敲门砖"。</div>
+      <div class="exp-detail-card c-blue"><strong>考试内容</strong>涵盖会计基础、财经法规与会计职业道德、会计电算化三大科目，全面考核会计从业人员的专业素质。</div>
+      <div class="exp-detail-card c-purple"><strong>行业认可</strong>全国通用，是用人单位招聘会计岗位的重要参考依据，也是报考会计职称的必要前提。</div>
+      <div class="exp-detail-card c-orange"><strong>职业发展</strong>为后续考取初级会计职称、中级会计职称乃至注册会计师（CPA）奠定了坚实的基础。</div>
+    </div>
+  </div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeCertDetail('cert1')">关闭</button></div>
+</div></div>
+
+<div class="modal-overlay" id="cert2Modal"><div class="modal" style="max-width:640px;">
+  <div class="mod-hd"><h3>📊 证书详情</h3><button class="mod-close" onclick="closeCertDetail('cert2')">✕</button></div>
+  <div class="mod-bd">
+    <div class="exp-detail-header">
+      <div class="exp-detail-icon blue" style="background:var(--light-blue);">📊</div>
+      <div class="exp-detail-meta"><h3>BDA 中级数据分析师证书</h3><div class="role">数据分析师认证</div><div class="date">中国商业统计学会颁发</div></div>
+    </div>
+    <div style="background:var(--lighter-gray);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;">
+      <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;">BDA（Business Data Analyst）中级数据分析师证书是由<strong>中国商业统计学会</strong>颁发的国家级数据分析专业认证。持证人系统掌握了<strong>数据处理、统计分析和商业洞察</strong>三大核心能力，能够将数据转化为决策支持。</p>
+    </div>
+    <div class="exp-detail-cards">
+      <div class="exp-detail-card c-blue"><strong>核心能力</strong>熟练掌握SQL数据查询、Power BI可视化、Python数据处理及SPSS统计分析等工具，具备独立完成数据分析项目的能力。</div>
+      <div class="exp-detail-card c-green"><strong>考试内容</strong>涵盖数据分析理论、统计学基础、数据处理实务和数据分析报告撰写四大模块，理论与实操并重。</div>
+      <div class="exp-detail-card c-purple"><strong>行业价值</strong>在数字化转型浪潮中，BDA持证者是企业的热门人才，能够运用数据驱动业务决策，平均薪资高于同类岗位30%。</div>
+      <div class="exp-detail-card c-orange"><strong>技能加持</strong>与会计专业能力相结合，持证人具备"财务+数据"双重复合技能，在智能财务、财务分析等领域具有显著的就业竞争优势。</div>
+    </div>
+  </div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeCertDetail('cert2')">关闭</button></div>
+</div></div>
+
+<div class="modal-overlay" id="cert3Modal"><div class="modal" style="max-width:640px;">
+  <div class="mod-hd"><h3>🌐 证书详情</h3><button class="mod-close" onclick="closeCertDetail('cert3')">✕</button></div>
+  <div class="mod-bd">
+    <div class="exp-detail-header">
+      <div class="exp-detail-icon purple" style="background:var(--light-purple);">🌐</div>
+      <div class="exp-detail-meta"><h3>CET-6 大学英语六级</h3><div class="role">466分 · 全国大学英语六级考试</div><div class="date">教育部高等教育司主办</div></div>
+    </div>
+    <div style="background:var(--lighter-gray);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;">
+      <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;">全国大学英语六级考试（CET-6）是由<strong>教育部高等教育司</strong>主办的全国性英语水平测试，是评估大学生英语综合应用能力的权威标准。持证人具备良好的<strong>英语听说读写译综合能力</strong>，能够以英语为工具获取专业信息并进行有效沟通。</p>
+    </div>
+    <div class="exp-detail-cards">
+      <div class="exp-detail-card c-purple"><strong>语言能力</strong>具备良好的英语阅读、写作和听力能力，能够流畅阅读英文财会文献、国际会计准则及英文商务函件。</div>
+      <div class="exp-detail-card c-blue"><strong>考试构成</strong>满分710分，涵盖听力理解、阅读理解、写作翻译三大板块，全面考核英语综合运用能力。</div>
+      <div class="exp-detail-card c-green"><strong>职场价值</strong>在跨国企业、外资会计师事务所及涉外财务岗位中，CET-6是基本的语言门槛，持证人具备从事国际业务的英语基础。</div>
+      <div class="exp-detail-card c-orange"><strong>专业延伸</strong>能够阅读国际财务报告准则（IFRS）等英文专业文献，为未来考取ACCA、CMA等国际财会证书提供语言支撑。</div>
+    </div>
+  </div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeCertDetail('cert3')">关闭</button></div>
+</div></div>
+
+<!-- ═══ Education Modal ═══ -->
+<div class="modal-overlay" id="eduModal">
+  <div class="modal" style="max-width:760px;">
+    <div class="mod-hd"><h3>🏫 哈尔滨商业大学</h3><button class="mod-close" onclick="closeEdu()">✕</button></div>
+    <div class="mod-bd">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+        <div style="border-radius:var(--radius-sm);overflow:hidden;aspect-ratio:16/11;background:linear-gradient(135deg,#e8f0fe,#d4e4fd);display:flex;align-items:center;justify-content:center;">
+          <img src="assets/school-main.png" alt="哈尔滨商业大学" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=text-align:center;color:var(--blue);font-size:48px>🏛️</div><div style=text-align:center;color:var(--blue);font-size:13px;margin-top:4px>哈尔滨商业大学</div>'">
+        </div>
+        <div>
+          <p style="font-size:12px;color:var(--gray);letter-spacing:1px;margin-bottom:4px;">HARBIN UNIVERSITY OF COMMERCE</p>
+          <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:4px;">新中国第一所多科性商业大学</p>
+          <p style="font-size:12px;color:#555;line-height:1.7;margin-bottom:6px;">始建于 <strong>1952年</strong>，黑龙江省重点建设的十所大学之一，入选中西部高校基础能力建设工程，国内一流学科建设高校。</p>
+          <div class="tags" style="margin-top:8px;">
+            <span class="tag" style="background:var(--light-purple);color:var(--purple);">博士授权单位</span>
+            <span class="tag" style="background:var(--light-blue);color:var(--blue);">省属重点</span>
+            <span class="tag" style="background:var(--light-green);color:var(--green);">中西部高校基础能力建设工程</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--lighter-gray);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;">
+        <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;">
+          哈尔滨商业大学是<strong>新中国第一所多科性商业大学</strong>，拥有完整的本-硕-博人才培养体系。学校秉承"<strong>求真至善，修德允能</strong>"的校训，以"一流的经管学科为主导，精干特色的工科为重点"的学科定位，培养了<strong>20余万名</strong>各类专业人才，被誉为"<strong>商业精英的摇篮</strong>"。
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <div style="background:var(--light-purple);border-radius:var(--radius-xs);padding:14px;">
+          <div style="font-size:22px;font-weight:800;color:var(--purple);">4</div>
+          <div style="font-size:11px;color:#555;">一级学科博士点</div>
+        </div>
+        <div style="background:var(--light-blue);border-radius:var(--radius-xs);padding:14px;">
+          <div style="font-size:22px;font-weight:800;color:var(--blue);">15</div>
+          <div style="font-size:11px;color:#555;">国家级一流本科专业</div>
+        </div>
+        <div style="background:var(--light-green);border-radius:var(--radius-xs);padding:14px;">
+          <div style="font-size:22px;font-weight:800;color:var(--green);">73年</div>
+          <div style="font-size:11px;color:#555;">悠久办学历史</div>
+        </div>
+        <div style="background:var(--light-orange);border-radius:var(--radius-xs);padding:14px;">
+          <div style="font-size:22px;font-weight:800;color:var(--orange);">20万+</div>
+          <div style="font-size:11px;color:#555;">累计培养人才</div>
+        </div>
+      </div>
+      <div style="background:linear-gradient(135deg,#fef9e7,#fdf2d0);border-radius:var(--radius-sm);padding:16px;border-left:3px solid var(--yellow);">
+        <p style="font-size:12px;color:#8a7030;line-height:1.8;margin:0;">
+          <strong>🏆 骄傲的商大印记：</strong>1959年研制出<strong>中国第一台食品机械——601型饺子机</strong>；1960年首创我国三大会计记账法之一"<strong>财产收付复式记账法</strong>"；会计学专业为<strong>国家级特色专业、国家级一流本科专业建设点</strong>；《商业研究》期刊为<strong>CSSCI来源期刊</strong>。学校在2024年入选<strong>黑龙江省首批数智教育重点校</strong>建设名单。
+        </p>
+      </div>
+    </div>
+    <div class="mod-ft"><button class="btn btn-dark" onclick="closeEdu()">关闭</button></div>
+  </div>
+</div>
+
+<footer class="footer">© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学</footer>
+
+<script>
+function go(s) {
+  document.querySelectorAll('.section').forEach(function(el){ el.classList.remove('active'); });
+  document.getElementById('sec-'+s).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(function(b){
+    b.classList.remove('active');
+    if(b.getAttribute('data-s')===s) b.classList.add('active');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showContact() {
+  document.getElementById('contactModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeContact() {
+  document.getElementById('contactModal').classList.remove('show');
+  document.body.style.overflow='';
+}
+function submitContact(e) {
+  e.preventDefault();
+  alert('留言发送成功！我会尽快回复您。');
+  closeContact();
+  document.getElementById('contactForm').reset();
+}
+function showMatch() {
+  var jd = document.getElementById('jdInput').value.trim();
+  if (!jd) { alert('请先粘贴职位描述（JD）再点击匹配'); return; }
+
+  // ── 关键词库（覆盖面广，确保专业相关JD都能匹配）──
+  var acctKW = ['会计','财务','账','凭证','报表','核算','成本','税务','税','用友','u8','金蝶','总账','明细账','对账','结账','出纳','票据','发票','现金流','应收','应付','固定资产','折旧','工资','薪酬','会计准则','会计制度','账务','记账','账簿','报税','纳税','费用','收入','利润'];
+  var dataKW = ['sql','power bi','powerbi','python','excel','wps','spss','bi','数据分析','数据处理','数据清洗','可视化','vlookup','sum','数据透视','大数据','数据','office'];
+  var auditKW = ['审计','内控','风控','合同','核查','合规','风险','底稿','走访','内审','外审','内部控制','内部审计','穿行测试','实质性程序'];
+  var softKW = ['沟通','协作','团队','抗压','责任','学习','认真','细致','乐观','积极','志愿者','领导','组织','执行','配合','协调','适应','主动'];
+
+  // ── 匹配评分 ──
+  function computeScore(kwList) {
+    var hits = 0;
+    var jdl = jd.toLowerCase();
+    kwList.forEach(function(kw) {
+      if (jdl.indexOf(kw.toLowerCase()) !== -1) hits++;
+    });
+    if (hits === 0) return 0;
+    if (hits === 1) return 55;
+    if (hits === 2) return 70;
+    if (hits === 3) return 80;
+    if (hits === 4) return 87;
+    return Math.min(98, 87 + (hits - 4) * 2);
+  }
+
+  var acctS = computeScore(acctKW);
+  var dataS = computeScore(dataKW);
+  var auditS = computeScore(auditKW);
+  var softS = computeScore(softKW);
+
+  var hasDomainMatch = (acctS > 0 || auditS > 0);
+  var domainBoost = hasDomainMatch ? 12 : 0;
+
+  var eduScore = 90;
+  var expScore = Math.min(92, 72 + domainBoost);
+  var skillScore = Math.max(acctS, auditS, dataS);
+  var dimHits = (acctS > 0 ? 1 : 0) + (dataS > 0 ? 1 : 0) + (auditS > 0 ? 1 : 0);
+  if (dimHits >= 2) skillScore = Math.min(98, skillScore + 12);
+  if (dimHits >= 3) skillScore = Math.min(98, skillScore + 6);
+  var softScore = Math.max(75, softS > 0 ? softS : 72);
+  var overall = Math.round(eduScore * 0.06 + expScore * 0.14 + skillScore * 0.63 + softScore * 0.17);
+
+  document.getElementById('matchScore').textContent = overall;
+  function anim(id, vid, s) {
+    var b = document.getElementById(id); b.style.width = '0%';
+    document.getElementById(vid).textContent = s;
+    setTimeout(function() { b.style.width = s + '%'; }, 150);
+  }
+  anim('bar-edu', 'val-edu', eduScore);
+  anim('bar-exp', 'val-exp', expScore);
+  anim('bar-skill', 'val-skill', skillScore);
+  anim('bar-soft', 'val-soft', softScore);
+
+  var hl = [];
+  if (acctS >= 55) hl.push({ t: '财务专业能力高度匹配', d: 'JD包含多项财务会计核心要求，候选人具备凭证处理、报表编制、成本核算、税务处理等全套财务技能，用友U8实操经验丰富，能够快速上手财务岗位工作。' });
+  else if (acctS >= 40) hl.push({ t: '财务基础能力匹配', d: 'JD涉及财务会计相关要求，候选人具备扎实的会计专业知识和实操基础，能够胜任日常财务工作。' });
+  if (dataS >= 55) hl.push({ t: '数据分析能力突出', d: 'JD强调数据处理与分析能力，候选人熟练使用SQL、Power BI、Python、SPSS等工具，具备财务数据清洗、可视化分析与报表自动化能力。' });
+  else if (dataS >= 40) hl.push({ t: '具备数据分析基础', d: 'JD包含数据处理相关要求，候选人掌握SQL和Power BI，能够进行财务数据处理与分析。' });
+  if (auditS >= 40) hl.push({ t: '审计与内控经验匹配', d: 'JD涉及审计/内控/合规要求，候选人在容诚会计师事务所实习期间积累了实地走访、合同核查、底稿编制等审计实务经验，熟悉内控流程。' });
+  if (softS >= 55) hl.push({ t: '综合素质匹配', d: 'JD强调沟通、协作、责任心等软技能，候选人多次获得优秀志愿者称号，实习和竞赛中表现出强烈的自驱力、抗压能力与团队协作精神。' });
+  if (hl.length === 0 && hasDomainMatch) hl.push({ t: '专业方向基本吻合', d: 'JD与候选人会计/财务专业方向相关，虽然关键词细节匹配不多，但候选人的财务教育背景和实习经验为该岗位提供了良好基础。' });
+  if (hl.length === 0) hl.push({ t: 'JD分析结果', d: '该职位描述与候选人财务/审计专业方向匹配度较低。JD中未显著体现财务会计、数据分析或审计相关关键词，建议关注财务类岗位以获得更高匹配度。' });
+  var hh = '';
+  hl.forEach(function(h) { hh += '<div class="hl-item"><div class="jd-lbl">📌 ' + h.t + '</div><div class="jd-desc">' + h.d + '</div></div>'; });
+  document.getElementById('matchHighlights').innerHTML = hh;
+
+  var sum;
+  if (overall >= 80) sum = '候选人与该岗位高度匹配。财务专业基础扎实，' + (dataS >= 40 ? '兼具数据分析能力，' : '') + '拥有审计实习与企业财务双重实战经验。综合能力突出，建议优先安排面试。';
+  else if (overall >= 70) sum = '候选人与该岗位匹配度良好。专业技能覆盖JD核心要求，具备相应的实习经验和实操能力，能够较快适应岗位工作。';
+  else if (overall >= 50) sum = '候选人与该岗位有一定匹配度。专业方向基本吻合，部分技能需要进一步培养' + (jd.length < 50 ? '（建议提供更详细的JD以获得更准确分析）' : '') + '。';
+  else sum = '该岗位与候选人财务/会计专业方向差异较大，JD中未匹配到核心财务技能关键词。建议候选人关注财务会计、审计、财务分析等相关岗位。';
+  document.getElementById('matchSummary').textContent = sum;
+
+  document.getElementById('matchModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeMatch() {
+  document.getElementById('matchModal').classList.remove('show');
+  document.body.style.overflow='';
+}
+function showExpDetail(id) {
+  document.getElementById(id + 'Modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeExpDetail(id) {
+  document.getElementById(id + 'Modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function showCertDetail(id) {
+  document.getElementById(id + 'Modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeCertDetail(id) {
+  document.getElementById(id + 'Modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function showEdu() {
+  document.getElementById('eduModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeEdu() {
+  document.getElementById('eduModal').classList.remove('show');
+  document.body.style.overflow='';
+}
+document.getElementById('matchModal').addEventListener('click',function(e){ if(e.target===this) closeMatch(); });
+document.getElementById('contactModal').addEventListener('click',function(e){ if(e.target===this) closeContact(); });
+document.getElementById('eduModal').addEventListener('click',function(e){ if(e.target===this) closeEdu(); });
+['exp1','exp2','exp3','exp4','cert1','cert2','cert3'].forEach(function(id){
+  document.getElementById(id+'Modal').addEventListener('click',function(e){ if(e.target===this) { closeExpDetail(id); closeCertDetail(id); } });
+});
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeMatch(); closeContact(); closeEdu(); ['exp1','exp2','exp3','exp4','cert1','cert2','cert3'].forEach(function(id){ closeExpDetail(id); closeCertDetail(id); }); } });
+// Animate skill bars on scroll
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.querySelectorAll('.sk-fill').forEach(function(b){
+        var w=b.style.width; b.style.width='0%';
+        setTimeout(function(){ b.style.width=w; },80);
+      });
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('.section').forEach(function(s){ obs.observe(s); });
+</script>
+</body>
+</html>
