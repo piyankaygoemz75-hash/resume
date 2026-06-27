@@ -343,7 +343,7 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
         <h1 class="about-name">Hi, I am Yongqing Xie</h1>
         <p class="about-title">Accounting Professional &amp; Intelligent Accounting</p>
         <p class="about-bio">
-          一个左手翻凭证、右手敲SQL的财会人 🖐️<br>
+          A finance professional: vouchers in one hand, SQL in the other!<br>
           During my four years at Harbin University of Commerce, I turned Excel into an art form and let Power BI tell data stories.<br>
           At Rongcheng CPA Firm, I reviewed 200+ contracts and found 30+"discrepancies"，At Yuzhou Shentong, I processed vouchers with assembly-line precision using U8.<br>
           I believe great finance professionals do not just crunch numbers -- they use data to drive decisions. If you are looking for someone who knows both debits/credits and coding"slash-career talent"，let us talk! ✨
@@ -919,23 +919,23 @@ function showMatch() {
   anim('bar-soft', 'val-soft', softScore);
 
   var hl = [];
-  if (acctS >= 55) hl.push({ t: '财务专业能力高度匹配', d: 'JD包含多项财务会计核心要求，候选人具备凭证处理、报表编制、成本核算、税务处理等全套财务技能，用友U8实操经验丰富，能够快速上手财务岗位工作。' });
-  else if (acctS >= 40) hl.push({ t: '财务基础能力匹配', d: 'JD涉及财务会计相关要求，候选人具备扎实的会计专业知识和实操基础，能够胜任日常财务工作。' });
-  if (dataS >= 55) hl.push({ t: '数据分析能力突出', d: 'JD强调数据处理与分析能力，候选人熟练使用SQL、Power BI、Python、SPSS等工具，具备财务数据清洗、可视化分析与报表自动化能力。' });
-  else if (dataS >= 40) hl.push({ t: '具备数据分析基础', d: 'JD包含数据处理相关要求，候选人掌握SQL和Power BI，能够进行财务数据处理与分析。' });
-  if (auditS >= 40) hl.push({ t: '审计与内控经验匹配', d: 'JD涉及审计/内控/合规要求，候选人在容诚会计师事务所实习期间积累了实地走访、合同核查、底稿编制等审计实务经验，熟悉内控流程。' });
-  if (softS >= 55) hl.push({ t: '综合素质匹配', d: 'JD强调沟通、协作、责任心等软技能，候选人多次获得优秀志愿者称号，实习和竞赛中表现出强烈的自驱力、抗压能力与团队协作精神。' });
-  if (hl.length === 0 && hasDomainMatch) hl.push({ t: '专业方向基本吻合', d: 'JD与候选人会计/财务专业方向相关，虽然关键词细节匹配不多，但候选人的财务教育背景和实习经验为该岗位提供了良好基础。' });
-  if (hl.length === 0) hl.push({ t: 'JD分析结果', d: '该职位描述与候选人财务/审计专业方向匹配度较低。JD中未显著体现财务会计、数据分析或审计相关关键词，建议关注财务类岗位以获得更高匹配度。' });
+  if (acctS >= 55) hl.push({ t: 'Strong Financial Expertise Match', d: 'JD covers multiple core financial accounting requirements. The candidate possesses comprehensive financial skills and extensive UFIDA U8 hands-on experience, ready to contribute immediately.' });
+  else if (acctS >= 40) hl.push({ t: 'Financial Basics Match', d: 'JD includes financial accounting requirements. The candidate has solid accounting knowledge and practical foundations for daily financial work.' });
+  if (dataS >= 55) hl.push({ t: 'Outstanding Data Analysis Skills', d: 'JD emphasizes data processing and analysis. The candidate is proficient in SQL, Power BI, Python, SPSS, with capabilities in financial data cleaning, visualization, and automated reporting.' });
+  else if (dataS >= 40) hl.push({ t: 'Data Analysis Fundamentals', d: 'JD includes data processing requirements. The candidate is skilled in SQL and Power BI for financial data processing and analysis.' });
+  if (auditS >= 40) hl.push({ t: 'Audit & Internal Control Match', d: 'JD involves audit/internal control/compliance requirements. The candidate gained practical audit experience at Rongcheng CPA Firm through on-site visits, contract verification, and working paper preparation.' });
+  if (softS >= 55) hl.push({ t: 'Soft Skills Match', d: 'JD emphasizes communication, collaboration, and responsibility. The candidate has won Outstanding Volunteer awards multiple times and demonstrated strong self-drive, resilience, and teamwork.' });
+  if (hl.length === 0 && hasDomainMatch) hl.push({ t: 'Professional Background Alignment', d: 'The JD is related to the candidate accounting/finance background. While keyword-level matching is limited, the candidate financial education and internship experience provide a solid foundation.' });
+  if (hl.length === 0) hl.push({ t: 'JD Analysis Result', d: 'This job description shows low compatibility with the candidate finance/audit background. The JD does not prominently feature financial accounting, data analysis, or audit keywords. We recommend focusing on finance-related positions for better compatibility.' });
   var hh = '';
   hl.forEach(function(h) { hh += '<div class="hl-item"><div class="jd-lbl">📌 ' + h.t + '</div><div class="jd-desc">' + h.d + '</div></div>'; });
   document.getElementById('matchHighlights').innerHTML = hh;
 
   var sum;
-  if (overall >= 80) sum = '候选人与该岗位高度匹配。财务专业基础扎实，' + (dataS >= 40 ? '兼具数据分析能力，' : '') + '拥有审计实习与企业财务双重实战经验。综合能力突出，建议优先安排面试。';
-  else if (overall >= 70) sum = '候选人与该岗位匹配度良好。专业技能覆盖JD核心要求，具备相应的实习经验和实操能力，能够较快适应岗位工作。';
-  else if (overall >= 50) sum = '候选人与该岗位有一定匹配度。专业方向基本吻合，部分技能需要进一步培养' + (jd.length < 50 ? '（建议提供更详细的JD以获得更准确分析）' : '') + '。';
-  else sum = '该岗位与候选人财务/会计专业方向差异较大，JD中未匹配到核心财务技能关键词。建议候选人关注财务会计、审计、财务分析等相关岗位。';
+  if (overall >= 80) sum = 'The candidate is highly compatible with this position. With a solid financial foundation, ' + (dataS >= 40 ? 'combined with data analysis capabilities, ' : '') + 'and dual hands-on experience in audit internship and corporate finance. Outstanding overall ability. Recommended for priority interview.';
+  else if (overall >= 70) sum = 'The candidate matches this position well. Professional skills cover core JD requirements, with relevant internship experience and practical abilities to adapt quickly.';
+  else if (overall >= 50) sum = '候选人与该岗位有一定匹配度。Professional Background Alignment，部分技能需要进一步培养' + (jd.length < 50 ? ' (a more detailed JD is recommended for more accurate analysis)' : '') + '。';
+  else sum = 'This position differs significantly from the candidate finance/accounting background, with no core financial skill keywords matched. We recommend focusing on financial accounting, audit, and financial analysis positions.';
   document.getElementById('matchSummary').textContent = sum;
 
   document.getElementById('matchModal').classList.add('show');
@@ -997,7 +997,7 @@ var idxI18n = {
     '关于我':'关于我','教育背景':'教育背景','工作与实践':'工作与实践','技能特长':'技能特长','学习与探索':'学习与探索',
     'Hi, 我是谢泳清':'Hi, 我是谢泳清',
     'Accounting Professional &amp; Intelligent Accounting':'Accounting Professional &amp; Intelligent Accounting',
-    '一个左手翻凭证、右手敲SQL的财会人 🖐️':'一个左手翻凭证、右手敲SQL的财会人 🖐️',
+    'A finance professional: vouchers in one hand, SQL in the other!':'A finance professional: vouchers in one hand, SQL in the other!',
     '📄 下载简历':'📄 下载简历','💬 联系我':'💬 联系我',
     '🤖 AI 岗位匹配器':'🤖 AI 岗位匹配器',
     '粘贴您的JD（职位描述），查看我与岗位之间的匹配度...':'粘贴您的JD（职位描述），查看我与岗位之间的匹配度...',
@@ -1048,7 +1048,7 @@ var idxI18n = {
     '技能特长':'Skills','学习与探索':'Learning',
     'Hi, 我是谢泳清':"Hi, I'm Yongqing Xie",
     'Accounting Professional &amp; Intelligent Accounting':'Accounting Professional & Intelligent Accounting',
-    '一个左手翻凭证、右手敲SQL的财会人 🖐️':'A finance pro — vouchers in one hand, SQL in the other.',
+    'A finance professional: vouchers in one hand, SQL in the other!':'A finance pro — vouchers in one hand, SQL in the other.',
     '📄 下载简历':'📄 Download Resume','💬 联系我':'💬 Contact Me',
     '🤖 AI 岗位匹配器':'🤖 AI Job Matcher',
     '粘贴您的JD（职位描述），查看我与岗位之间的匹配度...':'Paste a job description to check compatibility...',
