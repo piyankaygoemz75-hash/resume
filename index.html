@@ -324,6 +324,10 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
     <a class="nav-brand" onclick="go('about')">
       <div class="nav-avatar">👩‍💼</div>
     </a>
+    <div class="lang-switch" style="display:flex;gap:2px;margin-right:12px;">
+      <span class="lang-option active" data-lang="zh" style="padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:none;background:var(--lighter-gray);color:var(--gray);font-family:var(--font);transition:all .2s;">中</span>
+      <span class="lang-option" data-lang="en" style="padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:none;background:var(--lighter-gray);color:var(--gray);font-family:var(--font);transition:all .2s;">EN</span>
+    </div>
     <div class="nav-links">
       <button class="nav-link active" data-s="about" onclick="go('about')">关于我</button>
       <button class="nav-link" data-s="education" onclick="go('education')">教育背景</button>
@@ -843,6 +847,7 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 
 <footer class="footer">© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学</footer>
 
+<script src="js/main.js"></script>
 <script>
 function go(s) {
   document.querySelectorAll('.section').forEach(function(el){ el.classList.remove('active'); });
@@ -990,6 +995,271 @@ var obs = new IntersectionObserver(function(entries){
   });
 },{threshold:0.2});
 document.querySelectorAll('.section').forEach(function(s){ obs.observe(s); });
+
+// ── Extend i18n for index.html SPA ──
+// main.js translate() handles data-i18n elements. We add a second pass for unmarked text.
+var idxI18n = {
+  zh: {
+    '关于我':'关于我','教育背景':'教育背景','工作与实践':'工作与实践','技能特长':'技能特长','学习与探索':'学习与探索',
+    'Hi, 我是谢泳清':'Hi, 我是谢泳清',
+    'Accounting Professional &amp; Intelligent Accounting':'Accounting Professional &amp; Intelligent Accounting',
+    '一个左手翻凭证、右手敲SQL的财会人 🖐️':'一个左手翻凭证、右手敲SQL的财会人 🖐️',
+    '📄 下载简历':'📄 下载简历','💬 联系我':'💬 联系我',
+    '🤖 AI 岗位匹配器':'🤖 AI 岗位匹配器',
+    '粘贴您的JD（职位描述），查看我与岗位之间的匹配度...':'粘贴您的JD（职位描述），查看我与岗位之间的匹配度...',
+    '开始匹配 →':'开始匹配 →','Education':'Education',
+    '📚 主修课程':'📚 主修课程','🔍 点击了解母校':'🔍 点击了解母校',
+    '会计学 · 智能会计方向（本科）':'会计学 · 智能会计方向（本科）',
+    '📊 GPA：83.7 / 100':'📊 GPA：83.7 / 100',
+    '工作经历':'工作经历','Work & Practice':'Work & Practice',
+    '禹州市申通物流服务有限公司':'禹州市申通物流服务有限公司','会计助理':'会计助理',
+    '使用用友U8系统处理200+张业务凭证，编制财务报表，参与薪酬核算与固定资产管理':'使用用友U8系统处理200+张业务凭证，编制财务报表，参与薪酬核算与固定资产管理',
+    '容诚会计师事务所':'容诚会计师事务所','审计实习生':'审计实习生',
+    '实地走访16家企业，核查200+份合同发现30+处异常，协助编制审计底稿':'实地走访16家企业，核查200+份合同发现30+处异常，协助编制审计底稿',
+    '浪潮铸远智慧企业大数据分析大赛':'浪潮铸远智慧企业大数据分析大赛','国家级特等奖':'国家级特等奖',
+    '通过SQL完成三大报表编制，运用Power BI进行财务数据可视化分析，效率提升30%':'通过SQL完成三大报表编制，运用Power BI进行财务数据可视化分析，效率提升30%',
+    '黑龙江浪潮信息科技有限公司':'黑龙江浪潮信息科技有限公司',
+    '财务共享中心实践经历':'财务共享中心实践经历',
+    '完成全流程500+凭证处理，模拟税务申报，运用品种法/分批法撰写成本分析报告':'完成全流程500+凭证处理，模拟税务申报，运用品种法/分批法撰写成本分析报告',
+    '点击查看详情 →':'点击查看详情 →','Skills & Expertise':'Skills & Expertise',
+    '💼 专业技能':'💼 专业技能','🛠 技术工具':'🛠 技术工具','🤖 AI 工具应用':'🤖 AI 工具应用',
+    '📜 证书与资格':'📜 证书与资格','🌟 综合能力':'🌟 综合能力',
+    '会计从业资格证':'会计从业资格证','BDA 中级证书':'BDA 中级证书',
+    'CET-6（466分）':'CET-6（466分）','大学英语六级':'大学英语六级',
+    '初级会计资格证书 · 国家财政部颁发':'初级会计资格证书 · 国家财政部颁发','数据分析师认证':'数据分析师认证',
+    'Learning & Discovery':'Learning & Discovery',
+    '浪潮铸远大数据分析大赛':'浪潮铸远大数据分析大赛',
+    '大学生创新创业大赛':'大学生创新创业大赛','成本分析报告':'成本分析报告',
+    'AI 工具应用与实践':'AI 工具应用与实践',
+    '📝 学习成长轨迹':'📝 学习成长轨迹','AI 探索与应用':'AI 探索与应用',
+    '持续学习':'持续学习','职业目标':'职业目标',
+    '© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学':'© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学',
+    '哈尔滨商业大学':'哈尔滨商业大学','关闭':'关闭','发送留言':'发送留言',
+    '📊 AI 岗位匹配报告':'📊 AI 岗位匹配报告','学历':'学历','工作经验':'工作经验',
+    '技能匹配':'技能匹配','综合素质':'综合素质','★ 匹配亮点':'★ 匹配亮点',
+    '📄 综合评估':'📄 综合评估','💼 工作经历详情':'💼 工作经历详情',
+    '🔍 工作经历详情':'🔍 工作经历详情','🏆 校园实践详情':'🏆 校园实践详情',
+    '🏢 校园实践详情':'🏢 校园实践详情','📗 证书详情':'📗 证书详情',
+    '📊 证书详情':'📊 证书详情','🌐 证书详情':'🌐 证书详情',
+    '🏫 哈尔滨商业大学':'🏫 哈尔滨商业大学',
+    '或直接留言，我会尽快回复您：':'或直接留言，我会尽快回复您：',
+    '您的姓名':'您的姓名','您的邮箱':'您的邮箱','留言内容...':'留言内容...',
+    '📞 拨打电话':'📞 拨打电话','✉️ 发送邮件':'✉️ 发送邮件',
+    '联系电话':'联系电话','邮箱地址':'邮箱地址',
+    '核心职责':'核心职责','CORE RESPONSIBILITIES':'CORE RESPONSIBILITIES',
+    '核心成果':'核心成果','CORE RESULTS':'CORE RESULTS'
+  },
+  en: {
+    '关于我':'About Me','教育背景':'Education','工作与实践':'Work & Practice',
+    '技能特长':'Skills','学习与探索':'Learning',
+    'Hi, 我是谢泳清':"Hi, I'm Yongqing Xie",
+    'Accounting Professional &amp; Intelligent Accounting':'Accounting Professional & Intelligent Accounting',
+    '一个左手翻凭证、右手敲SQL的财会人 🖐️':'A finance pro — vouchers in one hand, SQL in the other.',
+    '📄 下载简历':'📄 Download Resume','💬 联系我':'💬 Contact Me',
+    '🤖 AI 岗位匹配器':'🤖 AI Job Matcher',
+    '粘贴您的JD（职位描述），查看我与岗位之间的匹配度...':'Paste a job description to check compatibility...',
+    '开始匹配 →':'Start Matching →','Education':'Education',
+    '📚 主修课程':'📚 Core Courses','🔍 点击了解母校':'🔍 Learn about my university',
+    '会计学 · 智能会计方向（本科）':'B.S. Accounting · Intelligent Accounting',
+    '📊 GPA：83.7 / 100':'📊 GPA: 83.7 / 100',
+    '工作经历':'Work Experience','Work & Practice':'Work & Practice',
+    '禹州市申通物流服务有限公司':'Yuzhou Shentong Logistics Service Co., Ltd.',
+    '会计助理':'Accounting Assistant',
+    '使用用友U8系统处理200+张业务凭证，编制财务报表，参与薪酬核算与固定资产管理':'Processed 200+ vouchers via UFIDA U8, prepared financial statements, handled payroll and fixed asset management.',
+    '容诚会计师事务所':'Rongcheng CPA Firm','审计实习生':'Audit Intern',
+    '实地走访16家企业，核查200+份合同发现30+处异常，协助编制审计底稿':'Visited 16 enterprises, reviewed 200+ contracts finding 30+ discrepancies, assisted in audit working papers.',
+    '浪潮铸远智慧企业大数据分析大赛':'Inspur Smart Enterprise Big Data Competition',
+    '国家级特等奖':'National Grand Prize',
+    '通过SQL完成三大报表编制，运用Power BI进行财务数据可视化分析，效率提升30%':'Built three financial statements via SQL, used Power BI for data visualization, 30% efficiency gain.',
+    '黑龙江浪潮信息科技有限公司':'Heilongjiang Inspur Information Technology Co.',
+    '财务共享中心实践经历':'Financial Shared Service Center Practicum',
+    '完成全流程500+凭证处理，模拟税务申报，运用品种法/分批法撰写成本分析报告':'Processed 500+ vouchers end-to-end, simulated tax filing, authored cost analysis reports.',
+    '点击查看详情 →':'Click for details →','Skills & Expertise':'Skills & Expertise',
+    '💼 专业技能':'💼 Professional Skills','🛠 技术工具':'🛠 Technical Tools',
+    '🤖 AI 工具应用':'🤖 AI Tool Application','📜 证书与资格':'📜 Certifications',
+    '🌟 综合能力':'🌟 Soft Skills',
+    '会计从业资格证':'Accounting Qualification Certificate',
+    'BDA 中级证书':'BDA Data Analyst (Mid-level)',
+    'CET-6（466分）':'CET-6 (Score: 466)','大学英语六级':'College English Test Band 6',
+    '初级会计资格证书 · 国家财政部颁发':'Junior Accountant Certificate · Ministry of Finance',
+    '数据分析师认证':'Data Analyst Certification',
+    'Learning & Discovery':'Learning & Discovery',
+    '浪潮铸远大数据分析大赛':'Inspur Big Data Analysis Competition',
+    '大学生创新创业大赛':'Innovation & Entrepreneurship Competition',
+    '成本分析报告':'Cost Analysis Report','AI 工具应用与实践':'AI Tools & Practice',
+    '📝 学习成长轨迹':'📝 Learning Journey','AI 探索与应用':'AI Exploration & Application',
+    '持续学习':'Continuous Learning','职业目标':'Career Goals',
+    '© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学':'© 2026 Yongqing Xie · Resume · Harbin University of Commerce',
+    '哈尔滨商业大学':'Harbin University of Commerce','关闭':'Close',
+    '发送留言':'Send Message','📊 AI 岗位匹配报告':'📊 AI Job Match Report',
+    '学历':'Education BG','工作经验':'Work Experience',
+    '技能匹配':'Skill Match','综合素质':'Soft Skills',
+    '★ 匹配亮点':'★ Match Highlights','📄 综合评估':'📄 Overall Assessment',
+    '💼 工作经历详情':'💼 Work Experience Details',
+    '🔍 工作经历详情':'🔍 Work Experience Details',
+    '🏆 校园实践详情':'🏆 Campus Practice Details',
+    '🏢 校园实践详情':'🏢 Campus Practice Details',
+    '📗 证书详情':'📗 Certificate Details','📊 证书详情':'📊 Certificate Details',
+    '🌐 证书详情':'🌐 Certificate Details',
+    '🏫 哈尔滨商业大学':'🏫 Harbin University of Commerce',
+    '或直接留言，我会尽快回复您：':'Or leave a message:',
+    '您的姓名':'Your Name','您的邮箱':'Your Email','留言内容...':'Message...',
+    '📞 拨打电话':'📞 Call','✉️ 发送邮件':'✉️ Send Email',
+    '联系电话':'Phone','邮箱地址':'Email Address',
+    '核心职责':'Core Responsibilities','CORE RESPONSIBILITIES':'CORE RESPONSIBILITIES',
+    '核心成果':'Core Results','CORE RESULTS':'CORE RESULTS',
+    '成本会计':'Cost Accounting','管理会计':'Management Accounting',
+    '企业财务管理':'Corporate Finance','会计综合实训':'Accounting Practicum',
+    'Python':'Python','SQL':'SQL',
+    '数据分析与会计':'Data Analysis & Accounting',
+    '数据分析方法与应用':'Data Analysis Methods & Applications',
+    '智能财务分析':'Intelligent Financial Analysis',
+    '逻辑学':'Logic','管理学':'Management','经济法':'Economic Law',
+    '资产评估学':'Asset Valuation','审计学':'Auditing',
+    '微观经济学':'Microeconomics','宏观经济学':'Macroeconomics',
+    'SAP系统学习与运用':'SAP System & Application',
+    'ERP沙盘模拟':'ERP Sandbox Simulation',
+    '财务会计':'Financial Accounting',
+    '精通凭证编制、总账明细账管理、财务报表编制，熟悉企业会计准则与财务制度':'Proficient in voucher preparation, GL/SL management, and financial statement preparation. Familiar with accounting standards and regulations.',
+    '掌握品种法、分步法、分批法，能够独立完成材料、人工、制造费用的归集与分配':'Skilled in job-order, process, and batch costing. Capable of independent cost allocation.',
+    '具备企业实地走访、合同核查、底稿编制经验，能够识别关键业务流程中的潜在风险':'Experienced in on-site visits, contract verification, and working paper preparation. Able to identify process risks.',
+    '熟悉增值税、企业所得税、个人所得税计算与申报流程，了解相关税收法规':'Familiar with VAT, CIT, and IIT calculation and filing. Knowledgeable in tax regulations.',
+    '用友U8':'UFIDA U8','Power BI':'Power BI','Office / WPS':'Office / WPS',
+    '熟练使用用友U8系统进行凭证填制、审核记账、结账及报表模板自定义':'Proficient in UFIDA U8 for voucher entry, review, bookkeeping, settlement, and custom reports.',
+    '能够使用SQL进行财务数据查询、清洗、汇总分析，完成总账与明细账的数据处理':'Able to query, clean, and aggregate financial data using SQL for GL/SL processing.',
+    '掌握数据可视化分析，能够制作交互式财务报表仪表板，实现数据驱动的决策支持':'Skilled in data visualization. Can create interactive financial dashboards.',
+    '精通Excel、Word、PPT，熟练运用VLOOKUP、SUM、数据透视表等高级功能':'Expert in Excel, Word, PPT. Proficient in VLOOKUP, SUM, pivot tables.',
+    'AI Agent 工作流':'AI Agent Workflows','AI 辅助项目开发':'AI-Assisted Development',
+    '熟练使用AI工具，能够运用Agent自动化处理生活与工作事务，如数据分析、文档整理、信息检索等':'Proficient in AI tools. Able to use AI agents for automated task processing including data analysis, document organization, and information retrieval.',
+    '在AI辅助下独立完成过多个项目的开发，具备将AI能力融入日常工作流程的实践经验':'Independently completed multiple projects with AI assistance. Experienced in integrating AI into daily workflows.',
+    '数据分析与洞察':'Data Analysis & Insight','财务报表编制':'Financial Reporting',
+    '成本管控':'Cost Control','沟通协作':'Communication & Collaboration',
+    '抗压能力强':'Resilient Under Pressure','快速学习':'Fast Learner',
+    '团队合作':'Team Player','逻辑思维':'Logical Thinking',
+    '国家级特等奖。使用SQL和Power BI完成企业财务数据分析、凭证审核及三大报表编制全流程，实现企业回款数据可视化。':'National Grand Prize. Completed enterprise financial data analysis, voucher audit, and three-statement preparation using SQL and Power BI.',
+    '校级项目——企业税务筹划方案。担任组长，带领团队完成某企业税务筹划方案设计，取得优异成绩。':'University-level project on corporate tax planning. Led the team and achieved outstanding results.',
+    '运用品种法和分步法对制造业产品成本进行核算，完成材料、人工及制造费用的归集与分析，撰写详细成本分析报告。':'Applied job-order and process costing for manufacturing. Completed cost allocation and authored detailed analysis reports.',
+    '熟练运用AI Agent工具自动化处理工作事务，在AI辅助下独立完成多个项目开发，涵盖数据分析、自动化报表、信息检索等场景。':'Proficient in AI Agent tools for workflow automation. Completed multiple projects with AI covering data analysis, automated reports, and information retrieval.',
+    '深入探索AI工具在日常工作中的应用，熟练使用Agent工具实现事务自动化处理与智能辅助决策，将AI能力融入财务工作流。':'Deeply exploring AI tools for daily work. Using Agent tools for automated processing and intelligent decision support, integrating AI into financial workflows.',
+    '关注AI与财务数字化前沿动态，持续学习Python数据分析、智能财务工具，在AI辅助下独立完成多个实践项目。':'Following AI and digital finance trends. Continuously learning data analysis and smart finance tools. Completed multiple projects with AI.',
+    '致力于成为AI时代的财务数字化复合型人才，将会计专业知识、数据分析能力与AI工具深度结合，为企业创造数据驱动的财务价值。':'Aspiring to become a hybrid finance-digital talent in the AI era, deeply integrating accounting, data analysis, and AI to create data-driven financial value.',
+    '税务筹划':'Tax Planning','项目管理':'Project Mgmt','团队领导':'Leadership',
+    '成本会计':'Cost Accounting','Excel':'Excel','AI Agent':'AI Agent',
+    '自动化':'Automation','项目开发':'Development','数据分析':'Data Analysis',
+    '在哈尔滨商业大学的四年里，我把Excel玩成了艺术品，让Power BI画出会讲故事的数据图表。':'During four years at Harbin University of Commerce, I turned Excel into an art form and let Power BI tell data stories.',
+    '去过容诚会计师事务所翻遍200+份合同揪出30+个"小辫子"，也在北京通达用U8系统把凭证处理得像流水线一样精准高效。':'At Rongcheng CPA Firm, I reviewed 200+ contracts finding 30+ discrepancies. At Yuzhou Shentong, I processed vouchers with assembly-line precision using U8.',
+    '我相信——好的财务人不只是算账的，更是用数据帮企业做决策的军师。如果你也在找这样一个既懂借贷、又会写代码的"斜杠青年"，那我们聊聊吧 ✨':"I believe a great finance pro isn't just a number cruncher — they're a strategist using data to drive decisions. If you're looking for a slash-career talent who knows both debits/credits and coding — let's talk! ✨",
+    '江西省':'Jiangxi Province',
+    '📅 2004.06':'📅 2004.06',
+    '📍 江西省':'📍 Jiangxi Province',
+    '处理业务凭证':'Vouchers Processed','财务数据准确率':'Accuracy Rate',
+    '报表编制效率提升':'Efficiency Gain','实地走访企业':'Enterprises Visited',
+    '核查合同份数':'Contracts Reviewed','发现合同异常':'Discrepancies Found',
+    '处理原始凭证':'Documents Processed','税种申报模拟':'Tax Simulations',
+    '账务闭环':'Closed Loop','特等奖':'Grand Prize',
+    '三大报表编制':'Statements Built','效率提升':'Efficiency Gain',
+    '凭证处理':'Voucher Processing','报表编制':'Financial Reporting',
+    '薪资管理':'Payroll Management','数据汇总':'Data Aggregation',
+    '企业实地走访':'On-site Enterprise Visits',
+    '清产核资与合同核查':'Asset & Contract Verification',
+    '工作底稿辅助编制':'Audit Working Paper Support',
+    '账务处理':'Accounting Processing','数据处理':'Data Processing',
+    '凭证类型':'Voucher Types','账务流程处理':'Full-Cycle Accounting',
+    '多种税务申报':'Multi-Tax Filing','成本核算分析':'Cost Accounting Analysis',
+    'HARBIN UNIVERSITY OF COMMERCE':'HARBIN UNIVERSITY OF COMMERCE',
+    '新中国第一所多科性商业大学':"China's First Multidisciplinary Commerce University",
+    '博士授权单位':'Doctoral Degree Granting','省属重点':'Provincial Key University',
+    '中西部高校基础能力建设工程':'National Basic Ability Construction Project',
+    '一级学科博士点':'Doctoral Programs','国家级一流本科专业':'National First-Class Programs',
+    '悠久办学历史':'Years of Excellence','累计培养人才':'Alumni Worldwide',
+    '73年':'73 Years','20万+':'200K+','4':'4','15':'15',
+    '持证意义':'Significance','考试内容':'Exam Content',
+    '行业认可':'Industry Recognition','职业发展':'Career Development',
+    '核心能力':'Core Competencies','行业价值':'Industry Value',
+    '技能加持':'Skill Synergy','语言能力':'Language Proficiency',
+    '考试构成':'Test Structure','职场价值':'Career Value',
+    '专业延伸':'Professional Extension',
+    '初级会计资格证书':'Junior Accountant Certificate','国家财政部颁发':'Issued by Ministry of Finance',
+    '中国商业统计学会颁发':'Issued by China Business Statistics Association',
+    '466分 · 全国大学英语六级考试':'Score: 466 · National CET-6',
+    '教育部高等教育司主办':'Administered by Ministry of Education',
+    '请输入您的姓名':'Your Name','请输入您的邮箱':'Your Email',
+    '2026.03 — 2026.04':'Mar — Apr 2026','2026.04 — 2026.05':'Apr — May 2026',
+    '2024.11':'Nov 2024','2025.05':'May 2025','2022 — 2026':'2022 — 2026',
+    '输入JD后自动分析...':'Analyzing after JD input...',
+    '请在关于我页面输入职位描述，点击开始匹配查看分析结果。':'Enter a job description on the About page and click Start Matching to see results.'
+  }
+};
+
+function idxTranslate(lang) {
+  // Update toggle buttons
+  document.querySelectorAll('.lang-option').forEach(function(b) {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    b.style.background = b.classList.contains('active') ? 'var(--purple)' : 'var(--lighter-gray)';
+    b.style.color = b.classList.contains('active') ? '#fff' : 'var(--gray)';
+  });
+  document.title = lang === 'zh' ? '谢泳清 - 个人简历' : 'Yongqing Xie - Resume';
+
+  // Build lookup: if going to EN, map ZH→EN; if going to ZH, map EN→ZH
+  var lookup = {};
+  var zhDict = idxI18n.zh;
+  var enDict = idxI18n.en;
+  var keys = Object.keys(zhDict);
+  for (var i = 0; i < keys.length; i++) {
+    var zh = keys[i];
+    var en = enDict[zh];
+    if (!en) continue;
+    if (lang === 'en') {
+      lookup[zh] = en;
+    } else {
+      lookup[en] = zh;
+    }
+  }
+  var sortedKeys = Object.keys(lookup).sort(function(a,b){ return b.length - a.length; });
+
+  // Walk all text nodes
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var node;
+  while (node = walker.nextNode()) {
+    var p = node.parentElement;
+    if (!p || p.tagName === 'SCRIPT' || p.tagName === 'STYLE') continue;
+    if (p.hasAttribute && p.hasAttribute('data-i18n')) continue;
+    var t = node.textContent;
+    if (!t || t.trim().length < 2) continue;
+    for (var j = 0; j < sortedKeys.length; j++) {
+      var k = sortedKeys[j];
+      while (t.indexOf(k) !== -1) t = t.split(k).join(lookup[k]);
+    }
+    if (t !== node.textContent) node.textContent = t;
+  }
+  // Handle placeholders
+  document.querySelectorAll('[placeholder]').forEach(function(el) {
+    var ph = el.getAttribute('placeholder');
+    for (var j = 0; j < sortedKeys.length; j++) {
+      while (ph.indexOf(sortedKeys[j]) !== -1) ph = ph.split(sortedKeys[j]).join(lookup[sortedKeys[j]]);
+    }
+    el.setAttribute('placeholder', ph);
+  });
+}
+
+// Override main.js translate for this page
+var origTranslate = window.translate;
+window.translate = function(lang) {
+  if (origTranslate) origTranslate(lang);
+  idxTranslate(lang);
+  localStorage.setItem('lang', lang);
+};
+
+// Init lang toggle
+document.querySelectorAll('.lang-option').forEach(function(btn) {
+  btn.addEventListener('click', function() { window.translate(this.getAttribute('data-lang')); });
+});
+
+// Apply saved language on load
+var saved = localStorage.getItem('lang');
+if (saved && saved === 'en') {
+  setTimeout(function() { window.translate('en'); }, 100);
+}
 </script>
 </body>
 </html>
