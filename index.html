@@ -324,10 +324,6 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
     <a class="nav-brand" onclick="go('about')">
       <div class="nav-avatar">👩‍💼</div>
     </a>
-    <div class="lang-switch" style="display:flex;gap:2px;margin-right:12px;">
-      <span class="lang-option active" data-lang="zh" style="padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:none;background:var(--lighter-gray);color:var(--gray);font-family:var(--font);transition:all .2s;">中</span>
-      <span class="lang-option" data-lang="en" style="padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:none;background:var(--lighter-gray);color:var(--gray);font-family:var(--font);transition:all .2s;">EN</span>
-    </div>
     <div class="nav-links">
       <button class="nav-link active" data-s="about" onclick="go('about')">关于我</button>
       <button class="nav-link" data-s="education" onclick="go('education')">教育背景</button>
@@ -847,7 +843,6 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 
 <footer class="footer">© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学</footer>
 
-<script src="js/main.js"></script>
 <script>
 function go(s) {
   document.querySelectorAll('.section').forEach(function(el){ el.classList.remove('active'); });
@@ -996,7 +991,8 @@ var obs = new IntersectionObserver(function(entries){
 },{threshold:0.2});
 document.querySelectorAll('.section').forEach(function(s){ obs.observe(s); });
 
-// ── Extend i18n for index.html SPA ──
+// ── i18n placeholder (disabled to prevent freeze) ──
+/*
 // main.js translate() handles data-i18n elements. We add a second pass for unmarked text.
 var idxI18n = {
   zh: {
@@ -1260,6 +1256,7 @@ var saved = localStorage.getItem('lang');
 if (saved && saved === 'en') {
   setTimeout(function() { window.translate('en'); }, 100);
 }
+*/
 </script>
 </body>
 </html>
