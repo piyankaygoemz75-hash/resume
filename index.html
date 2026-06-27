@@ -1024,12 +1024,69 @@ document.querySelectorAll('.section').forEach(function(s){ obs.observe(s); });
 // ── i18n 中英文切换 ──
 var currentLang = 'zh';
 var dict = {
-  // 导航
-  '关于我': { en: 'About Me' },
-  '教育背景': { en: 'Education' },
-  '工作与实践': { en: 'Work & Practice' },
-  '技能特长': { en: 'Skills' },
-  '学习与探索': { en: 'Learning' },
+
+// 存储当前语言版本，用于后续恢复
+function saveZhState() {
+  if (i18nStore._saved) return;
+  i18nStore._saved = true;
+  // 收集所有带 data-i18n-en 的元素的中文原文
+  document.querySelectorAll('[data-i18n-en]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-en');
+    if (!i18nStore[key]) i18nStore[key] = {};
+    i18nStore[key].zh = el.innerHTML;
+    i18nStore[key].en = el.getAttribute('data-i18n-en');
+  });
+}
+
+function switchLang(lang) {
+  if (lang === currentLang) return;
+  saveZhState();
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+  document.title = lang === 'zh' ? '谢泳清 - 个人简历' : 'Yongqing Xie - Resume';
+
+  // 1. 先处理 data-i18n-en 标记的元素（大块内容）
+  document.querySelectorAll('[data-i18n-en]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-en');
+    if (i18nStore[key]) {
+      el.innerHTML = lang === 'en' ? i18nStore[key].en : i18nStore[key].zh;
+    }
+  });
+
+  // 2. 构建文本替换表
+  var lookup = {};
+  Object.keys(dict).forEach(function(k) {
+    var src = lang === 'en' ? k : (dict[k].en || k);
+    var tgt = lang === 'en' ? (dict[k].en || k) : k;
+    if (src !== tgt && src.length >= 2) lookup[src] = tgt;
+  });
+  var keys = Object.keys(lookup).sort(function(a,b){ return b.length - a.length; });
+
+  // 3. 遍历所有文本节点，逐个替换
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  textNodes.forEach(function(node) {
+    if (node.parentElement && (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE')) return;
+    if (node.parentElement && node.parentElement.hasAttribute && node.parentElement.hasAttribute('data-i18n-en')) return;
+    var t = node.textContent;
+    if (!t || t.trim().length < 2) return;
+    keys.forEach(function(k) {
+      while (t.indexOf(k) !== -1) t = t.split(k).join(lookup[k]);
+    });
+    if (t !== node.textContent) node.textContent = t;
+  });
+  // 处理 placeholder 和 value 属性
+  document.querySelectorAll('[placeholder]').forEach(function(el) {
+    var ph = el.getAttribute('placeholder');
+    keys.forEach(function(k) { if (ph.indexOf(k) !== -1) ph = ph.split(k).join(lookup[k]); });
+    el.setAttribute('placeholder', ph);
+  });
+
+  if (document.getElementById('matchModal').classList.contains('show')) closeMatch();
+}
   // 关于我
   'Accounting Professional & Intelligent Accounting': { zh: 'Accounting Professional & Intelligent Accounting' },
   '一个左手翻凭证、右手敲SQL的财会人 🖐️': { en: 'A finance professional — vouchers in one hand, SQL in the other 🖐️' },
@@ -1309,15 +1366,92 @@ var dict = {
   '16': { en: '16' },
   '30+': { en: '30+' },
   '500+': { en: '500+' },
-  '3': { en: '3' }
+  '3': { en: '3' },
+  // ── 补充缺失翻译 ──
+  'Hi, 我是谢泳清': { en: "Hi, I'm Yongqing Xie" },
+  '📍 江西省': { en: '📍 Jiangxi Province' },
+  '浪潮铸远大数据分析大赛': { en: 'Inspur Big Data Analysis Competition' },
+  'National Grand Prize。使用SQL和Power BI完成企业财务数据分析、凭证审核及三大报表编制全流程，实现企业回款数据可视化。': { en: 'National Grand Prize. Completed enterprise financial data analysis, voucher audit, and three-statement preparation using SQL and Power BI, achieving visualized receivable data.' },
+  '使用SQL和Power BI完成企业财务数据分析、凭证审核及三大报表编制全流程，实现企业回款数据可视化。': { en: 'Completed enterprise financial data analysis, voucher audit, and three-statement preparation using SQL and Power BI, achieving visualized receivable data.' },
+  '数据分析': { en: 'Data Analysis' },
+  '税务筹划': { en: 'Tax Planning' },
+  '✅ 独立完成月度、季度Financial Reporting，保证数据勾稽关系零差错': { en: '✅ Independently completed monthly and quarterly financial reporting with zero reconciliation errors' },
+  '✅ 建立凭证审核SOP流程，将Voucher ProcessingEfficiency Gain30%': { en: '✅ Established voucher audit SOP, improving processing efficiency by 30%' },
+  '✅ 协助完成公司年度薪酬核算与固定资产盘点，获得主管好评': { en: '✅ Assisted in annual payroll accounting and fixed asset inventory, earning supervisor recognition' },
+  '✅ 独立走访16家企业并撰写走访报告，获得项目经理高度认可': { en: '✅ Independently visited 16 enterprises and authored visit reports, highly recognized by project manager' },
+  '✅ 发现30+处合同条款与实际执行不符，协助项目组调整审计重点': { en: '✅ Discovered 30+ contract discrepancies, assisting the project team in adjusting audit focus' },
+  '✅ 高效完成底稿数据整理，审计团队工作效率显著提升': { en: '✅ Efficiently completed working paper data organization, significantly improving audit team productivity' },
+  '✅ 从全国参赛队伍中脱颖而出，荣获National Grand Prize': { en: '✅ Stood out from national competing teams, winning the National Grand Prize' },
+  '✅ 独立完成企业级财务数据Full Cycle处理与可视化展示': { en: '✅ Independently completed full-cycle enterprise financial data processing and visualization' },
+  '✅ 作品获得评委"Data Processing逻辑清晰、财务分析深入"的高度评价': { en: '✅ Work received high praise from judges for "clear data processing logic and in-depth financial analysis"' },
+  '✅ 完整走通企业Accounting ProcessingFull Cycle，从原始凭证到期末结账一气呵成': { en: '✅ Completed the full accounting cycle from source documents to period-end closing in one seamless flow' },
+  '✅ 准确完成三税种应纳税额计算与申报模拟，零差错通过审核': { en: '✅ Accurately completed tax liability calculations and filing simulations for three tax types, passing review with zero errors' },
+  '✅ 撰写的Cost Analysis Report获得实训指导教师"结构完整、分析到位"的评价': { en: '✅ Cost Analysis Report received "well-structured and thorough analysis" praise from practicum instructor' },
+  '初级会计资格证书': { en: 'Junior Accountant Certificate' },
+  '国家财政部颁发': { en: 'Issued by Ministry of Finance' },
+  'Accounting Qualification Certificate（现已改革为': { en: 'The Accounting Qualification Certificate (now reformed as the ' },
+  '）是从事会计工作必备的职业准入证书。持证人通过了国家统一的会计从业资格考试，具备从事会计工作所必需的': { en: ') is an essential professional credential for accounting work. The certificate holder has passed the national unified exam and possesses the ' },
+  '会计基础知识、会计技能和职业道德素养': { en: 'fundamental accounting knowledge, skills, and professional ethics' },
+  '中国商业统计学会': { en: 'China Business Statistics Association' },
+  '颁发的National Level数据分析专业认证。持证人系统掌握了': { en: '-issued national-level data analysis certification. The holder has systematically mastered ' },
+  'Data Processing、统计分析和商业洞察': { en: 'data processing, statistical analysis, and business insights' },
+  '三大Core Competencies，能够将数据转化为决策支持。': { en: '—three core competencies to transform data into decision support.' },
+  '教育部高等教育司': { en: 'Ministry of Education Higher Education Division' },
+  '主办的全国性英语水平测试，是评估大学生英语综合应用能力的权威标准。持证人具备良好的': { en: '-administered national English proficiency test, the authoritative standard for assessing college students\' comprehensive English ability. The holder possesses strong ' },
+  '英语听说读写译综合能力': { en: 'English listening, speaking, reading, writing, and translation skills' },
+  '，能够以英语为工具获取专业信息并进行有效沟通。': { en: ', capable of using English to access professional information and communicate effectively.' },
+  '始建于': { en: 'Founded in ' },
+  '，黑龙江省重点建设的十所大学之一，入选National Basic Ability Construction Proje': { en: '. One of the ten key universities in Heilongjiang Province. Selected for the National Basic Ability Construction Project of Central and Western Universities. A first-class discipline construction university.' },
+  'Harbin University of Commerce是': { en: 'Harbin University of Commerce is ' },
+  '，拥有完整的本-硕-博人才培养体系。学校秉承"': { en: ', with a complete bachelor-master-doctoral talent cultivation system. The university adheres to the motto "' },
+  '求真至善，修德允能': { en: 'Seek Truth, Pursue Excellence, Cultivate Virtue, Develop Competence' },
+  '"的校训，以"一流的经管学科为主导，精干特色的工科为重点"的学科定位，培养了': { en: '". With the discipline positioning of "first-class economics and management as the lead, distinctive engineering as the focus", it has cultivated ' },
+  '商业精英的摇篮': { en: 'Cradle of Business Elites' },
+  '。': { en: '. ' },
+  '，': { en: ', ' },
+  '江西省': { en: 'Jiangxi Province' },
+  '黑龙江省': { en: 'Heilongjiang Province' },
+  '个人简历': { en: 'Resume' },
+  '哈尔滨市': { en: 'Harbin' },
+  '用友U8 财务软件': { en: 'UFIDA U8 Financial Software' },
+  'SPSS 统计分析': { en: 'SPSS Statistical Analysis' },
+  '，能够运用Agent工具自动化处理生活与工作事务。在AI辅助下独立完成过多个项目的开发，具备将AI能力融入日常工作流程的实践经验。': { en: '. Able to use Agent tools to automate daily life and work tasks. Independently completed multiple projects with AI assistance, with practical experience integrating AI capabilities into daily workflows.' },
+  '会计学专业为': { en: 'The Accounting program is a ' },
+  '，1960年首创我国三大会计记账法之一"': { en: '. In 1960, pioneered the "' },
+  '"；会计学专业为': { en: '", one of China\'s three major accounting methods. The Accounting program is a ' },
+  '国家级特色专业、国家级一流本科专业建设点': { en: 'National Characteristic Specialty and National First-Class Undergraduate Program' },
+  '；《商业研究》期刊为': { en: '. The journal Commercial Research is a ' },
+  'CSSCI来源期刊': { en: 'CSSCI-indexed journal' },
+  '。学校在2024年入选': { en: '. In 2024, the university was selected for the ' },
+  '黑龙江省首批数智教育重点校': { en: 'First Batch of Heilongjiang Provincial Digital Education Key Universities' },
+  '建设名单。': { en: ' development list.' },
+  '1959年研制出': { en: 'In 1959, developed ' },
+  '中国第一台食品机械——601型饺子机': { en: "China's first food machinery — the Model 601 Dumpling Machine" },
+  '财产收付复式记账法': { en: 'Property Receipt-Payment Double-Entry Bookkeeping Method' },
+  // 补充弹窗标题
+  '工作经历详情': { en: 'Work Experience Details' },
+  '校园实践详情': { en: 'Campus Practice Details' },
+  '证书详情': { en: 'Certificate Details' },
+  'HARBIN UNIVERSITY OF COMMERCE': { zh: 'HARBIN UNIVERSITY OF COMMERCE' },
+  // 补充：导航按钮当前激活的
+  '中': { en: 'CN' },
+  'EN': { zh: 'EN' },
+  // 补充数字
+  '200+张': { en: '200+ vouchers' },
+  '200余张': { en: '200+' }
 };
 
-// 反向映射：英文 → 中文
-var revDict = {};
-Object.keys(dict).forEach(function(k) {
-  if (dict[k].zh) revDict[dict[k].zh] = k;
-  else if (dict[k].en) revDict[dict[k].en.replace(/^[📄💬🤖📚🔍📊🏆🏫🎯🌟📝📜🛠💼📋📈💡📌📗📘🌐★📞✉️🏛️☎️🔗\s]+/,'')] = k;
-});
+var i18nStore = {};
+function saveZhState() {
+  if (i18nStore._saved) return;
+  i18nStore._saved = true;
+  document.querySelectorAll('[data-i18n-en]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-en');
+    if (!i18nStore[key]) i18nStore[key] = {};
+    i18nStore[key].zh = el.innerHTML;
+    i18nStore[key].en = el.getAttribute('data-i18n-en');
+  });
+}
 
 function switchLang(lang) {
   if (lang === currentLang) return;
