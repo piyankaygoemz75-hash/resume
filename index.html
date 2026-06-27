@@ -325,15 +325,11 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
       <div class="nav-avatar">👩‍💼</div>
     </a>
     <div class="nav-links">
-      <button class="nav-link active" data-s="about" onclick="go('about')" data-i18n="nav.about2">关于我</button>
-      <button class="nav-link" data-s="education" onclick="go('education')" data-i18n="nav.edu2">教育背景</button>
-      <button class="nav-link" data-s="experience" onclick="go('experience')" data-i18n="nav.exp2">工作与实践</button>
-      <button class="nav-link" data-s="skills" onclick="go('skills')" data-i18n="nav.skills2">技能特长</button>
-      <button class="nav-link" data-s="projects" onclick="go('projects')" data-i18n="nav.proj2">学习与探索</button>
-    </div>
-    <div class="lang-switch" style="display:flex;gap:2px;margin-left:8px;">
-      <span class="lang-option active" data-lang="zh" style="padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:none;background:var(--purple);color:#fff;font-family:var(--font);transition:all .2s;">中</span>
-      <span class="lang-option" data-lang="en" style="padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:none;background:var(--lighter-gray);color:var(--gray);font-family:var(--font);transition:all .2s;">EN</span>
+      <button class="nav-link active" data-s="about" onclick="go('about')">关于我</button>
+      <button class="nav-link" data-s="education" onclick="go('education')">教育背景</button>
+      <button class="nav-link" data-s="experience" onclick="go('experience')">工作与实践</button>
+      <button class="nav-link" data-s="skills" onclick="go('skills')">技能特长</button>
+      <button class="nav-link" data-s="projects" onclick="go('projects')">学习与探索</button>
     </div>
   </div>
 </nav>
@@ -344,9 +340,9 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
   <section class="section active" id="sec-about">
     <div class="about-grid">
       <div>
-        <h1 class="about-name" data-i18n="hero.greet">Hi, 我是谢泳清</h1>
-        <p class="about-title" data-i18n="hero.role">Accounting Professional &amp; Intelligent Accounting</p>
-        <p class="about-bio" data-i18n="hero.bio2">
+        <h1 class="about-name">Hi, 我是谢泳清</h1>
+        <p class="about-title">Accounting Professional &amp; Intelligent Accounting</p>
+        <p class="about-bio">
           一个左手翻凭证、右手敲SQL的财会人 🖐️<br>
           在哈尔滨商业大学的四年里，我把Excel玩成了艺术品，让Power BI画出会讲故事的数据图表。<br>
           去过容诚会计师事务所翻遍200+份合同揪出30+个"小辫子"，也在北京通达用U8系统把凭证处理得像流水线一样精准高效。<br>
@@ -355,16 +351,16 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
         </p>
         <div class="info-bar">
           <div class="info-pill">📅 2004.06</div>
-          <div class="info-pill" data-i18n="auto.div.4be73749">📍 江西省</div>
+          <div class="info-pill">📍 江西省</div>
         </div>
         <div class="about-btns">
-          <a href="resume.pdf" class="btn btn-outline" data-i18n="about.download">📄 下载简历</a>
-          <button class="btn btn-primary" onclick="showContact()" data-i18n="about.contact">💬 联系我</button>
+          <a href="resume.pdf" class="btn btn-outline">📄 下载简历</a>
+          <button class="btn btn-primary" onclick="showContact()">💬 联系我</button>
         </div>
         <div class="ai-card">
-          <h3 data-i18n="about.ai">🤖 AI 岗位匹配器</h3>
-          <textarea id="jdInput" data-i18n="about.jd.ph" placeholder="粘贴您的JD（职位描述），查看我与岗位之间的匹配度..."></textarea>
-          <button class="btn btn-dark" onclick="showMatch()" data-i18n="about.match.btn">开始匹配 →</button>
+          <h3>🤖 AI 岗位匹配器</h3>
+          <textarea id="jdInput" placeholder="粘贴您的JD（职位描述），查看我与岗位之间的匹配度..."></textarea>
+          <button class="btn btn-dark" onclick="showMatch()">开始匹配 →</button>
         </div>
       </div>
       <div class="photo-wrap">
@@ -377,24 +373,24 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 
   <!-- ═══ 教育背景 ═══ -->
   <section class="section" id="sec-education">
-    <h2 class="sec-title" data-i18n="edu.title">教育背景</h2>
-    <p class="sec-sub" data-i18n="edu.sub">Education</p>
+    <h2 class="sec-title">教育背景</h2>
+    <p class="sec-sub">Education</p>
     <div class="edu-card" onclick="showEdu()" style="cursor:pointer; transition:all .3s;" onmouseover="this.style.boxShadow='var(--shadow-lg)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='var(--shadow)';this.style.transform='translateY(0)'">
-      <p class="edu-period"><span data-i18n="edu.period">2022 — 2026</span> <span style="color:var(--purple);font-size:11px;margin-left:8px;" data-i18n="edu.hint">🔍 点击了解母校</span></p>
-      <h3 class="edu-school" data-i18n="edu.school">哈尔滨商业大学</h3>
-      <p class="edu-major" data-i18n="edu.major">会计学 · 智能会计方向（本科）</p>
-      <div class="edu-gpa" data-i18n="edu.gpa">📊 GPA：83.7 / 100</div>
+      <p class="edu-period">2022 — 2026 <span style="color:var(--purple);font-size:11px;margin-left:8px;">🔍 点击了解母校</span></p>
+      <h3 class="edu-school">哈尔滨商业大学</h3>
+      <p class="edu-major">会计学 · 智能会计方向（本科）</p>
+      <div class="edu-gpa">📊 GPA：83.7 / 100</div>
       <div class="edu-courses">
-        <h4 data-i18n="edu.courses">📚 主修课程</h4>
+        <h4>📚 主修课程</h4>
         <div class="tags">
-          <span class="tag" data-i18n="edu.course.cost">成本会计</span><span class="tag" data-i18n="edu.course.mgmt">管理会计</span>
-          <span class="tag" data-i18n="edu.course.finance">企业财务管理</span><span class="tag" data-i18n="edu.course.practicum">会计综合实训</span>
+          <span class="tag">成本会计</span><span class="tag">管理会计</span>
+          <span class="tag">企业财务管理</span><span class="tag">会计综合实训</span>
           <span class="tag">Python</span><span class="tag">SQL</span>
-          <span class="tag" data-i18n="edu.course.data_acct">数据分析与会计</span><span class="tag" data-i18n="edu.course.data_methods">数据分析方法与应用</span>
-          <span class="tag" data-i18n="edu.course.smart_fin">智能财务分析</span><span class="tag" data-i18n="edu.course.logic">逻辑学</span>
-          <span class="tag" data-i18n="edu.course.mgmt2">管理学</span><span class="tag" data-i18n="edu.course.econ_law">经济法</span>
-          <span class="tag" data-i18n="edu.course.asset_val">资产评估学</span><span class="tag" data-i18n="edu.course.audit">审计学</span>
-          <span class="tag" data-i18n="edu.course.micro">微观经济学</span><span class="tag" data-i18n="edu.course.macro">宏观经济学</span>
+          <span class="tag">数据分析与会计</span><span class="tag">数据分析方法与应用</span>
+          <span class="tag">智能财务分析</span><span class="tag">逻辑学</span>
+          <span class="tag">管理学</span><span class="tag">经济法</span>
+          <span class="tag">资产评估学</span><span class="tag">审计学</span>
+          <span class="tag">微观经济学</span><span class="tag">宏观经济学</span>
         </div>
       </div>
     </div>
@@ -402,150 +398,150 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 
   <!-- ═══ 工作经历 ═══ -->
   <section class="section" id="sec-experience">
-    <h2 class="sec-title" data-i18n="exp.title">工作经历</h2>
-    <p class="sec-sub" data-i18n="exp.sub">Work & Practice</p>
+    <h2 class="sec-title">工作经历</h2>
+    <p class="sec-sub">Work & Practice</p>
     <div class="exp-grid-new">
       <div class="exp-card-new accent-blue" onclick="showExpDetail('exp1')">
         <div class="exp-card-top">
           <div class="exp-card-icon">💼</div>
           <span class="exp-chip">2026.03 — 2026.04</span>
         </div>
-        <h4 data-i18n="exp.j1.name">北京通达商贸有限公司</h4>
-        <p class="exp-card-role" data-i18n="exp.j1.role">会计助理</p>
-        <p class="exp-card-desc" data-i18n="exp.j1.desc">使用用友U8系统处理200+张业务凭证，编制财务报表，参与薪酬核算与固定资产管理</p>
-        <div class="exp-card-hint" data-i18n="exp.hint">点击查看详情 →</div>
+        <h4>北京通达商贸有限公司</h4>
+        <p class="exp-card-role">会计助理</p>
+        <p class="exp-card-desc">使用用友U8系统处理200+张业务凭证，编制财务报表，参与薪酬核算与固定资产管理</p>
+        <div class="exp-card-hint">点击查看详情 →</div>
       </div>
       <div class="exp-card-new accent-purple" onclick="showExpDetail('exp2')">
         <div class="exp-card-top">
           <div class="exp-card-icon">🔍</div>
           <span class="exp-chip">2026.04 — 2026.05</span>
         </div>
-        <h4 data-i18n="exp.j2.name">容诚会计师事务所</h4>
-        <p class="exp-card-role" data-i18n="exp.j2.role">审计实习生</p>
-        <p class="exp-card-desc" data-i18n="exp.j2.desc">实地走访16家企业，核查200+份合同发现30+处异常，协助编制审计底稿</p>
-        <div class="exp-card-hint" data-i18n="exp.hint">点击查看详情 →</div>
+        <h4>容诚会计师事务所</h4>
+        <p class="exp-card-role">审计实习生</p>
+        <p class="exp-card-desc">实地走访16家企业，核查200+份合同发现30+处异常，协助编制审计底稿</p>
+        <div class="exp-card-hint">点击查看详情 →</div>
       </div>
       <div class="exp-card-new accent-green" onclick="showExpDetail('exp3')">
         <div class="exp-card-top">
           <div class="exp-card-icon">🏆</div>
           <span class="exp-chip">2024.11</span>
         </div>
-        <h4 data-i18n="exp.j3.name">浪潮铸远智慧企业大数据分析大赛</h4>
-        <p class="exp-card-role" data-i18n="exp.j3.role">国家级特等奖</p>
-        <p class="exp-card-desc" data-i18n="exp.j3.desc">通过SQL完成三大报表编制，运用Power BI进行财务数据可视化分析，效率提升30%</p>
-        <div class="exp-card-hint" data-i18n="exp.hint">点击查看详情 →</div>
+        <h4>浪潮铸远智慧企业大数据分析大赛</h4>
+        <p class="exp-card-role">国家级特等奖</p>
+        <p class="exp-card-desc">通过SQL完成三大报表编制，运用Power BI进行财务数据可视化分析，效率提升30%</p>
+        <div class="exp-card-hint">点击查看详情 →</div>
       </div>
       <div class="exp-card-new accent-orange" onclick="showExpDetail('exp4')">
         <div class="exp-card-top">
           <div class="exp-card-icon">🏢</div>
           <span class="exp-chip">2025.05</span>
         </div>
-        <h4 data-i18n="exp.j4.name">黑龙江浪潮信息科技有限公司</h4>
-        <p class="exp-card-role" data-i18n="exp.j4.role">财务共享中心实践经历</p>
-        <p class="exp-card-desc" data-i18n="exp.j4.desc">完成全流程500+凭证处理，模拟税务申报，运用品种法/分批法撰写成本分析报告</p>
-        <div class="exp-card-hint" data-i18n="exp.hint">点击查看详情 →</div>
+        <h4>黑龙江浪潮信息科技有限公司</h4>
+        <p class="exp-card-role">财务共享中心实践经历</p>
+        <p class="exp-card-desc">完成全流程500+凭证处理，模拟税务申报，运用品种法/分批法撰写成本分析报告</p>
+        <div class="exp-card-hint">点击查看详情 →</div>
       </div>
     </div>
   </section>
 
   <!-- ═══ 技能特长 ═══ -->
   <section class="section" id="sec-skills">
-    <h2 class="sec-title" data-i18n="skills.title">技能特长</h2>
-    <p class="sec-sub" data-i18n="skills.sub">Skills & Expertise</p>
+    <h2 class="sec-title">技能特长</h2>
+    <p class="sec-sub">Skills & Expertise</p>
     <div class="skill-group">
-      <h3 data-i18n="skills.prof">💼 专业技能</h3>
+      <h3>💼 专业技能</h3>
       <div class="skill-cards">
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong data-i18n="auto.strong.79bd2f3c">财务会计</strong><p data-i18n="auto.p.b3f36312">精通凭证编制、总账明细账管理、财务报表编制，熟悉企业会计准则与财务制度</p></div></div>
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong data-i18n="auto.strong.726e9d4b">成本核算</strong><p data-i18n="auto.p.ad96d769">掌握品种法、分步法、分批法，能够独立完成材料、人工、制造费用的归集与分配</p></div></div>
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong data-i18n="auto.strong.554f5d1e">审计实务</strong><p data-i18n="auto.p.47b380d5">具备企业实地走访、合同核查、底稿编制经验，能够识别关键业务流程中的潜在风险</p></div></div>
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong data-i18n="auto.strong.9aa83339">税务处理</strong><p data-i18n="auto.p.5f33f296">熟悉增值税、企业所得税、个人所得税计算与申报流程，了解相关税收法规</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>财务会计</strong><p>精通凭证编制、总账明细账管理、财务报表编制，熟悉企业会计准则与财务制度</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>成本核算</strong><p>掌握品种法、分步法、分批法，能够独立完成材料、人工、制造费用的归集与分配</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>审计实务</strong><p>具备企业实地走访、合同核查、底稿编制经验，能够识别关键业务流程中的潜在风险</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>税务处理</strong><p>熟悉增值税、企业所得税、个人所得税计算与申报流程，了解相关税收法规</p></div></div>
       </div>
     </div>
     <div class="skill-group">
-      <h3 data-i18n="skills.tools">🛠 技术工具</h3>
+      <h3>🛠 技术工具</h3>
       <div class="skill-cards">
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong data-i18n="auto.strong.4b23c868">用友U8</strong><p data-i18n="auto.p.3fb9799e">熟练使用用友U8系统进行凭证填制、审核记账、结账及报表模板自定义</p></div></div>
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>SQL</strong><p data-i18n="auto.p.713516c1">能够使用SQL进行财务数据查询、清洗、汇总分析，完成总账与明细账的数据处理</p></div></div>
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>Power BI</strong><p data-i18n="auto.p.e5a7e5bb">掌握数据可视化分析，能够制作交互式财务报表仪表板，实现数据驱动的决策支持</p></div></div>
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>Python</strong><p data-i18n="auto.p.bbd3256f">具备Python基础编程能力，可用于财务数据批量处理、自动化报表生成等场景</p></div></div>
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>Office / WPS</strong><p data-i18n="auto.p.7bacf1eb">精通Excel、Word、PPT，熟练运用VLOOKUP、SUM、数据透视表等高级功能</p></div></div>
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>SPSS</strong><p data-i18n="auto.p.63de1563">掌握基础统计分析功能，可用于财务数据的描述性统计与相关性分析</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>用友U8</strong><p>熟练使用用友U8系统进行凭证填制、审核记账、结账及报表模板自定义</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>SQL</strong><p>能够使用SQL进行财务数据查询、清洗、汇总分析，完成总账与明细账的数据处理</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>Power BI</strong><p>掌握数据可视化分析，能够制作交互式财务报表仪表板，实现数据驱动的决策支持</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>Python</strong><p>具备Python基础编程能力，可用于财务数据批量处理、自动化报表生成等场景</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>Office / WPS</strong><p>精通Excel、Word、PPT，熟练运用VLOOKUP、SUM、数据透视表等高级功能</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>SPSS</strong><p>掌握基础统计分析功能，可用于财务数据的描述性统计与相关性分析</p></div></div>
       </div>
     </div>
     <div class="skill-group">
-      <h3 data-i18n="skills.ai">🤖 AI 工具应用</h3>
+      <h3>🤖 AI 工具应用</h3>
       <div class="skill-cards">
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong data-i18n="auto.strong.eba0b418">AI Agent 工作流</strong><p data-i18n="auto.p.6ad6d9e5">熟练使用AI工具，能够运用Agent自动化处理生活与工作事务，如数据分析、文档整理、信息检索等</p></div></div>
-        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong data-i18n="auto.strong.007247cc">AI 辅助项目开发</strong><p data-i18n="auto.p.a419e3e2">在AI辅助下独立完成过多个项目的开发，具备将AI能力融入日常工作流程的实践经验</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>AI Agent 工作流</strong><p>熟练使用AI工具，能够运用Agent自动化处理生活与工作事务，如数据分析、文档整理、信息检索等</p></div></div>
+        <div class="skill-desc-card"><span class="sk-dot"></span><div><strong>AI 辅助项目开发</strong><p>在AI辅助下独立完成过多个项目的开发，具备将AI能力融入日常工作流程的实践经验</p></div></div>
       </div>
     </div>
     <div class="skill-group">
-      <h3 data-i18n="skills.certs">📜 证书与资格</h3>
+      <h3>📜 证书与资格</h3>
       <div class="cert-grid">
-        <div class="cert-card" onclick="showCertDetail('cert1')" style="cursor:pointer;"><div class="cert-ic">📗</div><div class="cert-nm" data-i18n="auto.div.99856079">会计从业资格证</div><div class="cert-ds" data-i18n="auto.div.5cd5de1a">初级会计资格证书 · 国家财政部颁发</div><div class="exp-card-hint" data-i18n="exp.hint">点击查看详情 →</div></div>
-        <div class="cert-card" onclick="showCertDetail('cert2')" style="cursor:pointer;"><div class="cert-ic">📊</div><div class="cert-nm" data-i18n="auto.div.e4310598">BDA 中级证书</div><div class="cert-ds" data-i18n="auto.div.d3375064">数据分析师认证</div><div class="exp-card-hint" data-i18n="exp.hint">点击查看详情 →</div></div>
-        <div class="cert-card" onclick="showCertDetail('cert3')" style="cursor:pointer;"><div class="cert-ic">🌐</div><div class="cert-nm" data-i18n="auto.div.d565d9cb">CET-6（466分）</div><div class="cert-ds" data-i18n="auto.div.39e3a71b">大学英语六级</div><div class="exp-card-hint" data-i18n="exp.hint">点击查看详情 →</div></div>
+        <div class="cert-card" onclick="showCertDetail('cert1')" style="cursor:pointer;"><div class="cert-ic">📗</div><div class="cert-nm">会计从业资格证</div><div class="cert-ds">初级会计资格证书 · 国家财政部颁发</div><div class="exp-card-hint">点击查看详情 →</div></div>
+        <div class="cert-card" onclick="showCertDetail('cert2')" style="cursor:pointer;"><div class="cert-ic">📊</div><div class="cert-nm">BDA 中级证书</div><div class="cert-ds">数据分析师认证</div><div class="exp-card-hint">点击查看详情 →</div></div>
+        <div class="cert-card" onclick="showCertDetail('cert3')" style="cursor:pointer;"><div class="cert-ic">🌐</div><div class="cert-nm">CET-6（466分）</div><div class="cert-ds">大学英语六级</div><div class="exp-card-hint">点击查看详情 →</div></div>
       </div>
     </div>
     <div class="skill-group">
-      <h3 data-i18n="skills.soft">🌟 综合能力</h3>
+      <h3>🌟 综合能力</h3>
       <div class="tags">
-        <span class="tag" style="font-size:13px;padding:7px 16px;" data-i18n="auto.span.a1809681">数据分析与洞察</span>
-        <span class="tag" style="font-size:13px;padding:7px 16px;" data-i18n="auto.span.1b26a1d7">财务报表编制</span>
-        <span class="tag" style="font-size:13px;padding:7px 16px;" data-i18n="auto.span.7370f5c6">成本管控</span>
-        <span class="tag" style="font-size:13px;padding:7px 16px;" data-i18n="auto.span.827eadbc">沟通协作</span>
-        <span class="tag" style="font-size:13px;padding:7px 16px;" data-i18n="auto.span.f5a4990a">抗压能力强</span>
-        <span class="tag" style="font-size:13px;padding:7px 16px;" data-i18n="auto.span.3a85328d">快速学习</span>
-        <span class="tag" style="font-size:13px;padding:7px 16px;" data-i18n="auto.span.33cc020f">团队合作</span>
-        <span class="tag" style="font-size:13px;padding:7px 16px;" data-i18n="auto.span.ba45f59c">逻辑思维</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">数据分析与洞察</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">财务报表编制</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">成本管控</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">沟通协作</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">抗压能力强</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">快速学习</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">团队合作</span>
+        <span class="tag" style="font-size:13px;padding:7px 16px;">逻辑思维</span>
       </div>
     </div>
   </section>
 
   <!-- ═══ 学习与探索 ═══ -->
   <section class="section" id="sec-projects">
-    <h2 class="sec-title" data-i18n="proj.title">学习与探索</h2>
-    <p class="sec-sub" data-i18n="proj.sub">Learning & Discovery</p>
+    <h2 class="sec-title">学习与探索</h2>
+    <p class="sec-sub">Learning & Discovery</p>
     <div class="proj-grid">
       <div class="proj-card">
         <div class="proj-cover c1">🏆</div>
         <div class="proj-info">
-          <h4 data-i18n="auto.h4.b10a9f5a">浪潮铸远大数据分析大赛</h4>
-          <p data-i18n="auto.p.02251456">国家级特等奖。使用SQL和Power BI完成企业财务数据分析、凭证审核及三大报表编制全流程，实现企业回款数据可视化。</p>
-          <div class="proj-tags"><span class="ptag t1">SQL</span><span class="ptag t2">Power BI</span><span class="ptag t3" data-i18n="auto.span.6450d843">数据分析</span></div>
+          <h4>浪潮铸远大数据分析大赛</h4>
+          <p>国家级特等奖。使用SQL和Power BI完成企业财务数据分析、凭证审核及三大报表编制全流程，实现企业回款数据可视化。</p>
+          <div class="proj-tags"><span class="ptag t1">SQL</span><span class="ptag t2">Power BI</span><span class="ptag t3">数据分析</span></div>
         </div>
       </div>
       <div class="proj-card">
         <div class="proj-cover c2">💡</div>
         <div class="proj-info">
-          <h4 data-i18n="auto.h4.127d9667">大学生创新创业大赛</h4>
-          <p data-i18n="auto.p.b35eca75">校级项目——企业税务筹划方案。担任组长，带领团队完成某企业税务筹划方案设计，取得优异成绩。</p>
-          <div class="proj-tags"><span class="ptag t2" data-i18n="auto.span.a6aa2725">税务筹划</span><span class="ptag t3" data-i18n="auto.span.436367b0">项目管理</span><span class="ptag t4" data-i18n="auto.span.9c51e19f">团队领导</span></div>
+          <h4>大学生创新创业大赛</h4>
+          <p>校级项目——企业税务筹划方案。担任组长，带领团队完成某企业税务筹划方案设计，取得优异成绩。</p>
+          <div class="proj-tags"><span class="ptag t2">税务筹划</span><span class="ptag t3">项目管理</span><span class="ptag t4">团队领导</span></div>
         </div>
       </div>
       <div class="proj-card">
         <div class="proj-cover c3">📈</div>
         <div class="proj-info">
-          <h4 data-i18n="auto.h4.b7125651">成本分析报告</h4>
-          <p data-i18n="auto.p.95c3b8ae">运用品种法和分步法对制造业产品成本进行核算，完成材料、人工及制造费用的归集与分析，撰写详细成本分析报告。</p>
-          <div class="proj-tags"><span class="ptag t3" data-i18n="auto.span.e18fb153">成本会计</span><span class="ptag t1">Excel</span></div>
+          <h4>成本分析报告</h4>
+          <p>运用品种法和分步法对制造业产品成本进行核算，完成材料、人工及制造费用的归集与分析，撰写详细成本分析报告。</p>
+          <div class="proj-tags"><span class="ptag t3">成本会计</span><span class="ptag t1">Excel</span></div>
         </div>
       </div>
       <div class="proj-card">
         <div class="proj-cover c4">🤖</div>
         <div class="proj-info">
-          <h4 data-i18n="auto.h4.ecfee8e0">AI 工具应用与实践</h4>
-          <p data-i18n="auto.p.2cbf5043">熟练运用AI Agent工具自动化处理工作事务，在AI辅助下独立完成多个项目开发，涵盖数据分析、自动化报表、信息检索等场景。</p>
-          <div class="proj-tags"><span class="ptag t4">AI Agent</span><span class="ptag t1" data-i18n="auto.span.4c65b7cd">自动化</span><span class="ptag t2" data-i18n="auto.span.2297641c">项目开发</span></div>
+          <h4>AI 工具应用与实践</h4>
+          <p>熟练运用AI Agent工具自动化处理工作事务，在AI辅助下独立完成多个项目开发，涵盖数据分析、自动化报表、信息检索等场景。</p>
+          <div class="proj-tags"><span class="ptag t4">AI Agent</span><span class="ptag t1">自动化</span><span class="ptag t2">项目开发</span></div>
         </div>
       </div>
     </div>
     <div style="margin-top:36px;">
-      <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;color:var(--black);" data-i18n="proj.growth">📝 学习成长轨迹</h3>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;color:var(--black);">📝 学习成长轨迹</h3>
       <div class="grid-3">
-        <div class="card"><div style="font-size:26px;margin-bottom:8px;">🤖</div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;" data-i18n="auto.h4.bf1bf6fc">AI 探索与应用</h4><p style="font-size:12px;color:#666;line-height:1.7;" data-i18n="auto.p.fce4481b">深入探索AI工具在日常工作中的应用，熟练使用Agent工具实现事务自动化处理与智能辅助决策，将AI能力融入财务工作流。</p></div>
-        <div class="card"><div style="font-size:26px;margin-bottom:8px;">📖</div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;" data-i18n="auto.h4.ce5e8ec4">持续学习</h4><p style="font-size:12px;color:#666;line-height:1.7;" data-i18n="auto.p.a38e93e5">关注AI与财务数字化前沿动态，持续学习Python数据分析、智能财务工具，在AI辅助下独立完成多个实践项目。</p></div>
-        <div class="card"><div style="font-size:26px;margin-bottom:8px;">🎯</div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;" data-i18n="auto.h4.68e6246e">职业目标</h4><p style="font-size:12px;color:#666;line-height:1.7;" data-i18n="auto.p.ee5d2ef8">致力于成为AI时代的财务数字化复合型人才，将会计专业知识、数据分析能力与AI工具深度结合，为企业创造数据驱动的财务价值。</p></div>
+        <div class="card"><div style="font-size:26px;margin-bottom:8px;">🤖</div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">AI 探索与应用</h4><p style="font-size:12px;color:#666;line-height:1.7;">深入探索AI工具在日常工作中的应用，熟练使用Agent工具实现事务自动化处理与智能辅助决策，将AI能力融入财务工作流。</p></div>
+        <div class="card"><div style="font-size:26px;margin-bottom:8px;">📖</div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">持续学习</h4><p style="font-size:12px;color:#666;line-height:1.7;">关注AI与财务数字化前沿动态，持续学习Python数据分析、智能财务工具，在AI辅助下独立完成多个实践项目。</p></div>
+        <div class="card"><div style="font-size:26px;margin-bottom:8px;">🎯</div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">职业目标</h4><p style="font-size:12px;color:#666;line-height:1.7;">致力于成为AI时代的财务数字化复合型人才，将会计专业知识、数据分析能力与AI工具深度结合，为企业创造数据驱动的财务价值。</p></div>
       </div>
     </div>
   </section>
@@ -554,55 +550,55 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 <!-- ═══ AI Match Modal ═══ -->
 <div class="modal-overlay" id="matchModal">
   <div class="modal">
-    <div class="mod-hd"><h3 data-i18n="match.title">📊 AI 岗位匹配报告</h3><button class="mod-close" onclick="closeMatch()">✕</button></div>
+    <div class="mod-hd"><h3>📊 AI 岗位匹配报告</h3><button class="mod-close" onclick="closeMatch()">✕</button></div>
     <div class="mod-bd">
       <div class="match-wrap">
         <div class="match-circle"><div class="match-inner"><span class="ms" id="matchScore">--</span><span class="mt">/ 100</span></div></div>
         <div class="match-bars">
-          <div class="mb-item"><span class="mb-lbl" data-i18n="match.edu">学历</span><div class="mb-track"><div class="mb-fill edu" id="bar-edu" style="width:0%"></div></div><span class="mb-val" id="val-edu">--</span></div>
-          <div class="mb-item"><span class="mb-lbl" data-i18n="match.exp">工作经验</span><div class="mb-track"><div class="mb-fill exp" id="bar-exp" style="width:0%"></div></div><span class="mb-val" id="val-exp">--</span></div>
-          <div class="mb-item"><span class="mb-lbl" data-i18n="match.skill">技能匹配</span><div class="mb-track"><div class="mb-fill skill" id="bar-skill" style="width:0%"></div></div><span class="mb-val" id="val-skill">--</span></div>
-          <div class="mb-item"><span class="mb-lbl" data-i18n="match.soft">综合素质</span><div class="mb-track"><div class="mb-fill soft" id="bar-soft" style="width:0%"></div></div><span class="mb-val" id="val-soft">--</span></div>
+          <div class="mb-item"><span class="mb-lbl">学历</span><div class="mb-track"><div class="mb-fill edu" id="bar-edu" style="width:0%"></div></div><span class="mb-val" id="val-edu">--</span></div>
+          <div class="mb-item"><span class="mb-lbl">工作经验</span><div class="mb-track"><div class="mb-fill exp" id="bar-exp" style="width:0%"></div></div><span class="mb-val" id="val-exp">--</span></div>
+          <div class="mb-item"><span class="mb-lbl">技能匹配</span><div class="mb-track"><div class="mb-fill skill" id="bar-skill" style="width:0%"></div></div><span class="mb-val" id="val-skill">--</span></div>
+          <div class="mb-item"><span class="mb-lbl">综合素质</span><div class="mb-track"><div class="mb-fill soft" id="bar-soft" style="width:0%"></div></div><span class="mb-val" id="val-soft">--</span></div>
         </div>
       </div>
       <div class="match-hl">
-        <h4 data-i18n="match.hl">★ 匹配亮点</h4>
-        <div id="matchHighlights"><p style="color:var(--gray);font-size:13px;">input-i18n-desc-placeholder</p></div>
+        <h4>★ 匹配亮点</h4>
+        <div id="matchHighlights"><p style="color:var(--gray);font-size:13px;">输入JD后自动分析...</p></div>
       </div>
-      <div class="match-sum"><h4 data-i18n="match.sum">📄 综合评估</h4><p id="matchSummary">summary-i18n-placeholder</p></div>
+      <div class="match-sum"><h4>📄 综合评估</h4><p id="matchSummary">请在关于我页面输入职位描述，点击开始匹配查看分析结果。</p></div>
     </div>
-    <div class="mod-ft"><button class="btn btn-dark" onclick="closeMatch()" data-i18n="modal.close">关闭</button></div>
+    <div class="mod-ft"><button class="btn btn-dark" onclick="closeMatch()">关闭</button></div>
   </div>
 </div>
 
 <!-- ═══ Contact Modal ═══ -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
-    <div class="mod-hd"><h3 data-i18n="modal.contact">💬 联系我</h3><button class="mod-close" onclick="closeContact()">✕</button></div>
+    <div class="mod-hd"><h3>💬 联系我</h3><button class="mod-close" onclick="closeContact()">✕</button></div>
     <div class="mod-bd">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px;">
         <div class="contact-info-card">
           <div class="ci-icon">📞</div>
-          <div class="ci-label" data-i18n="modal.phone.label">联系电话</div>
+          <div class="ci-label">联系电话</div>
           <a href="tel:15083593021" class="ci-value">15083593021</a>
         </div>
         <div class="contact-info-card">
           <div class="ci-icon">✉️</div>
-          <div class="ci-label" data-i18n="modal.email.label">邮箱地址</div>
+          <div class="ci-label">邮箱地址</div>
           <a href="mailto:xyq197@qq.com" class="ci-value" onclick="window.location.href='mailto:xyq197@qq.com'; return false;">xyq197@qq.com</a>
         </div>
       </div>
       <div style="display:flex;gap:10px;justify-content:center;margin-bottom:20px;">
-        <a href="tel:15083593021" class="btn btn-outline" style="font-size:12px;" data-i18n="modal.phone">📞 拨打电话</a>
-        <a href="mailto:xyq197@qq.com" class="btn btn-primary" style="font-size:12px;" data-i18n="modal.email" onclick="window.location.href='mailto:xyq197@qq.com'; return false;">✉️ 发送邮件</a>
+        <a href="tel:15083593021" class="btn btn-outline" style="font-size:12px;">📞 拨打电话</a>
+        <a href="mailto:xyq197@qq.com" class="btn btn-primary" style="font-size:12px;" onclick="window.location.href='mailto:xyq197@qq.com'; return false;">✉️ 发送邮件</a>
       </div>
       <div style="border-top:1px solid var(--light-gray);padding-top:18px;">
-        <p style="font-size:13px;color:var(--gray);margin-bottom:14px;" data-i18n="modal.contact.hint">或直接留言，我会尽快回复您：</p>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:14px;">或直接留言，我会尽快回复您：</p>
         <form id="contactForm" onsubmit="submitContact(event)" style="display:flex;flex-direction:column;gap:12px;">
-          <input type="text" id="cName" data-i18n="modal.name.ph" placeholder="您的姓名" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
-          <input type="email" id="cEmail" data-i18n="modal.email.ph" placeholder="您的邮箱" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
-          <textarea id="cMsg" data-i18n="modal.msg.ph" placeholder="留言内容..." rows="3" style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);resize:vertical;"></textarea>
-          <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;" data-i18n="modal.send">发送留言</button>
+          <input type="text" id="cName" placeholder="您的姓名" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
+          <input type="email" id="cEmail" placeholder="您的邮箱" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
+          <textarea id="cMsg" placeholder="留言内容..." rows="3" style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);resize:vertical;"></textarea>
+          <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;">发送留言</button>
         </form>
       </div>
     </div>
@@ -611,321 +607,243 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 
 <!-- ═══ Experience Detail Modals ═══ -->
 <div class="modal-overlay" id="exp1Modal"><div class="modal" style="max-width:720px;">
-  <div class="mod-hd"><h3 data-i18n="exp.detail.work1">💼 工作经历详情</h3><button class="mod-close" onclick="closeExpDetail('exp1')">✕</button></div>
+  <div class="mod-hd"><h3>💼 工作经历详情</h3><button class="mod-close" onclick="closeExpDetail('exp1')">✕</button></div>
   <div class="mod-bd">
     <div class="exp-detail-header">
       <div class="exp-detail-icon blue">💼</div>
-      <div class="exp-detail-meta"><h3 data-i18n="auto.h3.5065a94b">北京通达商贸有限公司</h3><div class="role" data-i18n="auto.div.70673d28">会计助理</div><div class="date">2026.03 — 2026.04</div></div>
+      <div class="exp-detail-meta"><h3>北京通达商贸有限公司</h3><div class="role">会计助理</div><div class="date">2026.03 — 2026.04</div></div>
     </div>
     <div class="exp-stat-row">
-      <div class="exp-stat accent-blue"><div class="num">200+</div><div class="lbl" data-i18n="exp.stat.vouchers">处理业务凭证</div></div>
-      <div class="exp-stat accent-blue"><div class="num">100%</div><div class="lbl" data-i18n="exp.stat.accuracy">财务数据准确率</div></div>
-      <div class="exp-stat accent-blue"><div class="num">30%</div><div class="lbl" data-i18n="exp.stat.efficiency">报表编制效率提升</div></div>
+      <div class="exp-stat accent-blue"><div class="num">200+</div><div class="lbl">处理业务凭证</div></div>
+      <div class="exp-stat accent-blue"><div class="num">100%</div><div class="lbl">财务数据准确率</div></div>
+      <div class="exp-stat accent-blue"><div class="num">30%</div><div class="lbl">报表编制效率提升</div></div>
     </div>
-    <div class="exp-detail-section"><h4 data-i18n="exp.core.res">核心职责 <span>CORE RESPONSIBILITIES</span></h4>
+    <div class="exp-detail-section"><h4>核心职责 <span>CORE RESPONSIBILITIES</span></h4>
       <div class="exp-detail-cards">
-        <div class="exp-detail-card c-blue"><strong data-i18n="exp.detail.voucher">凭证处理</strong>使用用友U8系统完成日常凭证填制、审核与记账及结账流程，累计处理业务凭证200余张，确保财务数据准确率100%。</div>
-        <div class="exp-detail-card c-purple"><strong data-i18n="exp.detail.report">报表编制</strong>通过用友报表系统自定义资产负债表与利润表模板，验证数据勾稽关系及准确性，将报表生成时间缩短30%，为财务决策提供依据。</div>
-        <div class="exp-detail-card c-green"><strong data-i18n="exp.detail.payroll">薪资管理</strong>负责薪资管理及固定资产模块的协同操作，完成工资计提发放、资产增减变动与折旧账务处理等。</div>
-        <div class="exp-detail-card c-orange"><strong data-i18n="exp.detail.data">数据汇总</strong>匹配跨表格信息，运用SUM函数汇总明细数据，减少人工计算误差。</div>
+        <div class="exp-detail-card c-blue"><strong>凭证处理</strong>使用用友U8系统完成日常凭证填制、审核与记账及结账流程，累计处理业务凭证200余张，确保财务数据准确率100%。</div>
+        <div class="exp-detail-card c-purple"><strong>报表编制</strong>通过用友报表系统自定义资产负债表与利润表模板，验证数据勾稽关系及准确性，将报表生成时间缩短30%，为财务决策提供依据。</div>
+        <div class="exp-detail-card c-green"><strong>薪资管理</strong>负责薪资管理及固定资产模块的协同操作，完成工资计提发放、资产增减变动与折旧账务处理等。</div>
+        <div class="exp-detail-card c-orange"><strong>数据汇总</strong>匹配跨表格信息，运用SUM函数汇总明细数据，减少人工计算误差。</div>
       </div>
     </div>
-    <div class="exp-detail-section"><h4 data-i18n="exp.core.result">核心成果 <span>CORE RESULTS</span></h4>
+    <div class="exp-detail-section"><h4>核心成果 <span>CORE RESULTS</span></h4>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.bd30a2f3">✅ 独立完成月度、季度财务报表编制，保证数据勾稽关系零差错</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.e45b0273">✅ 建立凭证审核SOP流程，将凭证处理效率提升30%</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.7affa9a7">✅ 协助完成公司年度薪酬核算与固定资产盘点，获得主管好评</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 独立完成月度、季度财务报表编制，保证数据勾稽关系零差错</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 建立凭证审核SOP流程，将凭证处理效率提升30%</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 协助完成公司年度薪酬核算与固定资产盘点，获得主管好评</div>
       </div>
     </div>
   </div>
-  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp1')" data-i18n="modal.close">关闭</button></div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp1')">关闭</button></div>
 </div></div>
 
 <div class="modal-overlay" id="exp2Modal"><div class="modal" style="max-width:720px;">
-  <div class="mod-hd"><h3 data-i18n="exp.detail.work2">🔍 工作经历详情</h3><button class="mod-close" onclick="closeExpDetail('exp2')">✕</button></div>
+  <div class="mod-hd"><h3>🔍 工作经历详情</h3><button class="mod-close" onclick="closeExpDetail('exp2')">✕</button></div>
   <div class="mod-bd">
     <div class="exp-detail-header">
       <div class="exp-detail-icon purple">🔍</div>
-      <div class="exp-detail-meta"><h3 data-i18n="auto.h3.20b8abbe">容诚会计师事务所</h3><div class="role" data-i18n="auto.div.ad1b9dc0">审计实习生</div><div class="date">2026.04 — 2026.05</div></div>
+      <div class="exp-detail-meta"><h3>容诚会计师事务所</h3><div class="role">审计实习生</div><div class="date">2026.04 — 2026.05</div></div>
     </div>
     <div class="exp-stat-row">
-      <div class="exp-stat accent-purple"><div class="num">16</div><div class="lbl" data-i18n="exp.stat.visits">实地走访企业</div></div>
-      <div class="exp-stat accent-purple"><div class="num">200+</div><div class="lbl" data-i18n="exp.stat.contracts">核查合同份数</div></div>
-      <div class="exp-stat accent-purple"><div class="num">30+</div><div class="lbl" data-i18n="exp.stat.anomalies">发现合同异常</div></div>
+      <div class="exp-stat accent-purple"><div class="num">16</div><div class="lbl">实地走访企业</div></div>
+      <div class="exp-stat accent-purple"><div class="num">200+</div><div class="lbl">核查合同份数</div></div>
+      <div class="exp-stat accent-purple"><div class="num">30+</div><div class="lbl">发现合同异常</div></div>
     </div>
-    <div class="exp-detail-section"><h4 data-i18n="exp.core.res">核心职责 <span>CORE RESPONSIBILITIES</span></h4>
+    <div class="exp-detail-section"><h4>核心职责 <span>CORE RESPONSIBILITIES</span></h4>
       <div class="exp-detail-cards">
-        <div class="exp-detail-card c-purple"><strong data-i18n="exp.detail.visit">企业实地走访</strong>参与对被审计单位客户的实地访谈与现场核查，实地采访企业16家，记录关键业务流程及内部控制执行情况，协助识别潜在风险点。</div>
-        <div class="exp-detail-card c-blue"><strong data-i18n="exp.detail.contract">清产核资与合同核查</strong>重点核查贷款合同、抵押担保协议200+份，核对合同与实际执行情况的一致性，发现30+处合同与资料不符。</div>
-        <div class="exp-detail-card c-green"><strong data-i18n="exp.detail.paper">工作底稿辅助编制</strong>配合高级审计师整理审计底稿数据，运用VLOOKUP函数完成跨表数据匹配与核对。</div>
+        <div class="exp-detail-card c-purple"><strong>企业实地走访</strong>参与对被审计单位客户的实地访谈与现场核查，实地采访企业16家，记录关键业务流程及内部控制执行情况，协助识别潜在风险点。</div>
+        <div class="exp-detail-card c-blue"><strong>清产核资与合同核查</strong>重点核查贷款合同、抵押担保协议200+份，核对合同与实际执行情况的一致性，发现30+处合同与资料不符。</div>
+        <div class="exp-detail-card c-green"><strong>工作底稿辅助编制</strong>配合高级审计师整理审计底稿数据，运用VLOOKUP函数完成跨表数据匹配与核对。</div>
       </div>
     </div>
-    <div class="exp-detail-section"><h4 data-i18n="exp.core.result">核心成果 <span>CORE RESULTS</span></h4>
+    <div class="exp-detail-section"><h4>核心成果 <span>CORE RESULTS</span></h4>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.8fadd17d">✅ 独立走访16家企业并撰写走访报告，获得项目经理高度认可</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.7912846e">✅ 发现30+处合同条款与实际执行不符，协助项目组调整审计重点</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.d2b13966">✅ 高效完成底稿数据整理，审计团队工作效率显著提升</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 独立走访16家企业并撰写走访报告，获得项目经理高度认可</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 发现30+处合同条款与实际执行不符，协助项目组调整审计重点</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 高效完成底稿数据整理，审计团队工作效率显著提升</div>
       </div>
     </div>
   </div>
-  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp2')" data-i18n="modal.close">关闭</button></div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp2')">关闭</button></div>
 </div></div>
 
 <div class="modal-overlay" id="exp3Modal"><div class="modal" style="max-width:720px;">
-  <div class="mod-hd"><h3 data-i18n="exp.detail.camp1">🏆 校园实践详情</h3><button class="mod-close" onclick="closeExpDetail('exp3')">✕</button></div>
+  <div class="mod-hd"><h3>🏆 校园实践详情</h3><button class="mod-close" onclick="closeExpDetail('exp3')">✕</button></div>
   <div class="mod-bd">
     <div class="exp-detail-header">
       <div class="exp-detail-icon green">🏆</div>
-      <div class="exp-detail-meta"><h3 data-i18n="auto.h3.6df9f788">浪潮铸远智慧企业大数据分析大赛</h3><div class="role" data-i18n="auto.div.7a3fef3c">国家级特等奖</div><div class="date">2024.11</div></div>
+      <div class="exp-detail-meta"><h3>浪潮铸远智慧企业大数据分析大赛</h3><div class="role">国家级特等奖</div><div class="date">2024.11</div></div>
     </div>
     <div class="exp-stat-row">
-      <div class="exp-stat accent-green"><div class="num" data-i18n="exp.stat.national">国家级</div><div class="lbl" data-i18n="exp.stat.prize">特等奖</div></div>
-      <div class="exp-stat accent-green"><div class="num">3</div><div class="lbl" data-i18n="exp.stat.stmts">三大报表编制</div></div>
-      <div class="exp-stat accent-green"><div class="num">30%</div><div class="lbl" data-i18n="exp.stat.eff2">效率提升</div></div>
+      <div class="exp-stat accent-green"><div class="num">国家级</div><div class="lbl">特等奖</div></div>
+      <div class="exp-stat accent-green"><div class="num">3</div><div class="lbl">三大报表编制</div></div>
+      <div class="exp-stat accent-green"><div class="num">30%</div><div class="lbl">效率提升</div></div>
     </div>
-    <div class="exp-detail-section"><h4 data-i18n="exp.core.res">核心职责 <span>CORE RESPONSIBILITIES</span></h4>
+    <div class="exp-detail-section"><h4>核心职责 <span>CORE RESPONSIBILITIES</span></h4>
       <div class="exp-detail-cards">
-        <div class="exp-detail-card c-green"><strong data-i18n="exp.detail.acct">账务处理</strong>负责银行回单整理与凭证制作，通过SQL系统完成总账、明细账及三大报表（资产负债表、利润表、现金流量表）的编制。</div>
-        <div class="exp-detail-card c-blue"><strong data-i18n="exp.detail.data2">数据处理</strong>利用SQL、Power BI进行财务数据清洗、转化与可视化分析，提升数据处理效率约30%。</div>
-        <div class="exp-detail-card c-purple"><strong data-i18n="exp.detail.vtypes">凭证类型</strong>涵盖总账会计凭证、销货折让凭证、资产购置凭证、采购凭证等多种凭证类型。</div>
+        <div class="exp-detail-card c-green"><strong>账务处理</strong>负责银行回单整理与凭证制作，通过SQL系统完成总账、明细账及三大报表（资产负债表、利润表、现金流量表）的编制。</div>
+        <div class="exp-detail-card c-blue"><strong>数据处理</strong>利用SQL、Power BI进行财务数据清洗、转化与可视化分析，提升数据处理效率约30%。</div>
+        <div class="exp-detail-card c-purple"><strong>凭证类型</strong>涵盖总账会计凭证、销货折让凭证、资产购置凭证、采购凭证等多种凭证类型。</div>
       </div>
     </div>
-    <div class="exp-detail-section"><h4 data-i18n="exp.core.result">核心成果 <span>CORE RESULTS</span></h4>
+    <div class="exp-detail-section"><h4>核心成果 <span>CORE RESULTS</span></h4>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.d71fed90">✅ 从全国参赛队伍中脱颖而出，荣获国家级特等奖</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.f18988a0">✅ 独立完成企业级财务数据全流程处理与可视化展示</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.0ba2607e">✅ 作品获得评委"数据处理逻辑清晰、财务分析深入"的高度评价</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 从全国参赛队伍中脱颖而出，荣获国家级特等奖</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 独立完成企业级财务数据全流程处理与可视化展示</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 作品获得评委"数据处理逻辑清晰、财务分析深入"的高度评价</div>
       </div>
     </div>
   </div>
-  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp3')" data-i18n="modal.close">关闭</button></div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp3')">关闭</button></div>
 </div></div>
 
 <div class="modal-overlay" id="exp4Modal"><div class="modal" style="max-width:720px;">
-  <div class="mod-hd"><h3 data-i18n="exp.detail.camp2">🏢 校园实践详情</h3><button class="mod-close" onclick="closeExpDetail('exp4')">✕</button></div>
+  <div class="mod-hd"><h3>🏢 校园实践详情</h3><button class="mod-close" onclick="closeExpDetail('exp4')">✕</button></div>
   <div class="mod-bd">
     <div class="exp-detail-header">
       <div class="exp-detail-icon orange">🏢</div>
-      <div class="exp-detail-meta"><h3 data-i18n="auto.h3.c9009a15">黑龙江浪潮信息科技有限公司</h3><div class="role" data-i18n="auto.div.fc35535a">财务共享中心实践经历</div><div class="date">2025.05</div></div>
+      <div class="exp-detail-meta"><h3>黑龙江浪潮信息科技有限公司</h3><div class="role">财务共享中心实践经历</div><div class="date">2025.05</div></div>
     </div>
     <div class="exp-stat-row">
-      <div class="exp-stat accent-orange"><div class="num">500+</div><div class="lbl" data-i18n="exp.stat.docs">处理原始凭证</div></div>
-      <div class="exp-stat accent-orange"><div class="num">3</div><div class="lbl" data-i18n="exp.stat.taxes">税种申报模拟</div></div>
-      <div class="exp-stat accent-orange"><div class="num" data-i18n="auto.div.4976c381">全流程</div><div class="lbl" data-i18n="exp.stat.cycle">账务闭环</div></div>
+      <div class="exp-stat accent-orange"><div class="num">500+</div><div class="lbl">处理原始凭证</div></div>
+      <div class="exp-stat accent-orange"><div class="num">3</div><div class="lbl">税种申报模拟</div></div>
+      <div class="exp-stat accent-orange"><div class="num">全流程</div><div class="lbl">账务闭环</div></div>
     </div>
-    <div class="exp-detail-section"><h4 data-i18n="exp.core.res">核心职责 <span>CORE RESPONSIBILITIES</span></h4>
+    <div class="exp-detail-section"><h4>核心职责 <span>CORE RESPONSIBILITIES</span></h4>
       <div class="exp-detail-cards">
-        <div class="exp-detail-card c-orange"><strong data-i18n="exp.detail.flow">账务流程处理</strong>独立完成凭证审核、账簿登记及期末结账的全流程，累计处理500+原始凭证与账簿。</div>
-        <div class="exp-detail-card c-blue"><strong data-i18n="exp.detail.tax">多种税务申报</strong>模拟计算增值税、企业所得税及个人所得税应纳税额，完成纳税申报操作。</div>
-        <div class="exp-detail-card c-green"><strong data-i18n="exp.detail.cost">成本核算分析</strong>运用品种法/分批法核算产品成本，拆解材料、人工、制造费用组成，撰写成本分析报告。</div>
+        <div class="exp-detail-card c-orange"><strong>账务流程处理</strong>独立完成凭证审核、账簿登记及期末结账的全流程，累计处理500+原始凭证与账簿。</div>
+        <div class="exp-detail-card c-blue"><strong>多种税务申报</strong>模拟计算增值税、企业所得税及个人所得税应纳税额，完成纳税申报操作。</div>
+        <div class="exp-detail-card c-green"><strong>成本核算分析</strong>运用品种法/分批法核算产品成本，拆解材料、人工、制造费用组成，撰写成本分析报告。</div>
       </div>
     </div>
-    <div class="exp-detail-section"><h4 data-i18n="exp.core.result">核心成果 <span>CORE RESULTS</span></h4>
+    <div class="exp-detail-section"><h4>核心成果 <span>CORE RESULTS</span></h4>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.8d44ae84">✅ 完整走通企业账务处理全流程，从原始凭证到期末结账一气呵成</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.cd517e58">✅ 准确完成三税种应纳税额计算与申报模拟，零差错通过审核</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);" data-i18n="auto.div.ff298721">✅ 撰写的成本分析报告获得实训指导教师"结构完整、分析到位"的评价</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 完整走通企业账务处理全流程，从原始凭证到期末结账一气呵成</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 准确完成三税种应纳税额计算与申报模拟，零差错通过审核</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;padding:12px;background:var(--lighter-gray);border-radius:var(--radius-xs);">✅ 撰写的成本分析报告获得实训指导教师"结构完整、分析到位"的评价</div>
       </div>
     </div>
   </div>
-  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp4')" data-i18n="modal.close">关闭</button></div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeExpDetail('exp4')">关闭</button></div>
 </div></div>
 
 <!-- ═══ Cert Detail Modals ═══ -->
 <div class="modal-overlay" id="cert1Modal"><div class="modal" style="max-width:640px;">
-  <div class="mod-hd"><h3 data-i18n="cert.detail1">📗 证书详情</h3><button class="mod-close" onclick="closeCertDetail('cert1')">✕</button></div>
+  <div class="mod-hd"><h3>📗 证书详情</h3><button class="mod-close" onclick="closeCertDetail('cert1')">✕</button></div>
   <div class="mod-bd">
     <div class="exp-detail-header">
       <div class="exp-detail-icon green" style="background:var(--light-green);">📗</div>
-      <div class="exp-detail-meta"><h3 data-i18n="auto.h3.99856079">会计从业资格证</h3><div class="role" data-i18n="auto.div.da0650f8">初级会计资格证书</div><div class="date" data-i18n="auto.div.fe96480b">国家财政部颁发</div></div>
+      <div class="exp-detail-meta"><h3>会计从业资格证</h3><div class="role">初级会计资格证书</div><div class="date">国家财政部颁发</div></div>
     </div>
     <div style="background:var(--lighter-gray);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;">
-      <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;" data-i18n="edu.modal.intro">会计从业资格证（现已改革为<strong data-i18n="auto.strong.da0650f8">初级会计资格证书</strong>）是从事会计工作必备的职业准入证书。持证人通过了国家统一的会计从业资格考试，具备从事会计工作所必需的<strong data-i18n="auto.strong.59647002">会计基础知识、会计技能和职业道德素养</strong>。</p>
+      <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;">会计从业资格证（现已改革为<strong>初级会计资格证书</strong>）是从事会计工作必备的职业准入证书。持证人通过了国家统一的会计从业资格考试，具备从事会计工作所必需的<strong>会计基础知识、会计技能和职业道德素养</strong>。</p>
     </div>
     <div class="exp-detail-cards">
-      <div class="exp-detail-card c-green"><strong data-i18n="auto.strong.a03c357d">持证意义</strong>证明持证人具备《会计法》规定的从事会计工作所需的专业能力，是进入会计行业的"敲门砖"。</div>
-      <div class="exp-detail-card c-blue"><strong data-i18n="auto.strong.cc603e8d">考试内容</strong>涵盖会计基础、财经法规与会计职业道德、会计电算化三大科目，全面考核会计从业人员的专业素质。</div>
-      <div class="exp-detail-card c-purple"><strong data-i18n="auto.strong.978e20c1">行业认可</strong>全国通用，是用人单位招聘会计岗位的重要参考依据，也是报考会计职称的必要前提。</div>
-      <div class="exp-detail-card c-orange"><strong data-i18n="auto.strong.6ac0e16d">职业发展</strong>为后续考取初级会计职称、中级会计职称乃至注册会计师（CPA）奠定了坚实的基础。</div>
+      <div class="exp-detail-card c-green"><strong>持证意义</strong>证明持证人具备《会计法》规定的从事会计工作所需的专业能力，是进入会计行业的"敲门砖"。</div>
+      <div class="exp-detail-card c-blue"><strong>考试内容</strong>涵盖会计基础、财经法规与会计职业道德、会计电算化三大科目，全面考核会计从业人员的专业素质。</div>
+      <div class="exp-detail-card c-purple"><strong>行业认可</strong>全国通用，是用人单位招聘会计岗位的重要参考依据，也是报考会计职称的必要前提。</div>
+      <div class="exp-detail-card c-orange"><strong>职业发展</strong>为后续考取初级会计职称、中级会计职称乃至注册会计师（CPA）奠定了坚实的基础。</div>
     </div>
   </div>
-  <div class="mod-ft"><button class="btn btn-dark" onclick="closeCertDetail('cert1')" data-i18n="modal.close">关闭</button></div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeCertDetail('cert1')">关闭</button></div>
 </div></div>
 
 <div class="modal-overlay" id="cert2Modal"><div class="modal" style="max-width:640px;">
-  <div class="mod-hd"><h3 data-i18n="cert.detail2">📊 证书详情</h3><button class="mod-close" onclick="closeCertDetail('cert2')">✕</button></div>
+  <div class="mod-hd"><h3>📊 证书详情</h3><button class="mod-close" onclick="closeCertDetail('cert2')">✕</button></div>
   <div class="mod-bd">
     <div class="exp-detail-header">
       <div class="exp-detail-icon blue" style="background:var(--light-blue);">📊</div>
-      <div class="exp-detail-meta"><h3 data-i18n="auto.h3.a130c5c7">BDA 中级数据分析师证书</h3><div class="role" data-i18n="auto.div.d3375064">数据分析师认证</div><div class="date" data-i18n="auto.div.4869ac5e">中国商业统计学会颁发</div></div>
+      <div class="exp-detail-meta"><h3>BDA 中级数据分析师证书</h3><div class="role">数据分析师认证</div><div class="date">中国商业统计学会颁发</div></div>
     </div>
     <div style="background:var(--lighter-gray);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;">
-      <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;" data-i18n="edu.modal.intro">BDA（Business Data Analyst）中级数据分析师证书是由<strong data-i18n="auto.strong.1f0d8298">中国商业统计学会</strong>颁发的国家级数据分析专业认证。持证人系统掌握了<strong data-i18n="auto.strong.73091d04">数据处理、统计分析和商业洞察</strong>三大核心能力，能够将数据转化为决策支持。</p>
+      <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;">BDA（Business Data Analyst）中级数据分析师证书是由<strong>中国商业统计学会</strong>颁发的国家级数据分析专业认证。持证人系统掌握了<strong>数据处理、统计分析和商业洞察</strong>三大核心能力，能够将数据转化为决策支持。</p>
     </div>
     <div class="exp-detail-cards">
-      <div class="exp-detail-card c-blue"><strong data-i18n="auto.strong.7415b73b">核心能力</strong>熟练掌握SQL数据查询、Power BI可视化、Python数据处理及SPSS统计分析等工具，具备独立完成数据分析项目的能力。</div>
-      <div class="exp-detail-card c-green"><strong data-i18n="auto.strong.cc603e8d">考试内容</strong>涵盖数据分析理论、统计学基础、数据处理实务和数据分析报告撰写四大模块，理论与实操并重。</div>
-      <div class="exp-detail-card c-purple"><strong data-i18n="auto.strong.d13b97be">行业价值</strong>在数字化转型浪潮中，BDA持证者是企业的热门人才，能够运用数据驱动业务决策，平均薪资高于同类岗位30%。</div>
-      <div class="exp-detail-card c-orange"><strong data-i18n="auto.strong.00314e5b">技能加持</strong>与会计专业能力相结合，持证人具备"财务+数据"双重复合技能，在智能财务、财务分析等领域具有显著的就业竞争优势。</div>
+      <div class="exp-detail-card c-blue"><strong>核心能力</strong>熟练掌握SQL数据查询、Power BI可视化、Python数据处理及SPSS统计分析等工具，具备独立完成数据分析项目的能力。</div>
+      <div class="exp-detail-card c-green"><strong>考试内容</strong>涵盖数据分析理论、统计学基础、数据处理实务和数据分析报告撰写四大模块，理论与实操并重。</div>
+      <div class="exp-detail-card c-purple"><strong>行业价值</strong>在数字化转型浪潮中，BDA持证者是企业的热门人才，能够运用数据驱动业务决策，平均薪资高于同类岗位30%。</div>
+      <div class="exp-detail-card c-orange"><strong>技能加持</strong>与会计专业能力相结合，持证人具备"财务+数据"双重复合技能，在智能财务、财务分析等领域具有显著的就业竞争优势。</div>
     </div>
   </div>
-  <div class="mod-ft"><button class="btn btn-dark" onclick="closeCertDetail('cert2')" data-i18n="modal.close">关闭</button></div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeCertDetail('cert2')">关闭</button></div>
 </div></div>
 
 <div class="modal-overlay" id="cert3Modal"><div class="modal" style="max-width:640px;">
-  <div class="mod-hd"><h3 data-i18n="cert.detail3">🌐 证书详情</h3><button class="mod-close" onclick="closeCertDetail('cert3')">✕</button></div>
+  <div class="mod-hd"><h3>🌐 证书详情</h3><button class="mod-close" onclick="closeCertDetail('cert3')">✕</button></div>
   <div class="mod-bd">
     <div class="exp-detail-header">
       <div class="exp-detail-icon purple" style="background:var(--light-purple);">🌐</div>
-      <div class="exp-detail-meta"><h3 data-i18n="auto.h3.41f478b0">CET-6 大学英语六级</h3><div class="role" data-i18n="auto.div.e154600b">466分 · 全国大学英语六级考试</div><div class="date" data-i18n="auto.div.7a753de9">教育部高等教育司主办</div></div>
+      <div class="exp-detail-meta"><h3>CET-6 大学英语六级</h3><div class="role">466分 · 全国大学英语六级考试</div><div class="date">教育部高等教育司主办</div></div>
     </div>
     <div style="background:var(--lighter-gray);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;">
-      <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;" data-i18n="edu.modal.intro">全国大学英语六级考试（CET-6）是由<strong data-i18n="auto.strong.f201eece">教育部高等教育司</strong>主办的全国性英语水平测试，是评估大学生英语综合应用能力的权威标准。持证人具备良好的<strong data-i18n="auto.strong.5a180bf2">英语听说读写译综合能力</strong>，能够以英语为工具获取专业信息并进行有效沟通。</p>
+      <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;">全国大学英语六级考试（CET-6）是由<strong>教育部高等教育司</strong>主办的全国性英语水平测试，是评估大学生英语综合应用能力的权威标准。持证人具备良好的<strong>英语听说读写译综合能力</strong>，能够以英语为工具获取专业信息并进行有效沟通。</p>
     </div>
     <div class="exp-detail-cards">
-      <div class="exp-detail-card c-purple"><strong data-i18n="auto.strong.abd4af60">语言能力</strong>具备良好的英语阅读、写作和听力能力，能够流畅阅读英文财会文献、国际会计准则及英文商务函件。</div>
-      <div class="exp-detail-card c-blue"><strong data-i18n="auto.strong.43513120">考试构成</strong>满分710分，涵盖听力理解、阅读理解、写作翻译三大板块，全面考核英语综合运用能力。</div>
-      <div class="exp-detail-card c-green"><strong data-i18n="auto.strong.392d19e6">职场价值</strong>在跨国企业、外资会计师事务所及涉外财务岗位中，CET-6是基本的语言门槛，持证人具备从事国际业务的英语基础。</div>
-      <div class="exp-detail-card c-orange"><strong data-i18n="auto.strong.6304a60e">专业延伸</strong>能够阅读国际财务报告准则（IFRS）等英文专业文献，为未来考取ACCA、CMA等国际财会证书提供语言支撑。</div>
+      <div class="exp-detail-card c-purple"><strong>语言能力</strong>具备良好的英语阅读、写作和听力能力，能够流畅阅读英文财会文献、国际会计准则及英文商务函件。</div>
+      <div class="exp-detail-card c-blue"><strong>考试构成</strong>满分710分，涵盖听力理解、阅读理解、写作翻译三大板块，全面考核英语综合运用能力。</div>
+      <div class="exp-detail-card c-green"><strong>职场价值</strong>在跨国企业、外资会计师事务所及涉外财务岗位中，CET-6是基本的语言门槛，持证人具备从事国际业务的英语基础。</div>
+      <div class="exp-detail-card c-orange"><strong>专业延伸</strong>能够阅读国际财务报告准则（IFRS）等英文专业文献，为未来考取ACCA、CMA等国际财会证书提供语言支撑。</div>
     </div>
   </div>
-  <div class="mod-ft"><button class="btn btn-dark" onclick="closeCertDetail('cert3')" data-i18n="modal.close">关闭</button></div>
+  <div class="mod-ft"><button class="btn btn-dark" onclick="closeCertDetail('cert3')">关闭</button></div>
 </div></div>
 
 <!-- ═══ Education Modal ═══ -->
 <div class="modal-overlay" id="eduModal">
   <div class="modal" style="max-width:760px;">
-    <div class="mod-hd"><h3 data-i18n="edu.modal.title">🏫 哈尔滨商业大学</h3><button class="mod-close" onclick="closeEdu()">✕</button></div>
+    <div class="mod-hd"><h3>🏫 哈尔滨商业大学</h3><button class="mod-close" onclick="closeEdu()">✕</button></div>
     <div class="mod-bd">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
         <div style="border-radius:var(--radius-sm);overflow:hidden;aspect-ratio:16/11;background:linear-gradient(135deg,#e8f0fe,#d4e4fd);display:flex;align-items:center;justify-content:center;">
-          <img src="assets/school-main.png" alt="哈尔滨商业大学" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=text-align:center;color:var(--blue);font-size:48px>🏛️</div><div style=text-align:center;color:var(--blue);font-size:13px;margin-top:4px data-i18n="auto.div.43cb678d">哈尔滨商业大学</div>'">
+          <img src="assets/school-main.png" alt="哈尔滨商业大学" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=text-align:center;color:var(--blue);font-size:48px>🏛️</div><div style=text-align:center;color:var(--blue);font-size:13px;margin-top:4px>哈尔滨商业大学</div>'">
         </div>
         <div>
-          <p style="font-size:12px;color:var(--gray);letter-spacing:1px;margin-bottom:4px;" data-i18n="edu.modal.sub">HARBIN UNIVERSITY OF COMMERCE</p>
-          <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:4px;" data-i18n="edu.modal.desc">新中国第一所多科性商业大学</p>
-          <p style="font-size:12px;color:#555;line-height:1.7;margin-bottom:6px;" data-i18n="edu.modal.founded">始建于 <strong data-i18n="auto.strong.209a0978">1952年</strong>，黑龙江省重点建设的十所大学之一，入选中西部高校基础能力建设工程，国内一流学科建设高校。</p>
+          <p style="font-size:12px;color:var(--gray);letter-spacing:1px;margin-bottom:4px;">HARBIN UNIVERSITY OF COMMERCE</p>
+          <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:4px;">新中国第一所多科性商业大学</p>
+          <p style="font-size:12px;color:#555;line-height:1.7;margin-bottom:6px;">始建于 <strong>1952年</strong>，黑龙江省重点建设的十所大学之一，入选中西部高校基础能力建设工程，国内一流学科建设高校。</p>
           <div class="tags" style="margin-top:8px;">
-            <span class="tag" style="background:var(--light-purple);color:var(--purple);" data-i18n="edu.modal.doctor">博士授权单位</span>
-            <span class="tag" style="background:var(--light-blue);color:var(--blue);" data-i18n="edu.modal.prov">省属重点</span>
-            <span class="tag" style="background:var(--light-green);color:var(--green);" data-i18n="edu.modal.project">中西部高校基础能力建设工程</span>
+            <span class="tag" style="background:var(--light-purple);color:var(--purple);">博士授权单位</span>
+            <span class="tag" style="background:var(--light-blue);color:var(--blue);">省属重点</span>
+            <span class="tag" style="background:var(--light-green);color:var(--green);">中西部高校基础能力建设工程</span>
           </div>
         </div>
       </div>
       <div style="background:var(--lighter-gray);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;">
-        <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;" data-i18n="edu.modal.intro">
-          哈尔滨商业大学是<strong data-i18n="auto.strong.7fe20152">新中国第一所多科性商业大学</strong>，拥有完整的本-硕-博人才培养体系。学校秉承"<strong data-i18n="auto.strong.b81459e1">求真至善，修德允能</strong>"的校训，以"一流的经管学科为主导，精干特色的工科为重点"的学科定位，培养了<strong data-i18n="auto.strong.52faa436">20余万名</strong>各类专业人才，被誉为"<strong data-i18n="auto.strong.f9c2dfa7">商业精英的摇篮</strong>"。
+        <p style="font-size:13px;color:var(--dark);line-height:1.8;text-indent:2em;">
+          哈尔滨商业大学是<strong>新中国第一所多科性商业大学</strong>，拥有完整的本-硕-博人才培养体系。学校秉承"<strong>求真至善，修德允能</strong>"的校训，以"一流的经管学科为主导，精干特色的工科为重点"的学科定位，培养了<strong>20余万名</strong>各类专业人才，被誉为"<strong>商业精英的摇篮</strong>"。
         </p>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
         <div style="background:var(--light-purple);border-radius:var(--radius-xs);padding:14px;">
           <div style="font-size:22px;font-weight:800;color:var(--purple);">4</div>
-          <div style="font-size:11px;color:#555;" data-i18n="edu.modal.stat1">一级学科博士点</div>
+          <div style="font-size:11px;color:#555;">一级学科博士点</div>
         </div>
         <div style="background:var(--light-blue);border-radius:var(--radius-xs);padding:14px;">
           <div style="font-size:22px;font-weight:800;color:var(--blue);">15</div>
-          <div style="font-size:11px;color:#555;" data-i18n="edu.modal.stat2">国家级一流本科专业</div>
+          <div style="font-size:11px;color:#555;">国家级一流本科专业</div>
         </div>
         <div style="background:var(--light-green);border-radius:var(--radius-xs);padding:14px;">
-          <div style="font-size:22px;font-weight:800;color:var(--green);" data-i18n="auto.div.adf18ee6">73年</div>
-          <div style="font-size:11px;color:#555;" data-i18n="edu.modal.stat3">悠久办学历史</div>
+          <div style="font-size:22px;font-weight:800;color:var(--green);">73年</div>
+          <div style="font-size:11px;color:#555;">悠久办学历史</div>
         </div>
         <div style="background:var(--light-orange);border-radius:var(--radius-xs);padding:14px;">
-          <div style="font-size:22px;font-weight:800;color:var(--orange);" data-i18n="auto.div.889d5391">20万+</div>
-          <div style="font-size:11px;color:#555;" data-i18n="edu.modal.stat4">累计培养人才</div>
+          <div style="font-size:22px;font-weight:800;color:var(--orange);">20万+</div>
+          <div style="font-size:11px;color:#555;">累计培养人才</div>
         </div>
       </div>
       <div style="background:linear-gradient(135deg,#fef9e7,#fdf2d0);border-radius:var(--radius-sm);padding:16px;border-left:3px solid var(--yellow);">
-        <p style="font-size:12px;color:#8a7030;line-height:1.8;margin:0;" data-i18n="edu.modal.achieve">
-          <strong data-i18n="auto.strong.83667e22">🏆 骄傲的商大印记：</strong>          <strong data-i18n="auto.strong.83667e22">🏆 骄傲的商大印记：</strong>1959年研制出<strong data-i18n="auto.strong.b91a55a3">中国第一台食品机械——601型饺子机</strong>；1960年首创我国三大会计记账法之一"<strong data-i18n="auto.strong.ad530356">财产收付复式记账法</strong>"；会计学专业为<strong data-i18n="auto.strong.e32ec210">国家级特色专业、国家级一流本科专业建设点</strong>；《商业研究》期刊为<strong data-i18n="auto.strong.f490ce19">CSSCI来源期刊</strong>。学校在2024年入选<strong data-i18n="auto.strong.03c0c907">黑龙江省首批数智教育重点校</strong>建设名单。
+        <p style="font-size:12px;color:#8a7030;line-height:1.8;margin:0;">
+          <strong>🏆 骄傲的商大印记：</strong>1959年研制出<strong>中国第一台食品机械——601型饺子机</strong>；1960年首创我国三大会计记账法之一"<strong>财产收付复式记账法</strong>"；会计学专业为<strong>国家级特色专业、国家级一流本科专业建设点</strong>；《商业研究》期刊为<strong>CSSCI来源期刊</strong>。学校在2024年入选<strong>黑龙江省首批数智教育重点校</strong>建设名单。
         </p>
       </div>
     </div>
-    <div class="mod-ft"><button class="btn btn-dark" onclick="closeEdu()" data-i18n="modal.close">关闭</button></div>
+    <div class="mod-ft"><button class="btn btn-dark" onclick="closeEdu()">关闭</button></div>
   </div>
 </div>
 
-<footer class="footer" data-i18n="footer.spa">© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学</footer>
+<footer class="footer">© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学</footer>
 
 <script>
-// ── Simple bilingual toggle ──
-var spaDict = {
-zh:{
-'nav.about2':'关于我','nav.edu2':'教育背景','nav.exp2':'工作与实践','nav.skills2':'技能特长','nav.proj2':'学习与探索',
-'hero.greet':'Hi, 我是谢泳清','hero.role':'Accounting Professional & Intelligent Accounting',
-'hero.bio2':'一个左手翻凭证、右手敲SQL的财会人 🖐️<br>在哈尔滨商业大学的四年里，我把Excel玩成了艺术品，让Power BI画出会讲故事的数据图表。<br>去过容诚会计师事务所翻遍200+份合同揪出30+个"小辫子"，也在北京通达用U8系统把凭证处理得像流水线一样精准高效。<br>我相信——好的财务人不只是算账的，更是用数据帮企业做决策的军师。如果你也在找这样一个既懂借贷、又会写代码的"斜杠青年"，那我们聊聊吧 ✨',
-'about.download':'📄 下载简历','about.contact':'💬 联系我','about.ai':'🤖 AI 岗位匹配器','about.jd.ph':'粘贴您的JD（职位描述），查看我与岗位之间的匹配度...','about.match.btn':'开始匹配 →',
-'edu.title':'教育背景','edu.sub':'Education','edu.period':'2022 — 2026','edu.hint':'🔍 点击了解母校','edu.school':'哈尔滨商业大学','edu.major':'会计学 · 智能会计方向（本科）','edu.gpa':'📊 GPA：83.7 / 100','edu.courses':'📚 主修课程',
-'exp.title':'工作经历','exp.sub':'Work & Practice',
-'exp.j1.name':'禹州市申通物流服务有限公司','exp.j1.role':'会计助理','exp.j1.desc':'使用用友U8系统处理200+张业务凭证，编制财务报表，参与薪酬核算与固定资产管理',
-'exp.j2.name':'容诚会计师事务所','exp.j2.role':'审计实习生','exp.j2.desc':'实地走访16家企业，核查200+份合同发现30+处异常，协助编制审计底稿',
-'exp.j3.name':'浪潮铸远智慧企业大数据分析大赛','exp.j3.role':'国家级特等奖','exp.j3.desc':'通过SQL完成三大报表编制，运用Power BI进行财务数据可视化分析，效率提升30%',
-'exp.j4.name':'黑龙江浪潮信息科技有限公司','exp.j4.role':'财务共享中心实践经历','exp.j4.desc':'完成全流程500+凭证处理，模拟税务申报，运用品种法/分批法撰写成本分析报告',
-'exp.hint':'点击查看详情 →',
-'skills.title':'技能特长','skills.sub':'Skills & Expertise','skills.prof':'💼 专业技能','skills.tools':'🛠 技术工具','skills.ai':'🤖 AI 工具应用','skills.certs':'📜 证书与资格','skills.soft':'🌟 综合能力',
-'proj.title':'学习与探索','proj.sub':'Learning & Discovery','proj.growth':'📝 学习成长轨迹',
-'modal.close':'关闭','modal.contact':'💬 联系我','modal.phone':'📞 拨打电话','modal.email':'✉️ 发送邮件','modal.contact.hint':'或直接留言，我会尽快回复您：','modal.send':'发送留言','modal.phone.label':'联系电话','modal.email.label':'邮箱地址','modal.name.ph':'您的姓名','modal.email.ph':'您的邮箱','modal.msg.ph':'留言内容...',
-'match.title':'📊 AI 岗位匹配报告','match.edu':'学历','match.exp':'工作经验','match.skill':'技能匹配','match.soft':'综合素质','match.hl':'★ 匹配亮点','match.sum':'📄 综合评估',
-'exp.detail.work1':'💼 工作经历详情','exp.detail.work2':'🔍 工作经历详情','exp.detail.camp1':'🏆 校园实践详情','exp.detail.camp2':'🏢 校园实践详情',
-'exp.core.res':'核心职责','exp.core.result':'核心成果',
-'cert.detail1':'📗 证书详情','cert.detail2':'📊 证书详情','cert.detail3':'🌐 证书详情',
-'edu.modal.title':'🏫 哈尔滨商业大学','edu.modal.sub':'HARBIN UNIVERSITY OF COMMERCE',
-'edu.modal.desc':'新中国第一所多科性商业大学',
-'footer.spa':'© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学','auto.div.4be73749':'📍 江西省','auto.strong.79bd2f3c':'财务会计','auto.p.b3f36312':'精通凭证编制、总账明细账管理、财务报表编制，熟悉企业会计准则与财务制度','auto.strong.726e9d4b':'成本核算','auto.p.ad96d769':'掌握品种法、分步法、分批法，能够独立完成材料、人工、制造费用的归集与分配','auto.strong.554f5d1e':'审计实务','auto.p.47b380d5':'具备企业实地走访、合同核查、底稿编制经验，能够识别关键业务流程中的潜在风险','auto.strong.9aa83339':'税务处理','auto.p.5f33f296':'熟悉增值税、企业所得税、个人所得税计算与申报流程，了解相关税收法规','auto.strong.4b23c868':'用友U8','auto.p.3fb9799e':'熟练使用用友U8系统进行凭证填制、审核记账、结账及报表模板自定义','auto.p.713516c1':'能够使用SQL进行财务数据查询、清洗、汇总分析，完成总账与明细账的数据处理','auto.p.e5a7e5bb':'掌握数据可视化分析，能够制作交互式财务报表仪表板，实现数据驱动的决策支持','auto.p.bbd3256f':'具备Python基础编程能力，可用于财务数据批量处理、自动化报表生成等场景','auto.p.7bacf1eb':'精通Excel、Word、PPT，熟练运用VLOOKUP、SUM、数据透视表等高级功能','auto.p.63de1563':'掌握基础统计分析功能，可用于财务数据的描述性统计与相关性分析','auto.strong.eba0b418':'AI Agent 工作流','auto.p.6ad6d9e5':'熟练使用AI工具，能够运用Agent自动化处理生活与工作事务，如数据分析、文档整理、信息检索等','auto.strong.007247cc':'AI 辅助项目开发','auto.p.a419e3e2':'在AI辅助下独立完成过多个项目的开发，具备将AI能力融入日常工作流程的实践经验','auto.div.99856079':'会计从业资格证','auto.div.5cd5de1a':'初级会计资格证书 · 国家财政部颁发','auto.div.e4310598':'BDA 中级证书','auto.div.d3375064':'数据分析师认证','auto.div.d565d9cb':'CET-6（466分）','auto.div.39e3a71b':'大学英语六级','auto.span.a1809681':'数据分析与洞察','auto.span.1b26a1d7':'财务报表编制','auto.span.7370f5c6':'成本管控','auto.span.827eadbc':'沟通协作','auto.span.f5a4990a':'抗压能力强','auto.span.3a85328d':'快速学习','auto.span.33cc020f':'团队合作','auto.span.ba45f59c':'逻辑思维','auto.h4.b10a9f5a':'浪潮铸远大数据分析大赛','auto.p.02251456':'国家级特等奖。使用SQL和Power BI完成企业财务数据分析、凭证审核及三大报表编制全流程，实现企业回款数据可视化。','auto.span.6450d843':'数据分析','auto.h4.127d9667':'大学生创新创业大赛','auto.p.b35eca75':'校级项目——企业税务筹划方案。担任组长，带领团队完成某企业税务筹划方案设计，取得优异成绩。','auto.span.a6aa2725':'税务筹划','auto.span.436367b0':'项目管理','auto.span.9c51e19f':'团队领导','auto.h4.b7125651':'成本分析报告','auto.p.95c3b8ae':'运用品种法和分步法对制造业产品成本进行核算，完成材料、人工及制造费用的归集与分析，撰写详细成本分析报告。','auto.span.e18fb153':'成本会计','auto.h4.ecfee8e0':'AI 工具应用与实践','auto.p.2cbf5043':'熟练运用AI Agent工具自动化处理工作事务，在AI辅助下独立完成多个项目开发，涵盖数据分析、自动化报表、信息检索等场景。','auto.span.4c65b7cd':'自动化','auto.span.2297641c':'项目开发','auto.h4.bf1bf6fc':'AI 探索与应用','auto.p.fce4481b':'深入探索AI工具在日常工作中的应用，熟练使用Agent工具实现事务自动化处理与智能辅助决策，将AI能力融入财务工作流。','auto.h4.ce5e8ec4':'持续学习','auto.p.a38e93e5':'关注AI与财务数字化前沿动态，持续学习Python数据分析、智能财务工具，在AI辅助下独立完成多个实践项目。','auto.h4.68e6246e':'职业目标','auto.p.ee5d2ef8':'致力于成为AI时代的财务数字化复合型人才，将会计专业知识、数据分析能力与AI工具深度结合，为企业创造数据驱动的财务价值。','auto.h3.5065a94b':'北京通达商贸有限公司','auto.div.70673d28':'会计助理','auto.div.bd30a2f3':'✅ 独立完成月度、季度财务报表编制，保证数据勾稽关系零差错','auto.div.e45b0273':'✅ 建立凭证审核SOP流程，将凭证处理效率提升30%','auto.div.7affa9a7':'✅ 协助完成公司年度薪酬核算与固定资产盘点，获得主管好评','auto.h3.20b8abbe':'容诚会计师事务所','auto.div.ad1b9dc0':'审计实习生','auto.div.8fadd17d':'✅ 独立走访16家企业并撰写走访报告，获得项目经理高度认可','auto.div.7912846e':'✅ 发现30+处合同条款与实际执行不符，协助项目组调整审计重点','auto.div.d2b13966':'✅ 高效完成底稿数据整理，审计团队工作效率显著提升','auto.h3.6df9f788':'浪潮铸远智慧企业大数据分析大赛','auto.div.7a3fef3c':'国家级特等奖','auto.div.d71fed90':'✅ 从全国参赛队伍中脱颖而出，荣获国家级特等奖','auto.div.f18988a0':'✅ 独立完成企业级财务数据全流程处理与可视化展示','auto.div.0ba2607e':'✅ 作品获得评委"数据处理逻辑清晰、财务分析深入"的高度评价','auto.h3.c9009a15':'黑龙江浪潮信息科技有限公司','auto.div.fc35535a':'财务共享中心实践经历','auto.div.4976c381':'全流程','auto.div.8d44ae84':'✅ 完整走通企业账务处理全流程，从原始凭证到期末结账一气呵成','auto.div.cd517e58':'✅ 准确完成三税种应纳税额计算与申报模拟，零差错通过审核','auto.div.ff298721':'✅ 撰写的成本分析报告获得实训指导教师"结构完整、分析到位"的评价','auto.h3.99856079':'会计从业资格证','auto.div.da0650f8':'初级会计资格证书','auto.div.fe96480b':'国家财政部颁发','auto.strong.da0650f8':'初级会计资格证书','auto.strong.59647002':'会计基础知识、会计技能和职业道德素养','auto.strong.a03c357d':'持证意义','auto.strong.cc603e8d':'考试内容','auto.strong.978e20c1':'行业认可','auto.strong.6ac0e16d':'职业发展','auto.h3.a130c5c7':'BDA 中级数据分析师证书','auto.div.4869ac5e':'中国商业统计学会颁发','auto.strong.1f0d8298':'中国商业统计学会','auto.strong.73091d04':'数据处理、统计分析和商业洞察','auto.strong.7415b73b':'核心能力','auto.strong.d13b97be':'行业价值','auto.strong.00314e5b':'技能加持','auto.h3.41f478b0':'CET-6 大学英语六级','auto.div.e154600b':'466分 · 全国大学英语六级考试','auto.div.7a753de9':'教育部高等教育司主办','auto.strong.f201eece':'教育部高等教育司','auto.strong.5a180bf2':'英语听说读写译综合能力','auto.strong.abd4af60':'语言能力','auto.strong.43513120':'考试构成','auto.strong.392d19e6':'职场价值','auto.strong.6304a60e':'专业延伸','auto.div.43cb678d':'哈尔滨商业大学','auto.strong.209a0978':'1952年','auto.strong.7fe20152':'新中国第一所多科性商业大学','auto.strong.b81459e1':'求真至善，修德允能','auto.strong.52faa436':'20余万名','auto.strong.f9c2dfa7':'商业精英的摇篮','auto.div.adf18ee6':'73年','auto.div.889d5391':'20万+','auto.strong.83667e22':'🏆 骄傲的商大印记：','auto.strong.b91a55a3':'中国第一台食品机械——601型饺子机','auto.strong.ad530356':'财产收付复式记账法','auto.strong.e32ec210':'国家级特色专业、国家级一流本科专业建设点','auto.strong.f490ce19':'CSSCI来源期刊','auto.strong.03c0c907':'黑龙江省首批数智教育重点校'
-},
-en:{
-'nav.about2':'About Me','nav.edu2':'Education','nav.exp2':'Work & Practice','nav.skills2':'Skills','nav.proj2':'Learning',
-'hero.greet':"Hi, I'm Yongqing Xie",'hero.role':'Accounting Professional & Intelligent Accounting',
-'hero.bio2':"A finance pro — vouchers in one hand, SQL in the other.<br>At Harbin University of Commerce, I turned Excel into art and let Power BI tell data stories.<br>At Rongcheng CPA Firm, I reviewed 200+ contracts finding 30+ discrepancies. At Yuzhou Shentong, I processed vouchers with U8 precision.<br>Great finance pros don't just crunch numbers — they use data to drive decisions. If you need someone who knows both debits/credits and coding — let's talk! ✨",
-'about.download':'📄 Download Resume','about.contact':'💬 Contact Me','about.ai':'🤖 AI Job Matcher','about.jd.ph':'Paste a job description to check compatibility...','about.match.btn':'Start Matching →',
-'edu.title':'Education','edu.sub':'Education','edu.period':'2022 — 2026','edu.hint':'🔍 Learn About My University','edu.school':'Harbin University of Commerce','edu.major':'B.S. Accounting · Intelligent Accounting','edu.gpa':'📊 GPA: 83.7 / 100','edu.courses':'📚 Core Courses',
-'exp.title':'Work Experience','exp.sub':'Work & Practice',
-'exp.j1.name':'Yuzhou Shentong Logistics Service Co., Ltd.','exp.j1.role':'Accounting Assistant','exp.j1.desc':'Processed 200+ vouchers via UFIDA U8, prepared financial statements, handled payroll and asset management.',
-'exp.j2.name':'Rongcheng CPA Firm','exp.j2.role':'Audit Intern','exp.j2.desc':'Visited 16 enterprises, reviewed 200+ contracts finding 30+ discrepancies, assisted in audit working papers.',
-'exp.j3.name':'Inspur Smart Enterprise Big Data Competition','exp.j3.role':'National Grand Prize','exp.j3.desc':'Built 3 major financial statements via SQL, used Power BI for visualization, 30% efficiency gain.',
-'exp.j4.name':'Heilongjiang Inspur Information Technology Co.','exp.j4.role':'Financial Shared Service Center Practicum','exp.j4.desc':'Processed 500+ vouchers end-to-end, simulated tax filing, authored cost analysis reports.',
-'exp.hint':'Click for details →',
-'skills.title':'Skills & Expertise','skills.sub':'Skills & Expertise','skills.prof':'💼 Professional Skills','skills.tools':'🛠 Technical Tools','skills.ai':'🤖 AI Tool Application','skills.certs':'📜 Certifications','skills.soft':'🌟 Soft Skills',
-'proj.title':'Learning & Discovery','proj.sub':'Learning & Discovery','proj.growth':'📝 Learning Journey',
-'modal.close':'Close','modal.contact':'💬 Contact Me','modal.phone':'📞 Call','modal.email':'✉️ Send Email','modal.contact.hint':'Or leave a message:','modal.send':'Send Message','modal.phone.label':'Phone','modal.email.label':'Email','modal.name.ph':'Your Name','modal.email.ph':'Your Email','modal.msg.ph':'Message...',
-'match.title':'📊 AI Job Match Report','match.edu':'Education','match.exp':'Experience','match.skill':'Skill Match','match.soft':'Soft Skills','match.hl':'★ Match Highlights','match.sum':'📄 Overall Assessment',
-'exp.detail.work1':'💼 Work Experience Details','exp.detail.work2':'🔍 Work Experience Details','exp.detail.camp1':'🏆 Campus Practice Details','exp.detail.camp2':'🏢 Campus Practice Details',
-'exp.core.res':'Core Responsibilities','exp.core.result':'Core Results',
-'cert.detail1':'📗 Certificate Details','cert.detail2':'📊 Certificate Details','cert.detail3':'🌐 Certificate Details',
-'edu.modal.title':'🏫 Harbin University of Commerce','edu.modal.sub':'HARBIN UNIVERSITY OF COMMERCE',
-'edu.modal.desc':"China's First Multidisciplinary Commerce University",
-'footer.spa':'© 2026 Yongqing Xie · Resume · Harbin University of Commerce','auto.div.4be73749':'📍 Jiangxi Province','auto.strong.79bd2f3c':'Financial Accounting','auto.p.b3f36312':'Proficient in voucher prep, GL/SL management, and financial statements. Well-versed in accounting standards.','auto.strong.726e9d4b':'Cost Accounting','auto.p.ad96d769':'Skilled in job-order, process, and batch costing. Independently handles cost allocation.','auto.strong.554f5d1e':'Audit Practice','auto.p.47b380d5':'Experienced in on-site visits, contract review, and working papers. Identifies key process risks.','auto.strong.9aa83339':'Tax Processing','auto.p.5f33f296':'Familiar with VAT, CIT, and IIT calculation and filing. Knowledgeable in tax regulations.','auto.strong.4b23c868':'UFIDA U8','auto.p.3fb9799e':'Proficient in UFIDA U8 for vouchers, bookkeeping, settlement, and custom reports.','auto.p.713516c1':'Uses SQL for financial data query, cleaning, and aggregation. Handles GL/SL data processing.','auto.p.e5a7e5bb':'Skilled in data visualization. Creates interactive financial dashboards for decision support.','auto.p.bbd3256f':'Basic Python for batch financial data processing and automated report generation.','auto.p.7bacf1eb':'Expert in Excel, Word, PPT. Proficient in VLOOKUP, SUM, pivot tables, and advanced features.','auto.p.63de1563':'Basic SPSS for descriptive statistics and correlation analysis of financial data.','auto.strong.eba0b418':'AI Agent Workflows','auto.p.6ad6d9e5':'Proficient in AI tools. Uses AI agents to automate tasks: data analysis, document organization, information retrieval.','auto.strong.007247cc':'AI-Assisted Development','auto.p.a419e3e2':'Independently completed multiple projects with AI. Integrates AI into daily workflows.','auto.div.99856079':'Accounting Qualification','auto.div.5cd5de1a':'Junior Accountant Certificate · Ministry of Finance','auto.div.e4310598':'BDA Data Analyst (Mid-level)','auto.div.d3375064':'Data Analyst Certification','auto.div.d565d9cb':'CET-6 (Score: 466)','auto.div.39e3a71b':'College English Test Band 6','auto.span.a1809681':'Data Analysis & Insight','auto.span.1b26a1d7':'Financial Reporting','auto.span.7370f5c6':'Cost Control','auto.span.827eadbc':'Communication','auto.span.f5a4990a':'Resilience Under Pressure','auto.span.3a85328d':'Fast Learner','auto.span.33cc020f':'Team Player','auto.span.ba45f59c':'Logical Thinking','auto.h4.b10a9f5a':'Inspur Big Data Analysis Competition','auto.p.02251456':'National Grand Prize. Completed financial data analysis, voucher audit, and three-statement preparation with SQL & Power BI.','auto.span.6450d843':'Data Analysis','auto.h4.127d9667':'Innovation & Entrepreneurship Competition','auto.p.b35eca75':'University-level project: corporate tax planning. Led team as group leader, achieved outstanding results.','auto.span.a6aa2725':'Tax Planning','auto.span.436367b0':'Project Management','auto.span.9c51e19f':'Team Leadership','auto.h4.b7125651':'Cost Analysis Report','auto.p.95c3b8ae':'Applied job-order and process costing for manufacturing. Completed cost allocation and authored detailed reports.','auto.span.e18fb153':'Cost Accounting','auto.h4.ecfee8e0':'AI Tools & Practice','auto.p.2cbf5043':'Proficient in AI Agent tools for workflow automation. Completed multiple AI-assisted projects.','auto.span.4c65b7cd':'Automation','auto.span.2297641c':'Development','auto.h4.bf1bf6fc':'AI Exploration & Practice','auto.p.fce4481b':'Exploring AI tools for daily work. Using agents for automation and intelligent decision support.','auto.h4.ce5e8ec4':'Continuous Learning','auto.p.a38e93e5':'Following AI & digital finance trends. Learning data analysis and smart finance tools.','auto.h4.68e6246e':'Career Goals','auto.p.ee5d2ef8':'Aspiring to be an AI-era hybrid finance-digital talent, integrating accounting, data analysis, and AI.','auto.h3.5065a94b':'Beijing Tongda Trading Co., Ltd.','auto.div.70673d28':'Accounting Assistant','auto.div.bd30a2f3':'Independently completed monthly and quarterly financial statements with zero reconciliation errors','auto.div.e45b0273':'Established voucher audit SOP, improving processing efficiency by 30%','auto.div.7affa9a7':'Assisted in annual payroll accounting and fixed asset inventory, earning supervisor praise','auto.h3.20b8abbe':'Rongcheng CPA Firm','auto.div.ad1b9dc0':'Audit Intern','auto.div.8fadd17d':'Independently visited 16 enterprises and authored reports, highly praised by project manager','auto.div.7912846e':'Discovered 30+ contract discrepancies, helping adjust audit focus','auto.div.d2b13966':'Efficiently completed working paper organization, boosting team productivity','auto.h3.6df9f788':'Inspur Smart Enterprise Big Data Competition','auto.div.7a3fef3c':'National Grand Prize','auto.div.d71fed90':'Won National Grand Prize among nationwide competing teams','auto.div.f18988a0':'Independently completed full-cycle enterprise financial data processing and visualization','auto.div.0ba2607e':'Work praised by judges for "clear data logic and in-depth financial analysis"','auto.h3.c9009a15':'Heilongjiang Inspur Information Technology Co.','auto.div.fc35535a':'Financial Shared Service Center Practicum','auto.div.4976c381':'Full Cycle','auto.div.8d44ae84':'Completed full accounting cycle seamlessly from source documents to period-end closing','auto.div.cd517e58':'Accurately completed tax calculation and filing for 3 tax types with zero errors','auto.div.ff298721':'Cost analysis report praised by instructor as "well-structured and thorough"','auto.h3.99856079':'Accounting Qualification','auto.div.da0650f8':'Junior Accountant Certificate','auto.div.fe96480b':'Issued by Ministry of Finance','auto.strong.da0650f8':'Junior Accountant Certificate','auto.strong.59647002':'fundamental accounting knowledge, skills, and professional ethics','auto.strong.a03c357d':'Significance','auto.strong.cc603e8d':'Exam Content','auto.strong.978e20c1':'Industry Recognition','auto.strong.6ac0e16d':'Career Development','auto.h3.a130c5c7':'BDA Data Analyst Certificate (Mid-level)','auto.div.4869ac5e':'Issued by China Business Statistics Association','auto.strong.1f0d8298':'Issued by China Business Statistics Association','auto.strong.73091d04':'data processing, statistical analysis, and business insight','auto.strong.7415b73b':'Core Competencies','auto.strong.d13b97be':'Industry Value','auto.strong.00314e5b':'Skill Synergy','auto.h3.41f478b0':'CET-6 College English Test Band 6','auto.div.e154600b':'Score: 466 - National CET-6','auto.div.7a753de9':'Administered by Ministry of Education','auto.strong.f201eece':'Administered by Ministry of Education','auto.strong.5a180bf2':'English listening, speaking, reading, writing, and translation skills','auto.strong.abd4af60':'Language Proficiency','auto.strong.43513120':'Test Structure','auto.strong.392d19e6':'Career Value','auto.strong.6304a60e':'Professional Extension','auto.div.43cb678d':'Harbin University of Commerce','auto.strong.209a0978':'1952','auto.strong.7fe20152':'China's first multidisciplinary commerce university','auto.strong.b81459e1':'Seek Truth, Pursue Excellence, Cultivate Virtue, Develop Competence','auto.strong.52faa436':'over 200,000','auto.strong.f9c2dfa7':'Cradle of Business Elites','auto.div.adf18ee6':'73年','auto.div.889d5391':'20万+','auto.strong.83667e22':'🏆 骄傲的商大印记：','auto.strong.b91a55a3':'中国第一台食品机械——601型饺子机','auto.strong.ad530356':'财产收付复式记账法','auto.strong.e32ec210':'National First-Class Programs','auto.strong.f490ce19':'CSSCI来源期刊','auto.strong.03c0c907':'黑龙江省首批数智教育重点校'
-}};
-
-function spaTranslate(lang) {
-  document.querySelectorAll('.lang-option').forEach(function(b) {
-    var active = b.getAttribute('data-lang') === lang;
-    b.style.background = active ? 'var(--purple)' : 'var(--lighter-gray)';
-    b.style.color = active ? '#fff' : 'var(--gray)';
-  });
-  document.title = lang === 'zh' ? '谢泳清 - 个人简历' : 'Yongqing Xie - Resume';
-  localStorage.setItem('lang', lang);
-  document.querySelectorAll('[data-i18n]').forEach(function(el) {
-    var key = el.getAttribute('data-i18n');
-    var val = spaDict[lang] && spaDict[lang][key];
-    if (!val) return;
-    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      el.placeholder = val;
-    } else if (val.indexOf('<') !== -1) {
-      el.innerHTML = val;
-    } else {
-      el.textContent = val;
-    }
-  });
-}
-
-// Init
-document.querySelectorAll('.lang-option').forEach(function(b) {
-  b.addEventListener('click', function() { spaTranslate(this.getAttribute('data-lang')); });
-});
-var savedLang = localStorage.getItem('lang') || 'zh';
-setTimeout(function() { spaTranslate(savedLang); }, 50);
-</script>
 function go(s) {
   document.querySelectorAll('.section').forEach(function(el){ el.classList.remove('active'); });
   document.getElementById('sec-'+s).classList.add('active');
@@ -1032,7 +950,6 @@ function closeMatch() {
 function showExpDetail(id) {
   document.getElementById(id + 'Modal').classList.add('show');
   document.body.style.overflow = 'hidden';
-  if (window.translate) window.translate(localStorage.getItem('lang')||'zh');
 }
 function closeExpDetail(id) {
   document.getElementById(id + 'Modal').classList.remove('show');
@@ -1041,7 +958,6 @@ function closeExpDetail(id) {
 function showCertDetail(id) {
   document.getElementById(id + 'Modal').classList.add('show');
   document.body.style.overflow = 'hidden';
-  if (window.translate) window.translate(localStorage.getItem('lang')||'zh');
 }
 function closeCertDetail(id) {
   document.getElementById(id + 'Modal').classList.remove('show');
@@ -1050,7 +966,6 @@ function closeCertDetail(id) {
 function showEdu() {
   document.getElementById('eduModal').classList.add('show');
   document.body.style.overflow='hidden';
-  if (window.translate) window.translate(localStorage.getItem('lang')||'zh');
 }
 function closeEdu() {
   document.getElementById('eduModal').classList.remove('show');
@@ -1267,8 +1182,8 @@ var idxI18n = {
     '请输入您的姓名':'Your Name','请输入您的邮箱':'Your Email',
     '2026.03 — 2026.04':'Mar — Apr 2026','2026.04 — 2026.05':'Apr — May 2026',
     '2024.11':'Nov 2024','2025.05':'May 2025','2022 — 2026':'2022 — 2026',
-    'input-i18n-desc-placeholder':'Analyzing after JD input...',
-    'summary-i18n-placeholder':'Enter a job description on the About page and click Start Matching to see results.'
+    '输入JD后自动分析...':'Analyzing after JD input...',
+    '请在关于我页面输入职位描述，点击开始匹配查看分析结果。':'Enter a job description on the About page and click Start Matching to see results.'
   }
 };
 
