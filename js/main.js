@@ -429,6 +429,8 @@ function translate(lang) {
     if (i18n[lang] && i18n[lang][key]) {
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
         el.placeholder = i18n[lang][key];
+      } else if (i18n[lang][key] && (i18n[lang][key].indexOf('<') !== -1)) {
+        el.innerHTML = i18n[lang][key];
       } else {
         el.textContent = i18n[lang][key];
       }
