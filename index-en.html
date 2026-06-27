@@ -209,8 +209,22 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 .accent-orange .num { color:var(--orange); }
 
 @media (max-width:860px) {
+  .about-grid { grid-template-columns:1fr; gap:28px; }
+  .photo-wrap { order:-1; }
+  .photo-frame { width:200px; height:260px; }
+  .about-name { font-size:34px; }
+  .about-title { font-size:17px; }
+  .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr; }
+  .skill-cards { grid-template-columns:1fr; }
+  .cert-grid { grid-template-columns:1fr 1fr; }
+  .proj-grid { grid-template-columns:1fr; }
   .exp-grid-new { grid-template-columns:1fr; }
   .exp-detail-cards { grid-template-columns:1fr; }
+  .nav-links { display:none; flex-direction:column; position:absolute; top:60px; left:0; right:0; background:rgba(255,255,255,0.96); backdrop-filter:blur(20px); padding:16px 24px; gap:8px; border-bottom:1px solid var(--light-gray); box-shadow:var(--shadow); }
+  .nav-links.open { display:flex; }
+  .nav-link { width:100%; text-align:center; padding:12px; font-size:14px; }
+  .menu-btn { display:flex; }
+  .nav-inner { justify-content:space-between; }
 }
 
 /* Skills */
