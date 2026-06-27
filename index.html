@@ -325,11 +325,15 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
       <div class="nav-avatar">👩‍💼</div>
     </a>
     <div class="nav-links">
-      <button class="nav-link active" data-s="about" onclick="go('about')">关于我</button>
-      <button class="nav-link" data-s="education" onclick="go('education')">教育背景</button>
-      <button class="nav-link" data-s="experience" onclick="go('experience')">工作与实践</button>
-      <button class="nav-link" data-s="skills" onclick="go('skills')">技能特长</button>
-      <button class="nav-link" data-s="projects" onclick="go('projects')">学习与探索</button>
+      <button class="nav-link active" data-s="about" onclick="go('about')" data-i18n="nav.about2">关于我</button>
+      <button class="nav-link" data-s="education" onclick="go('education')" data-i18n="nav.edu2">教育背景</button>
+      <button class="nav-link" data-s="experience" onclick="go('experience')" data-i18n="nav.exp2">工作与实践</button>
+      <button class="nav-link" data-s="skills" onclick="go('skills')" data-i18n="nav.skills2">技能特长</button>
+      <button class="nav-link" data-s="projects" onclick="go('projects')" data-i18n="nav.proj2">学习与探索</button>
+    </div>
+    <div class="lang-switch" style="display:flex;gap:2px;margin-left:8px;">
+      <span class="lang-option active" data-lang="zh" style="padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:none;background:var(--purple);color:#fff;font-family:var(--font);transition:all .2s;">中</span>
+      <span class="lang-option" data-lang="en" style="padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:none;background:var(--lighter-gray);color:var(--gray);font-family:var(--font);transition:all .2s;">EN</span>
     </div>
   </div>
 </nav>
@@ -841,8 +845,9 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
   </div>
 </div>
 
-<footer class="footer">© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学</footer>
+<footer class="footer" data-i18n="footer.spa">© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学</footer>
 
+<script src="js/main.js"></script>
 <script>
 function go(s) {
   document.querySelectorAll('.section').forEach(function(el){ el.classList.remove('active'); });
