@@ -62,7 +62,9 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
   background:transparent; font-family:var(--font);
 }
 .nav-link:hover { color:var(--dark); background:var(--lighter-gray); }
-.nav-link.active { background:var(--black); color:var(--white); }
+.nav-link.active { background:var(--purple); color:#fff; }
+.nav-link.lang-btn { background:transparent; color:var(--purple); font-weight:700; border:2px solid var(--purple); }
+.nav-link.lang-btn:hover { background:var(--purple); color:#fff; }
 .menu-btn { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:8px; z-index:1001; }
 .menu-btn span { display:block; width:22px; height:2px; background:var(--black); border-radius:2px; transition:all .3s; }
 
@@ -336,8 +338,8 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
       <button class="nav-link" data-s="experience" onclick="go('experience')">工作与实践</button>
       <button class="nav-link" data-s="skills" onclick="go('skills')">技能特长</button>
       <button class="nav-link" data-s="projects" onclick="go('projects')">学习与探索</button>
+      <a href="index-en.html" class="nav-link lang-btn">EN</a>
     </div>
-    <a href="index-en.html" class="nav-link" style="background:var(--purple);color:#fff;font-weight:700;text-decoration:none;flex-shrink:0;">EN</a>
   </div>
 </nav>
 
