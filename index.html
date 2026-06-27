@@ -955,6 +955,7 @@ function closeMatch() {
 function showExpDetail(id) {
   document.getElementById(id + 'Modal').classList.add('show');
   document.body.style.overflow = 'hidden';
+  if (window.translate) window.translate(localStorage.getItem('lang')||'zh');
 }
 function closeExpDetail(id) {
   document.getElementById(id + 'Modal').classList.remove('show');
@@ -963,6 +964,7 @@ function closeExpDetail(id) {
 function showCertDetail(id) {
   document.getElementById(id + 'Modal').classList.add('show');
   document.body.style.overflow = 'hidden';
+  if (window.translate) window.translate(localStorage.getItem('lang')||'zh');
 }
 function closeCertDetail(id) {
   document.getElementById(id + 'Modal').classList.remove('show');
@@ -971,6 +973,7 @@ function closeCertDetail(id) {
 function showEdu() {
   document.getElementById('eduModal').classList.add('show');
   document.body.style.overflow='hidden';
+  if (window.translate) window.translate(localStorage.getItem('lang')||'zh');
 }
 function closeEdu() {
   document.getElementById('eduModal').classList.remove('show');
