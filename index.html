@@ -344,9 +344,9 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
   <section class="section active" id="sec-about">
     <div class="about-grid">
       <div>
-        <h1 class="about-name">Hi, 我是谢泳清</h1>
-        <p class="about-title">Accounting Professional &amp; Intelligent Accounting</p>
-        <p class="about-bio">
+        <h1 class="about-name" data-i18n="hero.greet">Hi, 我是谢泳清</h1>
+        <p class="about-title" data-i18n="hero.role">Accounting Professional &amp; Intelligent Accounting</p>
+        <p class="about-bio" data-i18n="hero.bio2">
           一个左手翻凭证、右手敲SQL的财会人 🖐️<br>
           在哈尔滨商业大学的四年里，我把Excel玩成了艺术品，让Power BI画出会讲故事的数据图表。<br>
           去过容诚会计师事务所翻遍200+份合同揪出30+个"小辫子"，也在北京通达用U8系统把凭证处理得像流水线一样精准高效。<br>
@@ -358,13 +358,13 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
           <div class="info-pill">📍 江西省</div>
         </div>
         <div class="about-btns">
-          <a href="resume.pdf" class="btn btn-outline">📄 下载简历</a>
-          <button class="btn btn-primary" onclick="showContact()">💬 联系我</button>
+          <a href="resume.pdf" class="btn btn-outline" data-i18n="about.download">📄 下载简历</a>
+          <button class="btn btn-primary" onclick="showContact()" data-i18n="about.contact">💬 联系我</button>
         </div>
         <div class="ai-card">
-          <h3>🤖 AI 岗位匹配器</h3>
-          <textarea id="jdInput" placeholder="粘贴您的JD（职位描述），查看我与岗位之间的匹配度..."></textarea>
-          <button class="btn btn-dark" onclick="showMatch()">开始匹配 →</button>
+          <h3 data-i18n="about.ai">🤖 AI 岗位匹配器</h3>
+          <textarea id="jdInput" data-i18n="about.jd.ph" placeholder="粘贴您的JD（职位描述），查看我与岗位之间的匹配度..."></textarea>
+          <button class="btn btn-dark" onclick="showMatch()" data-i18n="about.match.btn">开始匹配 →</button>
         </div>
       </div>
       <div class="photo-wrap">
@@ -377,15 +377,15 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 
   <!-- ═══ 教育背景 ═══ -->
   <section class="section" id="sec-education">
-    <h2 class="sec-title">教育背景</h2>
-    <p class="sec-sub">Education</p>
+    <h2 class="sec-title" data-i18n="edu.title">教育背景</h2>
+    <p class="sec-sub" data-i18n="edu.sub">Education</p>
     <div class="edu-card" onclick="showEdu()" style="cursor:pointer; transition:all .3s;" onmouseover="this.style.boxShadow='var(--shadow-lg)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='var(--shadow)';this.style.transform='translateY(0)'">
-      <p class="edu-period">2022 — 2026 <span style="color:var(--purple);font-size:11px;margin-left:8px;">🔍 点击了解母校</span></p>
-      <h3 class="edu-school">哈尔滨商业大学</h3>
-      <p class="edu-major">会计学 · 智能会计方向（本科）</p>
-      <div class="edu-gpa">📊 GPA：83.7 / 100</div>
+      <p class="edu-period"><span data-i18n="edu.period">2022 — 2026</span> <span style="color:var(--purple);font-size:11px;margin-left:8px;" data-i18n="edu.hint">🔍 点击了解母校</span></p>
+      <h3 class="edu-school" data-i18n="edu.school">哈尔滨商业大学</h3>
+      <p class="edu-major" data-i18n="edu.major">会计学 · 智能会计方向（本科）</p>
+      <div class="edu-gpa" data-i18n="edu.gpa">📊 GPA：83.7 / 100</div>
       <div class="edu-courses">
-        <h4>📚 主修课程</h4>
+        <h4 data-i18n="edu.courses">📚 主修课程</h4>
         <div class="tags">
           <span class="tag">成本会计</span><span class="tag">管理会计</span>
           <span class="tag">企业财务管理</span><span class="tag">会计综合实训</span>
