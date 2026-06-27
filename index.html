@@ -604,10 +604,13 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
       </div>
       <div style="border-top:1px solid var(--light-gray);padding-top:18px;">
         <p style="font-size:13px;color:var(--gray);margin-bottom:14px;">或直接留言，我会尽快回复您：</p>
-        <form id="contactForm" onsubmit="submitContact(event)" style="display:flex;flex-direction:column;gap:12px;">
-          <input type="text" id="cName" placeholder="您的姓名" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
-          <input type="email" id="cEmail" placeholder="您的邮箱" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
-          <textarea id="cMsg" placeholder="留言内容..." rows="3" style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);resize:vertical;"></textarea>
+        <form id="contactForm" action="https://formsubmit.co/xyq197@qq.com" method="POST" style="display:flex;flex-direction:column;gap:12px;">
+          <input type="hidden" name="_subject" value="简历网站新留言">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" id="cName" name="name" placeholder="您的姓名" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
+          <input type="email" id="cEmail" name="email" placeholder="您的邮箱" required style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);">
+          <textarea id="cMsg" name="message" placeholder="留言内容..." rows="3" style="padding:10px 14px;border:2px solid var(--light-gray);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font);resize:vertical;"></textarea>
           <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;">发送留言</button>
         </form>
       </div>
@@ -874,11 +877,12 @@ function closeContact() {
   document.getElementById('contactModal').classList.remove('show');
   document.body.style.overflow='';
 }
-function submitContact(e) {
-  e.preventDefault();
-  alert('留言发送成功！我会尽快回复您。');
-  closeContact();
-  document.getElementById('contactForm').reset();
+function submitContact() {
+  setTimeout(function() {
+    closeContact();
+    document.getElementById('contactForm').reset();
+    alert('留言发送成功！我会尽快回复您。');
+  }, 500);
 }
 function showMatch() {
   var jd = document.getElementById('jdInput').value.trim();
