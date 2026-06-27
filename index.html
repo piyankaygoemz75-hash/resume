@@ -63,15 +63,6 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 }
 .nav-link:hover { color:var(--dark); background:var(--lighter-gray); }
 .nav-link.active { background:var(--black); color:var(--white); }
-/* Hide Google Translate top banner */
-body { top:0 !important; }
-body > .skiptranslate { display:none !important; }
-.goog-te-banner-frame { display:none !important; }
-.goog-te-gadget { font-family:var(--font) !important; }
-.goog-te-gadget-simple { border:none !important; background:var(--purple) !important; padding:7px 14px !important; border-radius:20px !important; }
-.goog-te-gadget-simple span { color:#fff !important; }
-.goog-te-menu-value span { color:#fff !important; text-decoration:none !important; }
-.goog-te-menu-value:hover { text-decoration:none !important; }
 
 /* Main */
 .main { max-width:1200px; margin:0 auto; padding:80px 24px 40px; }
@@ -340,7 +331,7 @@ body > .skiptranslate { display:none !important; }
       <button class="nav-link" data-s="skills" onclick="go('skills')">技能特长</button>
       <button class="nav-link" data-s="projects" onclick="go('projects')">学习与探索</button>
     </div>
-    <div id="google_translate_element" style="flex-shrink:0;"></div>
+    <a href="https://translate.google.com/translate?sl=zh-CN&tl=en&u=https://piyankaygoemz75-hash.github.io/resume/" target="_blank" class="nav-link" style="background:var(--purple);color:#fff;font-weight:700;text-decoration:none;flex-shrink:0;">🌐 EN</a>
   </div>
 </nav>
 
@@ -1268,16 +1259,5 @@ if (saved && saved === 'en') {
 }
 */
 </script>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'zh-CN',
-    includedLanguages: 'en',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
