@@ -847,8 +847,85 @@ body { font-family:var(--font); background:var(--bg); color:var(--dark); line-he
 
 <footer class="footer" data-i18n="footer.spa">© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学</footer>
 
-<script src="js/main.js"></script>
 <script>
+// ── Simple bilingual toggle ──
+var spaDict = {
+zh:{
+'nav.about2':'关于我','nav.edu2':'教育背景','nav.exp2':'工作与实践','nav.skills2':'技能特长','nav.proj2':'学习与探索',
+'hero.greet':'Hi, 我是谢泳清','hero.role':'Accounting Professional & Intelligent Accounting',
+'hero.bio2':'一个左手翻凭证、右手敲SQL的财会人 🖐️<br>在哈尔滨商业大学的四年里，我把Excel玩成了艺术品，让Power BI画出会讲故事的数据图表。<br>去过容诚会计师事务所翻遍200+份合同揪出30+个"小辫子"，也在北京通达用U8系统把凭证处理得像流水线一样精准高效。<br>我相信——好的财务人不只是算账的，更是用数据帮企业做决策的军师。如果你也在找这样一个既懂借贷、又会写代码的"斜杠青年"，那我们聊聊吧 ✨',
+'about.download':'📄 下载简历','about.contact':'💬 联系我','about.ai':'🤖 AI 岗位匹配器','about.jd.ph':'粘贴您的JD（职位描述），查看我与岗位之间的匹配度...','about.match.btn':'开始匹配 →',
+'edu.title':'教育背景','edu.sub':'Education','edu.period':'2022 — 2026','edu.hint':'🔍 点击了解母校','edu.school':'哈尔滨商业大学','edu.major':'会计学 · 智能会计方向（本科）','edu.gpa':'📊 GPA：83.7 / 100','edu.courses':'📚 主修课程',
+'exp.title':'工作经历','exp.sub':'Work & Practice',
+'exp.j1.name':'禹州市申通物流服务有限公司','exp.j1.role':'会计助理','exp.j1.desc':'使用用友U8系统处理200+张业务凭证，编制财务报表，参与薪酬核算与固定资产管理',
+'exp.j2.name':'容诚会计师事务所','exp.j2.role':'审计实习生','exp.j2.desc':'实地走访16家企业，核查200+份合同发现30+处异常，协助编制审计底稿',
+'exp.j3.name':'浪潮铸远智慧企业大数据分析大赛','exp.j3.role':'国家级特等奖','exp.j3.desc':'通过SQL完成三大报表编制，运用Power BI进行财务数据可视化分析，效率提升30%',
+'exp.j4.name':'黑龙江浪潮信息科技有限公司','exp.j4.role':'财务共享中心实践经历','exp.j4.desc':'完成全流程500+凭证处理，模拟税务申报，运用品种法/分批法撰写成本分析报告',
+'exp.hint':'点击查看详情 →',
+'skills.title':'技能特长','skills.sub':'Skills & Expertise','skills.prof':'💼 专业技能','skills.tools':'🛠 技术工具','skills.ai':'🤖 AI 工具应用','skills.certs':'📜 证书与资格','skills.soft':'🌟 综合能力',
+'proj.title':'学习与探索','proj.sub':'Learning & Discovery','proj.growth':'📝 学习成长轨迹',
+'modal.close':'关闭','modal.contact':'💬 联系我','modal.phone':'📞 拨打电话','modal.email':'✉️ 发送邮件','modal.contact.hint':'或直接留言，我会尽快回复您：','modal.send':'发送留言','modal.phone.label':'联系电话','modal.email.label':'邮箱地址','modal.name.ph':'您的姓名','modal.email.ph':'您的邮箱','modal.msg.ph':'留言内容...',
+'match.title':'📊 AI 岗位匹配报告','match.edu':'学历','match.exp':'工作经验','match.skill':'技能匹配','match.soft':'综合素质','match.hl':'★ 匹配亮点','match.sum':'📄 综合评估',
+'exp.detail.work1':'💼 工作经历详情','exp.detail.work2':'🔍 工作经历详情','exp.detail.camp1':'🏆 校园实践详情','exp.detail.camp2':'🏢 校园实践详情',
+'exp.core.res':'核心职责','exp.core.result':'核心成果',
+'cert.detail1':'📗 证书详情','cert.detail2':'📊 证书详情','cert.detail3':'🌐 证书详情',
+'edu.modal.title':'🏫 哈尔滨商业大学','edu.modal.sub':'HARBIN UNIVERSITY OF COMMERCE',
+'edu.modal.desc':'新中国第一所多科性商业大学',
+'footer.spa':'© 2026 谢泳清 · 个人简历 · 哈尔滨商业大学'
+},
+en:{
+'nav.about2':'About Me','nav.edu2':'Education','nav.exp2':'Work & Practice','nav.skills2':'Skills','nav.proj2':'Learning',
+'hero.greet':"Hi, I'm Yongqing Xie",'hero.role':'Accounting Professional & Intelligent Accounting',
+'hero.bio2':"A finance pro — vouchers in one hand, SQL in the other.<br>At Harbin University of Commerce, I turned Excel into art and let Power BI tell data stories.<br>At Rongcheng CPA Firm, I reviewed 200+ contracts finding 30+ discrepancies. At Yuzhou Shentong, I processed vouchers with U8 precision.<br>Great finance pros don't just crunch numbers — they use data to drive decisions. If you need someone who knows both debits/credits and coding — let's talk! ✨",
+'about.download':'📄 Download Resume','about.contact':'💬 Contact Me','about.ai':'🤖 AI Job Matcher','about.jd.ph':'Paste a job description to check compatibility...','about.match.btn':'Start Matching →',
+'edu.title':'Education','edu.sub':'Education','edu.period':'2022 — 2026','edu.hint':'🔍 Learn About My University','edu.school':'Harbin University of Commerce','edu.major':'B.S. Accounting · Intelligent Accounting','edu.gpa':'📊 GPA: 83.7 / 100','edu.courses':'📚 Core Courses',
+'exp.title':'Work Experience','exp.sub':'Work & Practice',
+'exp.j1.name':'Yuzhou Shentong Logistics Service Co., Ltd.','exp.j1.role':'Accounting Assistant','exp.j1.desc':'Processed 200+ vouchers via UFIDA U8, prepared financial statements, handled payroll and asset management.',
+'exp.j2.name':'Rongcheng CPA Firm','exp.j2.role':'Audit Intern','exp.j2.desc':'Visited 16 enterprises, reviewed 200+ contracts finding 30+ discrepancies, assisted in audit working papers.',
+'exp.j3.name':'Inspur Smart Enterprise Big Data Competition','exp.j3.role':'National Grand Prize','exp.j3.desc':'Built 3 major financial statements via SQL, used Power BI for visualization, 30% efficiency gain.',
+'exp.j4.name':'Heilongjiang Inspur Information Technology Co.','exp.j4.role':'Financial Shared Service Center Practicum','exp.j4.desc':'Processed 500+ vouchers end-to-end, simulated tax filing, authored cost analysis reports.',
+'exp.hint':'Click for details →',
+'skills.title':'Skills & Expertise','skills.sub':'Skills & Expertise','skills.prof':'💼 Professional Skills','skills.tools':'🛠 Technical Tools','skills.ai':'🤖 AI Tool Application','skills.certs':'📜 Certifications','skills.soft':'🌟 Soft Skills',
+'proj.title':'Learning & Discovery','proj.sub':'Learning & Discovery','proj.growth':'📝 Learning Journey',
+'modal.close':'Close','modal.contact':'💬 Contact Me','modal.phone':'📞 Call','modal.email':'✉️ Send Email','modal.contact.hint':'Or leave a message:','modal.send':'Send Message','modal.phone.label':'Phone','modal.email.label':'Email','modal.name.ph':'Your Name','modal.email.ph':'Your Email','modal.msg.ph':'Message...',
+'match.title':'📊 AI Job Match Report','match.edu':'Education','match.exp':'Experience','match.skill':'Skill Match','match.soft':'Soft Skills','match.hl':'★ Match Highlights','match.sum':'📄 Overall Assessment',
+'exp.detail.work1':'💼 Work Experience Details','exp.detail.work2':'🔍 Work Experience Details','exp.detail.camp1':'🏆 Campus Practice Details','exp.detail.camp2':'🏢 Campus Practice Details',
+'exp.core.res':'Core Responsibilities','exp.core.result':'Core Results',
+'cert.detail1':'📗 Certificate Details','cert.detail2':'📊 Certificate Details','cert.detail3':'🌐 Certificate Details',
+'edu.modal.title':'🏫 Harbin University of Commerce','edu.modal.sub':'HARBIN UNIVERSITY OF COMMERCE',
+'edu.modal.desc':"China's First Multidisciplinary Commerce University",
+'footer.spa':'© 2026 Yongqing Xie · Resume · Harbin University of Commerce'
+}};
+
+function spaTranslate(lang) {
+  document.querySelectorAll('.lang-option').forEach(function(b) {
+    var active = b.getAttribute('data-lang') === lang;
+    b.style.background = active ? 'var(--purple)' : 'var(--lighter-gray)';
+    b.style.color = active ? '#fff' : 'var(--gray)';
+  });
+  document.title = lang === 'zh' ? '谢泳清 - 个人简历' : 'Yongqing Xie - Resume';
+  localStorage.setItem('lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    var val = spaDict[lang] && spaDict[lang][key];
+    if (!val) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val;
+    } else if (val.indexOf('<') !== -1) {
+      el.innerHTML = val;
+    } else {
+      el.textContent = val;
+    }
+  });
+}
+
+// Init
+document.querySelectorAll('.lang-option').forEach(function(b) {
+  b.addEventListener('click', function() { spaTranslate(this.getAttribute('data-lang')); });
+});
+var savedLang = localStorage.getItem('lang') || 'zh';
+setTimeout(function() { spaTranslate(savedLang); }, 50);
+</script>
 function go(s) {
   document.querySelectorAll('.section').forEach(function(el){ el.classList.remove('active'); });
   document.getElementById('sec-'+s).classList.add('active');
